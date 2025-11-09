@@ -1,0 +1,15 @@
+image: gitpod/workspace-full
+
+tasks:
+  - name: Setup project folders
+    command: |
+      mkdir backend frontend
+      echo "Folders created. You can now initialize your apps."
+
+vscode:
+  extensions:
+    - dbaeumer.vscode-eslint
+    - esbenp.prettier-vscode
+    - eamodio.gitlens
+    - ms-azuretools.vscode-docker
+    - amazonwebservices.aws-toolkit-vscode
