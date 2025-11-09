@@ -1,26 +1,45 @@
 image: gitpod/workspace-full
 
 tasks:
-  - name: Setup project folders
+  - name: Setup backend
     command: |
-      #!/bin/bash
-      # Create backend if missing
-      if [ ! -d backend ]; then
-        mkdir backend
-        touch backend/.gitkeep
-        echo "Backend folder created with .gitkeep"
-      else
-        echo "Backend folder already exists"
+      # Create backend folder if it doesn't exist
+      [ -d backend ] || mkdir backend
+
+      cd backend
+
+      # Initialize Node + TS project if package.json missing
+      if [ ! -f package.json ]; then
+        npm init -y
+        npm install typescript ts-node-dev @types/node --save-dev
+        npx tsc --init
+        mkdir src
+        echo "console.log('Backend running');" > src/index.ts
+        # Add dev script
+        jq '.scripts.dev="ts-node-dev src/index.ts"' package.json > temp.json && mv temp.json package.json
       fi
 
-      # Create frontend if missing
-      if [ ! -d frontend ]; then
-        mkdir frontend
-        touch frontend/.gitkeep
-        echo "Frontend folder created with .gitkeep"
-      else
-        echo "Frontend folder already exists"
+      # Install dependencies
+      npm install
+
+      # Start backend
+      npm run dev &
+
+  - name: Setup frontend
+    command: |
+      # Create frontend folder if it doesn't exist
+      [ -d frontend ] || mkdir frontend
+
+      cd frontend
+
+      # Initialize Vite + React + TS project if package.json missing
+      if [ ! -f package.json ]; then
+        npm create vite@latest . -- --template react-ts
+        npm install
       fi
+
+      # Start frontend
+      npm run dev &
 
 vscode:
   extensions:
@@ -29,3 +48,9 @@ vscode:
     - eamodio.gitlens
     - ms-azuretools.vscode-docker
     - amazonwebservices.aws-toolkit-vscode
+
+ports:
+  - port: 3000
+    onOpen: open-preview
+  - port: 5173
+    onOpen: open-preview
