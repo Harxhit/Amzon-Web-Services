@@ -1,4 +1,3 @@
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Harxhit/Amzon-Web-Services)
 # 🚀 CRUDDER – AWS Cloud Learning Journey
 
 This repository documents my complete AWS learning journey through a **hands-on Twitter-style project** called **CRUDDER** — a basic social app where users can post, like, and comment — built using **TypeScript**, **React**, and **Node.js**.  
