@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "echo backend ready"
+    "dev": "ts-node src/index.ts"
   },
   "keywords": [],
   "author": "",
