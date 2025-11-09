@@ -3,8 +3,24 @@ image: gitpod/workspace-full
 tasks:
   - name: Setup project folders
     command: |
-      mkdir backend frontend
-      echo "Folders created. You can now initialize your apps."
+      #!/bin/bash
+      # Create backend if missing
+      if [ ! -d backend ]; then
+        mkdir backend
+        touch backend/.gitkeep
+        echo "Backend folder created with .gitkeep"
+      else
+        echo "Backend folder already exists"
+      fi
+
+      # Create frontend if missing
+      if [ ! -d frontend ]; then
+        mkdir frontend
+        touch frontend/.gitkeep
+        echo "Frontend folder created with .gitkeep"
+      else
+        echo "Frontend folder already exists"
+      fi
 
 vscode:
   extensions:
