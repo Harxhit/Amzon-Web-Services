@@ -52,7 +52,7 @@ Each milestone aligns with weekly AWS Cloud concepts, DevOps practices, and arch
 
 ### **Week 3 – Authentication**
 - Build **decentralized auth** using **Amazon Cognito**  
-- Customize Cognito login/signup pages  
+- Customize⏳ Cognito login/signup pages  
 - Verify JWTs on the backend  
 
 ### **Week 4 – Databases**
@@ -116,9 +116,9 @@ Each milestone aligns with weekly AWS Cloud concepts, DevOps practices, and arch
 
 | Week | Focus | Status |
 |------|--------|--------|
-| 0 | Setup & IAM | 🔄 In Progress |
-| 1 | Docker & Security | ⏳ |
-| 2 | Observability | ⏳ |
+| 0 | Setup & IAM | Done |
+| 1 | Docker & Security | Done |
+| 2 | Observability | In progress |
 | 3 | Authentication | ⏳ |
 | 4 | Databases | ⏳ |
 | 5 | NoSQL & Caching | ⏳ |
@@ -163,7 +163,7 @@ Every week I’ll document:
 ## 🙏 Special Thanks
 
 A huge thanks to **[freeCodeCamp](https://www.freecodecamp.org/)** for providing the **free AWS Cloud Project Bootcamp** — a detailed and hands-on resource that makes learning AWS accessible for everyone.  
-Their structured tutorials form the foundation for this learning journey and the CRUDDER project.
+Their structured tutorials form the foundation for this learning journey and the CRUDDER project. They have made the application with python and flask as framewok.
 
 ---
 
