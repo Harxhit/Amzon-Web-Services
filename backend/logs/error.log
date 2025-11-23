@@ -1,0 +1,2 @@
+2025-11-23 20:50:11 error: Error: querySrv ENOTFOUND _mongodb._tcp.Arjit0409
+    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17)
