@@ -1,73 +1,49 @@
-# React + TypeScript + Vite
+# Crudder frontend Information
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+About crudder frontend this application built as a Twitter clone. This project is developed using modern technologies such as **React**, **TypeScript**, **Vite**, **Tailwind CSS**, **Axios**, **React Router DOM**, and **WebSocket** (for future messaging).
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Usage](#usage)
+- [Folder Structure](#folder-structure)
+- [License](#license)
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- User authentication (signup/login)
+- Create, Read, Update, Delete tweets.
+- Explore tweets from other users.
+- Like, comment, and retweet functionality .
+- Real-time notifications conversation using websocket.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend:** React, TypeScript
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS
+- **Routing:** React Router DOM
+- **API Requests:** Axios
+- **Realtime:** WebSocket
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Folder Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+crudder-tech/
+├─ public/
+├─ src/
+│  ├─ components/    # Reusable UI components
+│  ├─ pages/         # Page components
+│  └─ main.tsx
+├─ package.json
+└─ vite.config.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## License
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This project is licensed under the MIT License.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+**Note:** This project is a learning clone and not intended for production use.

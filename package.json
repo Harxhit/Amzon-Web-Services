@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "git-filter-repo": "^0.0.30"
+    "git-filter-repo": "^0.0.30",
+    "react-router": "^7.9.6",
+    "react-router-dom": "^7.9.6"
   }
 }

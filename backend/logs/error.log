@@ -1,2 +1,9 @@
 2025-11-23 20:50:11 error: Error: querySrv ENOTFOUND _mongodb._tcp.Arjit0409
     at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17)
+2025-11-24 17:26:05 error: Username or Email is required
+2025-11-24 17:26:16 error: Username or Email is required
+2025-11-24 17:27:14 error: Username or Email is required
+2025-11-24 17:29:19 error: Username or Email is required
+2025-11-24 17:30:59 error: Incorrect password
+2025-11-24 17:31:10 error: Incorrect password
+2025-11-24 17:37:04 error: Incorrect password

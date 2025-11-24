@@ -1,3 +1,82 @@
 2025-11-23 20:50:11 error: Error: querySrv ENOTFOUND _mongodb._tcp.Arjit0409
     at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17)
 2025-11-23 20:54:45 info: MongoDB connected successfully
+2025-11-24 11:59:21 info: MongoDB connected successfully
+2025-11-24 12:01:26 info: MongoDB connected successfully
+2025-11-24 13:46:37 info: MongoDB connected successfully
+2025-11-24 13:47:35 info: MongoDB connected successfully
+2025-11-24 13:49:55 info: MongoDB connected successfully
+2025-11-24 13:51:18 info: MongoDB connected successfully
+2025-11-24 13:54:01 info: MongoDB connected successfully
+2025-11-24 13:54:07 info: MongoDB connected successfully
+2025-11-24 13:54:39 info: MongoDB connected successfully
+2025-11-24 13:54:49 info: User successfully created
+2025-11-24 14:22:51 info: MongoDB connected successfully
+2025-11-24 14:25:32 info: MongoDB connected successfully
+2025-11-24 14:25:47 info: MongoDB connected successfully
+2025-11-24 14:26:06 info: MongoDB connected successfully
+2025-11-24 14:26:31 info: MongoDB connected successfully
+2025-11-24 14:27:11 info: MongoDB connected successfully
+2025-11-24 14:30:30 info: MongoDB connected successfully
+2025-11-24 14:30:36 info: MongoDB connected successfully
+2025-11-24 14:49:36 info: MongoDB connected successfully
+2025-11-24 14:50:14 info: MongoDB connected successfully
+2025-11-24 14:50:38 info: MongoDB connected successfully
+2025-11-24 14:51:26 info: MongoDB connected successfully
+2025-11-24 14:53:51 info: MongoDB connected successfully
+2025-11-24 14:55:02 info: MongoDB connected successfully
+2025-11-24 14:55:24 info: MongoDB connected successfully
+2025-11-24 14:55:35 info: MongoDB connected successfully
+2025-11-24 14:55:47 info: MongoDB connected successfully
+2025-11-24 14:55:52 info: MongoDB connected successfully
+2025-11-24 14:56:20 info: MongoDB connected successfully
+2025-11-24 14:56:40 info: MongoDB connected successfully
+2025-11-24 14:57:03 info: MongoDB connected successfully
+2025-11-24 14:57:12 info: MongoDB connected successfully
+2025-11-24 15:37:27 info: MongoDB connected successfully
+2025-11-24 15:38:31 warn: User already exists with this email or username
+2025-11-24 15:38:33 warn: User already exists with this email or username
+2025-11-24 15:40:11 info: MongoDB connected successfully
+2025-11-24 15:40:18 info: MongoDB connected successfully
+2025-11-24 15:40:28 info: MongoDB connected successfully
+2025-11-24 15:40:47 info: MongoDB connected successfully
+2025-11-24 15:41:39 info: MongoDB connected successfully
+2025-11-24 15:42:23 warn: User already exists with this email or username
+2025-11-24 15:45:33 info: MongoDB connected successfully
+2025-11-24 15:48:52 warn: User already exists with this email or username
+2025-11-24 15:49:28 warn: User already exists with this email or username
+2025-11-24 15:49:29 warn: User already exists with this email or username
+2025-11-24 15:50:21 warn: User already exists with this email or username
+2025-11-24 15:50:27 warn: User already exists with this email or username
+2025-11-24 15:52:37 info: MongoDB connected successfully
+2025-11-24 15:52:55 warn: User already exists with this email or username
+2025-11-24 15:52:55 warn: User already exists with this email or username
+2025-11-24 16:46:05 info: MongoDB connected successfully
+2025-11-24 16:46:11 warn: User already exists with this email or username
+2025-11-24 16:46:14 warn: User already exists with this email or username
+2025-11-24 16:46:14 warn: User already exists with this email or username
+2025-11-24 16:46:14 warn: User already exists with this email or username
+2025-11-24 16:46:14 warn: User already exists with this email or username
+2025-11-24 16:46:14 warn: User already exists with this email or username
+2025-11-24 16:46:14 warn: User already exists with this email or username
+2025-11-24 16:46:14 warn: User already exists with this email or username
+2025-11-24 16:46:15 warn: User already exists with this email or username
+2025-11-24 16:46:15 warn: User already exists with this email or username
+2025-11-24 16:46:15 warn: User already exists with this email or username
+2025-11-24 16:46:15 warn: User already exists with this email or username
+2025-11-24 16:46:15 warn: User already exists with this email or username
+2025-11-24 17:25:55 info: MongoDB connected successfully
+2025-11-24 17:26:05 error: Username or Email is required
+2025-11-24 17:26:16 error: Username or Email is required
+2025-11-24 17:27:14 error: Username or Email is required
+2025-11-24 17:29:16 info: MongoDB connected successfully
+2025-11-24 17:29:19 error: Username or Email is required
+2025-11-24 17:30:52 info: MongoDB connected successfully
+2025-11-24 17:30:59 error: Incorrect password
+2025-11-24 17:31:10 error: Incorrect password
+2025-11-24 17:33:16 info: User successfully created
+2025-11-24 17:34:43 warn: User already exists with this email or username
+2025-11-24 17:36:20 info: MongoDB connected successfully
+2025-11-24 17:36:36 info: MongoDB connected successfully
+2025-11-24 17:37:04 error: Incorrect password
+2025-11-24 17:39:24 info: MongoDB connected successfully
