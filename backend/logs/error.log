@@ -7,3 +7,563 @@
 2025-11-24 17:30:59 error: Incorrect password
 2025-11-24 17:31:10 error: Incorrect password
 2025-11-24 17:37:04 error: Incorrect password
+2025-11-24 20:58:04 error: Token not found
+2025-11-24 20:58:04 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 20:58:24 error: Token not found
+2025-11-24 20:58:24 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:09:18 error: Token not found
+2025-11-24 21:09:18 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:09:38 error: Token not found
+2025-11-24 21:09:38 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:09:46 error: Token not found
+2025-11-24 21:09:46 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:10:06 error: Token not found
+2025-11-24 21:10:06 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:11:48 error: Token not found
+2025-11-24 21:11:48 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:12:22 error: Token not found
+2025-11-24 21:12:22 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:12:42 error: Token not found
+2025-11-24 21:12:42 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:14:25 error: Token not found
+2025-11-24 21:14:25 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:15:04 error: Token not found
+2025-11-24 21:15:04 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:15:24 error: Token not found
+2025-11-24 21:15:24 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:15:41 error: Token not found
+2025-11-24 21:15:41 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:16:01 error: Token not found
+2025-11-24 21:16:01 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:17:00 error: Token not found
+2025-11-24 21:17:00 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:17:15 error: Incorrect password
+2025-11-24 21:17:20 error: Token not found
+2025-11-24 21:17:20 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:17:24 error: Incorrect password
+2025-11-24 21:17:25 error: Incorrect password
+2025-11-24 21:17:26 error: Incorrect password
+2025-11-24 21:17:26 error: Incorrect password
+2025-11-24 21:17:27 error: Incorrect password
+2025-11-24 21:18:03 error: Token not found
+2025-11-24 21:18:03 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:18:04 error: Token not found
+2025-11-24 21:18:04 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:18:05 error: Token not found
+2025-11-24 21:18:05 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:18:05 error: Token not found
+2025-11-24 21:18:05 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:18:05 error: Token not found
+2025-11-24 21:18:05 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:18:06 error: Token not found
+2025-11-24 21:18:06 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:32:55 error: Token not found
+2025-11-24 21:32:55 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:33:49 error: Token not found
+2025-11-24 21:33:49 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:34:09 error: Token not found
+2025-11-24 21:34:09 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:35:57 error: Token not found
+2025-11-24 21:35:57 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:36:19 error: Token not found
+2025-11-24 21:36:19 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:36:27 error: Incorrect password
+2025-11-24 21:36:39 error: Token not found
+2025-11-24 21:36:39 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:43:02 error: Token not found
+2025-11-24 21:43:02 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:43:03 error: Token not found
+2025-11-24 21:43:03 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:43:29 error: Token not found
+2025-11-24 21:43:29 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:43:49 error: Token not found
+2025-11-24 21:43:49 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:46:37 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:46:57 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:47:48 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 21:48:08 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 22:01:09 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 22:01:29 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 22:02:49 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 22:02:49 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 22:03:04 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 22:03:24 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 22:10:16 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 22:10:16 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 22:10:36 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 22:11:16 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 22:11:36 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:34:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-24 22:16:47 error: Incorrect password
+2025-11-24 22:38:00 error: Incorrect password
+2025-11-24 22:49:38 error: Incorrect password
+2025-11-24 22:49:39 error: Incorrect password

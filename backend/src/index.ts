@@ -9,7 +9,7 @@ connectToDataBase()
 .then(() => {
     app.listen(port,() => 
         {
-            console.log(`Server is running at http://127.0.0.1:${port}`)
+            console.log(`Server is running at http://localhost:${port}`)
         }
     )
 })

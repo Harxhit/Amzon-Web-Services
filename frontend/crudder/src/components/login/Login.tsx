@@ -2,10 +2,13 @@ import React, { useState } from "react"
 import api from "../../api/axios"
 import { useNavigate } from "react-router-dom"
 import {toast} from 'react-toastify'
+import { useAuth } from "../../context/AuthContext"
 
 const Login = () => {
   const navigate = useNavigate()
-  
+
+  const {login} = useAuth()
+
   const [formData , setFormData] = useState({
     username : "", 
     password: "", 
@@ -21,10 +24,22 @@ const Login = () => {
     e.preventDefault()
 
     try {
-      const response = await api.post('/users/sign-in/' , formData , {withCredentials : true})
-      console.log('User logged in successfully' , response.data)
-    } catch (errors :any) {
-      console.log(errors)
+      const response = await api.post(
+        '/users/sign-in/' ,
+         formData ,
+          {
+            withCredentials : true
+          }
+        )
+        const user = response.data?.data?.user;
+
+        login(user)
+
+        toast("Logged in successfully")
+        
+        navigate('/home')
+    } 
+    catch (errors :any) {
       const errorMessage = errors.reponse?.data?.message
       if(errorMessage){
         toast.error(errorMessage)
@@ -40,7 +55,7 @@ const Login = () => {
   return (
     <main className="bg-white min-h-screen flex items-center justify-center">
       <section className="w-full max-w-md p-8 shadow-lg rounded-lg">
-        <h2 className="text-3xl font-bold text-center mb-6">Sign Up</h2>
+        <h2 className="text-3xl font-bold text-center mb-6">Login</h2>
         <form className="space-y-4" onSubmit={handleSubmit} >
           <div>
           <input
@@ -65,7 +80,7 @@ const Login = () => {
             type="submit"
             className="w-full px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition cursor-pointer"
           >
-            Sign Up
+            Login
           </button>
         </form>
         <p className="text-center text-gray-500 mt-4 text-sm">

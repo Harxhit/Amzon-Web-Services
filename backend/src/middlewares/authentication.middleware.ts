@@ -22,12 +22,12 @@ const verifyJwt = async (
   const authHeader = request.header('Authorization');
 
   const token =
-    request.cookies?.access_token ||
-    request.body?.access_token ||
+    request.cookies?.accessToken ||
+    request.body?.accessToken ||
     (authHeader?.startsWith('Bearer ') ? authHeader.split(' ')[1] : null);
 
   if (!token) {
-    logger.error('Token not found');
+    logger.warn('Token not found');
   }
 
   try {

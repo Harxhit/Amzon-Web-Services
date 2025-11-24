@@ -64,24 +64,41 @@ const signUp = async (request: Request, response: Response) => {
     lastName,
   });
 
-  //Tokens
-  const { accessToken, refreshToken } =
-    await generateAccessTokenAndRefreshToken(user._id as any);
 
   if (!user) {
     logger.error('User creation failed');
+    return response.status(400).json({
+      success: false, 
+      message: "Error creating a new user"
+    })
   }
 
   logger.info('User successfully created', { userId: user._id });
 
-  return response.status(201).json({
+  const {accessToken, refreshToken}  =  await generateAccessTokenAndRefreshToken(user?._id as any) 
+
+   response.cookie('accessToken', accessToken, {
+    httpOnly: true,
+    secure: false,
+    sameSite: 'lax',
+    domain: "localhost" , 
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    path: '/',
+  });
+
+  return response.status(200).json({
     success: true,
     data: {
-      user: user,
-      refreshToken: refreshToken,
-      accessToken: accessToken,
+      user: {
+        id: user?._id,
+        username: user?.username,
+        firstName: user?.firstName, 
+        lastName : user?.lastName, 
+        email: user?.email,
+        isActive: user?.isActive,
+      },
     },
-    message: 'User registration successful.',
+    message: 'User logged in successfully',
   });
 };
 
@@ -137,22 +154,23 @@ const signIn = async (request: Request, response: Response) => {
 
   const { accessToken, refreshToken } =
     await generateAccessTokenAndRefreshToken(user?._id as any);
-
-  response.cookie('refreshToken', refreshToken, {
+  response.cookie('accessToken', accessToken, {
     httpOnly: true,
     secure: false,
     sameSite: 'lax',
+    domain: "localhost", 
     maxAge: 7 * 24 * 60 * 60 * 1000,
     path: '/',
   });
   
-
   return response.status(200).json({
     success: true,
     data: {
       user: {
         id: user?._id,
         username: user?.username,
+        firstName: user?.firstName, 
+        lastName : user?.lastName, 
         email: user?.email,
         isActive: user?.isActive,
       },

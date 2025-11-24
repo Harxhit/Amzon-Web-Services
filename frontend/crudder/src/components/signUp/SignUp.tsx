@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import api from "../../api/axios";
 import {toast} from 'react-toastify'
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const SignUp = () => {
   const navigate = useNavigate()
   
+  const {login} = useAuth()
+
   interface Errors {
     username?:string;
     firstname?:string;
@@ -33,11 +36,26 @@ const SignUp = () => {
   }
 
   const handleSubmit = async(e:React.FormEvent) => {
+
     e.preventDefault();
     try {
-      const response = await api.post("/users/sign-up" , formData)
-      console.log("User registered successfully", response.data)
+      const response = await api.post(
+        "/users/sign-up" 
+        , formData 
+        , {
+          withCredentials: true
+        }
+      )
       setErrors({})
+
+      const user = response.data?.data?.user;
+
+      login(user)
+
+      toast('User signed up successfully')
+
+      navigate('/home')
+
     } catch (err: any) {
         const validationError: Errors = {};
         const errs = err.response?.data?.data?.error?.errors || [];
