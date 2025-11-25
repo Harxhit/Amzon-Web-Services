@@ -49,7 +49,7 @@ const Login = () => {
 
   const goToSignUp = (e:React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
-    navigate('/sign-up')
+    navigate('/')
 
   }
   return (

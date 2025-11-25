@@ -18,8 +18,10 @@ app.use((request:Request , response  :Response  ,next:NextFunction) => {
   response.setHeader("Access-Control-Allow-Credentials", "true")
   next()
 })
+
 app.use('/api/auth' ,authRouter )
 app.use('/api/users', userRouter)
+
 app.use((request, response, next) => {
   console.log(
     `Incoming request: ${request.method} \n Endpoint: ${request.originalUrl}`,

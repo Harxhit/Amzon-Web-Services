@@ -81,7 +81,6 @@ const signUp = async (request: Request, response: Response) => {
     httpOnly: true,
     secure: false,
     sameSite: 'lax',
-    domain: "localhost" , 
     maxAge: 7 * 24 * 60 * 60 * 1000,
     path: '/',
   });
@@ -154,11 +153,11 @@ const signIn = async (request: Request, response: Response) => {
 
   const { accessToken, refreshToken } =
     await generateAccessTokenAndRefreshToken(user?._id as any);
+
   response.cookie('accessToken', accessToken, {
     httpOnly: true,
-    secure: false,
+    secure: false,  
     sameSite: 'lax',
-    domain: "localhost", 
     maxAge: 7 * 24 * 60 * 60 * 1000,
     path: '/',
   });
@@ -314,5 +313,39 @@ const changePassword = async (
 }
 
 
+const getRandomUserForTweet = async(request: Request , response:Response) => {
+  try {
+    const users = await User.aggregate(
+      [
+        {
+          $sample: {
+            size: 3
+          }
+        },
+        {
+          $project:{
+            _id:1, 
+            firstName:1,
+            lastName:1,
+            username:1,
+          }
+        }
+      ]
+    )
+    response.status(200).json({
+      success: true, 
+      message : 'Users fetched successfully',
+      data : {users}
+    })
+  } catch (error) {
+    console.error(error)
+    logger.error('Server error')
+    response.status(400).json({
+      success: false, 
+      message : 'Error fetching user'
+    })
+  }
+}
 
-export {signIn , signOut , signUp , updateProfileDetails , changePassword}
+
+export {signIn , signOut , signUp , updateProfileDetails , changePassword , getRandomUserForTweet}

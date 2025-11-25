@@ -12,7 +12,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       try {
         const response = await api.get("/auth/me"); 
         setIsLoggedIn(true);
-        setUserAuth(response.data.data.user);
+        setUserAuth(response.data?.user);
       } catch (err) {
         setIsLoggedIn(false);
         setUserAuth(null);

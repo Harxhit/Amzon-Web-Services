@@ -1,5 +1,5 @@
 import {Router} from  'express'
-import { signUp , signIn , signOut , updateProfileDetails } from '../controllers/user.controllers'
+import { signUp , signIn , signOut , updateProfileDetails , getRandomUserForTweet } from '../controllers/user.controllers'
 import verifyJwt from '../middlewares/authentication.middleware'
 
 const userRouter = Router()
@@ -15,6 +15,9 @@ userRouter.route('/sign-out').post(verifyJwt,signOut)
 
 //Route for update user details
 userRouter.route('/update').patch(verifyJwt,updateProfileDetails)
+
+//Route to get random for user Tweets
+userRouter.route('/tweet').get(verifyJwt,getRandomUserForTweet)
 
 
 export default userRouter

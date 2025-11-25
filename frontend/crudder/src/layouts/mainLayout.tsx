@@ -4,19 +4,20 @@ import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
     return (
-      <div className="grid grid-cols-[240px_1fr_300px] h-screen">
-    <aside className="border-r border-gray-200 p-4 overflow-y-auto">
-      <SideBar />
-    </aside>
+<div className="grid grid-cols-[240px_1fr_300px] h-screen bg-[#0D1117] overflow-hidden">
+  <aside className="border-r border-[#1F2937] p-4 overflow-y-auto">
+    <SideBar />
+  </aside>
 
-    <main className="p-6 overflow-y-auto">
-      <Outlet />
-    </main>
+  <main className="p-6 overflow-hidden bg-black">
+    <Outlet />
+  </main>
 
-    <aside className="border-l border-gray-200 p-4 overflow-y-auto hidden lg:block md:block">
-      <RightPanel />
-    </aside>
-    </div>
+  <aside className="border-l border-[#1F2937] p-4 overflow-y-auto hidden lg:block md:block">
+    <RightPanel />
+  </aside>
+</div>
+
     )
 }
 
