@@ -39,4 +39,15 @@ const signUpSchema = Joi.object({
     }),
 });
 
-export default signUpSchema;
+const loginSchema = Joi.object({
+  username: Joi.string().min(3).max(50).optional(),
+  email: Joi.string().email().optional(),
+  password: Joi.string().min(8).max(128).required(),
+})
+  .or("username", "email") 
+  .messages({
+    "object.missing": "Username or Email is required",
+    "any.required": "Password is required",
+  });
+
+export {signUpSchema , loginSchema};

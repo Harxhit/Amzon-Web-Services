@@ -16,7 +16,7 @@ const RightPanel = () => {
     const users: Array<{
       firstName: string;
       username: string;
-    }> = response.data?.data?.users;
+    }> = response.data?.users;
 
     const mappedUser = users.map((u) => ({
       firstName: u.firstName,

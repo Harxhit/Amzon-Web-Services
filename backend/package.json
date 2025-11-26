@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --watch src --ext ts,json --exec \"node --inspect=9229 -r ts-node/register  ./src/index.ts\""
-  },
-  "ts-node": {
-    "files": true
+    "dev": "nodemon --watch src --ext ts,json --exec \"node --inspect=9229 -r ts-node/register ./src/index.ts\""
   },
   "keywords": [],
   "author": "",
@@ -20,9 +17,12 @@
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
+    "dompurify": "^3.3.0",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
     "joi": "^18.0.2",
+    "jsdom": "^27.2.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^9.0.0",
     "nodemon": "^3.1.11",
@@ -34,6 +34,7 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.5",
     "@types/joi": "^17.2.2",
+    "@types/jsdom": "^27.0.0",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/mongoose": "^5.11.96",
     "@types/node": "^24.10.1",

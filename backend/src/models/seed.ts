@@ -1,0 +1,135 @@
+import mongoose from "mongoose";
+import User from "./user.model";
+import Tweet from "./tweet.model";
+
+const fakeTweets = [
+  "Just deployed my new feature. Fingers crossed it doesn’t break.",
+  "Coffee + code = perfect debug combo.",
+  "Why does CSS always win? I just want centered text.",
+  "Writing tests makes me question every life decision.",
+  "Dark mode should be the default everywhere.",
+  "Finally solved a bug I’ve been chasing for 3 hours.",
+  "Learning TypeScript and actually liking it.",
+  "One more refactor won’t hurt… right?",
+  "API worked yesterday. Today? No idea.",
+  "Node server restarted. My brain didn’t.",
+  "React is great until you forget a dependency in useEffect.",
+  "Git commit messages are just my life story now.",
+  "Docker either works or ruins your day. No in between.",
+  "Wrote 50 lines. Deleted 60. Productive.",
+  "Why do I always debug by console.logging everything?",
+  "Tabs over spaces. Fight me.",
+  "Frontend without a design? Good luck.",
+  "Backend devs when asked to make UI: 😐",
+  "MongoDB queries look simple but behave differently.",
+  "Finally learned flexbox… now grid exists.",
+  "Doing DevOps feels like wizardry.",
+  "CSS bugs don’t obey logic.",
+  "Why is npm installing 1300 packages again?",
+  "Wasting time customizing VS Code theme again.",
+  "Wrote perfect code. App still crashes.",
+  "Commit. Push. Pray.",
+  "Debugging = reading your own crime scene.",
+  "Just wrote the ugliest quick fix ever. Future me will cry.",
+  "Why is localhost slow today?",
+  "React error messages feel personal sometimes.",
+  "Backend devs be like: just validate it in frontend also.",
+  "I love deleting dead code. So satisfying.",
+  "Dark mode is not a feature, it’s a necessity.",
+  "Trying to explain promises to a beginner… pain.",
+  "One missing semicolon ruined my whole evening.",
+  "I know regex but regex doesn’t know me.",
+  "Learning Redis. My brain is full.",
+  "WebSockets are fun until they randomly disconnect.",
+  "Testing in production again… oops.",
+  "Let me quickly fix this bug… 4 hours later.",
+  "Writing documentation > writing code sometimes.",
+  "My deploy worked on the third try. Nice.",
+  "Ran docker prune and deleted half my life.",
+  "Front-end animations make everything feel premium.",
+  "Trying a new UI library every week.",
+  "My database seed script hates me.",
+  "Sleep is for non-programmers.",
+  "Just realized my component rerenders 20 times.",
+  "Spent 20 mins naming a variable.",
+  "Everything is async. Even my brain.",
+  "Notifications UI should be illegal to design.",
+  "Mobile responsiveness broke again.",
+  "Trying to center a div since 2015.",
+  "Microservices are cool until you're debugging.",
+  "Running npm audit makes me feel unsafe.",
+  "AWS free tier? More like stress tier.",
+  "My code works but I don’t know why.",
+  "My code doesn’t work and I don’t know why.",
+  "Finally learned docker-compose. Feeling powerful.",
+  "Every PR review feels like judgement day.",
+  "One missing slash in an API route ruined my whole day.",
+  "Resetting the database feels illegal.",
+  "Developers don’t age, they accumulate bugs.",
+  "Been stuck on the same bug for hours. Send help.",
+  "VS Code stopped responding… so did I.",
+  "Forgot to save the file. Debugged for 10 minutes.",
+  "Do devs even eat lunch or just coffee?",
+  "Another day, another dependency update.",
+  "I trust ChatGPT more than my own code.",
+  "Making a small change broke everything. Classic.",
+  "Why is production different from local?",
+  "My unit tests pass only by luck.",
+  "Just discovered a legacy function. Terrifying.",
+  "Reviewing old code gives me pain.",
+  "Deploy succeeded… but app is down.",
+  "Real devs push to main on Friday.",
+  "Just created a new branch to avoid fixing bugs.",
+  "One tutorial later and I’m an expert.",
+  "Code running in first attempt is suspicious.",
+  "Why is this API returning null again?",
+  "New feature works but looks ugly.",
+  "I should’ve used TypeScript earlier.",
+  "Spent 40 minutes fixing a typo.",
+  "Working on code at 3 AM hits differently.",
+  "Finally organized my project structure!",
+  "Frontend + backend + DevOps = pain.",
+  "My npm script works only on my laptop.",
+  "Hardest bug to fix? Your own stupidity.",
+  "Switching tabs doesn’t count as work.",
+  "I miss writing simple console apps.",
+  "CSS animations made my app come alive.",
+  "Redis cache saved my backend.",
+  "Debugging with breakpoints > console.log",
+  "React hooks made my brain hookless.",
+  "Deploying to AWS without errors feels magical.",
+  "Firestore pricing scares me.",
+  "My code looks clean until someone else reads it.",
+  "Learning new tech daily keeps me humble.",
+  "99% of dev tasks: Google it.",
+  "I just want my code to work. That’s it."
+]
+async function seed() {
+  const url = 'Your url';
+
+  await mongoose.connect(url);
+
+  const users = await User.find({});
+  console.log("Users found:", users.length);
+
+  for (const user of users) {
+    for (let i = 0; i < 3; i++) {
+      await Tweet.create({
+        author: user._id, 
+        content: fakeTweets[Math.floor(Math.random() * fakeTweets.length)],
+        likeCount: 0,
+        retweetCount: 0,
+        replyCount: 0,
+        isRetweet: false,
+        retweetOf: null,
+        isReply: false,
+        replyTo: null,
+      });
+    }
+  }
+
+  console.log("Inserted tweets for all users.");
+  process.exit(0);
+}
+
+seed();

@@ -1,6 +1,5 @@
 import api from "../../api/axios";
 import { useState, useEffect } from "react";
-import fakeTweets from "../../data/fakeTweet";
 
 interface TweetType {
   firstName: string;
@@ -13,22 +12,19 @@ const Home = () => {
   const [tweets, setTweets] = useState<TweetType[]>([]);
 
   const randomTweets = async () => {
-    const response = await api.get("/users/tweet");
+    const response = await api.get("/tweet/random");
 
-    const users: Array<{
-      firstName: string;
-      lastName: string;
-      username: string;
-    }> = response.data?.data?.users;
-
-    const mappedUsers = users.map((user) => ({
-      firstName: user.firstName,
-      lastName: user.lastName,
-      username: user.username,
-      content: fakeTweets[Math.floor(Math.random() * fakeTweets.length)],
+    const usersTweets  = response.data?.tweet?.tweets
+    
+    const tweetsOfUser = usersTweets.map((tweet: any) => ({
+    username: tweet.username,
+    firstName: tweet.firstName,
+    lastName: tweet.lastName,
+    content: tweet.content
     }));
 
-    setTweets(mappedUsers);
+    setTweets(tweetsOfUser)
+    
   };
 
   useEffect(() => {

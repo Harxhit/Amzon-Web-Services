@@ -662,3 +662,7 @@
     at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
     at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
 2025-11-25 21:57:06 error: Password is required
+2025-11-26 18:30:01 error: ValidationError: Atleast add more than 2 characters
+2025-11-26 18:31:51 error: ValidationError: Atleast add more than 2 characters
+2025-11-26 18:32:10 error: ValidationError: Tweet should be less than 280 characters
+2025-11-26 18:43:13 error: ValidationError: Atleast add more than 2 characters

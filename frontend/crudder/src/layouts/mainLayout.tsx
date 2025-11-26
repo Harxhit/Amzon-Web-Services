@@ -9,7 +9,7 @@ const MainLayout = () => {
     <SideBar />
   </aside>
 
-  <main className="p-6 overflow-hidden bg-black">
+  <main className="p-6 overflow-y-auto bg-black">
     <Outlet />
   </main>
 

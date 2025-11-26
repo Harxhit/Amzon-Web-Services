@@ -12,6 +12,7 @@ import Profile from './pages/profile/Profile'
 import More from './pages/more/More'
 import AuthProvider from './context/AuthProvider'
 import ProtectedLayout from './routes/ProtectedRoute'
+import Tweet from './pages/tweet/Tweet'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,8 +23,10 @@ const router = createBrowserRouter(
       <Route element={<MainLayout />}>
         <Route path='/home' element={<Home />} />
         <Route path='/notifications' element={<Notifications />} />
-        <Route path='/profile/:username' element={<Profile />} />
+        <Route path='/profile/' element={<Profile />} />
         <Route path='/notifications' element={<More />} />
+        <Route path='/tweet' element={<Tweet/>}/>
+        <Route path='/more' element={<More/>}/>
       </Route>
       </Route>
     </>

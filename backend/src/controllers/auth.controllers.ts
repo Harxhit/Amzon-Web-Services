@@ -1,5 +1,6 @@
 import {Request , Response} from 'express'
 import { UserDocument } from '../models/user.model';
+
 interface RequestWithUser extends Request {
   user?: UserDocument;
 }

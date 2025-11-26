@@ -37,7 +37,7 @@ const SideBar = () => {
 
       <div className="mt-auto pt-6">
         <NavLink
-          to="/create"
+          to="/Tweet"
           className="flex items-center gap-4 text-lg font-semibold text-white bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700"
         >
           +

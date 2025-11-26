@@ -2,21 +2,19 @@ import jwt from 'jsonwebtoken';
 import logger from '../utils/logger.util';
 import dotenv from 'dotenv';
 import User , {UserDocument} from '../models/user.model'
-import { Request, NextFunction, Response } from 'express';
+import express from 'express'
+import { NextFunction } from 'express';
 
 dotenv.config();
 
-interface RequestWithUser extends Request {
-  user?: UserDocument;
-}
 
 interface jwtPayload {
   _id: string;
 }
 
 const verifyJwt = async (
-  request: RequestWithUser,
-  response: Response,
+  request: express.Request,
+  response: express.Response,
   next: NextFunction,
 ) => {
   const authHeader = request.header('Authorization');

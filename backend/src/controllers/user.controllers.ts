@@ -1,12 +1,16 @@
 import User,{ UserDocument } from '../models/user.model';
 import logger from '../utils/logger.util';
-import { Request, Response } from 'express';
+import express,  { Request, Response } from 'express';
 import Joi from 'joi'
-import signUpSchema from '../validation/SignUp.validation';
+import { signUpSchema , loginSchema } from '../validation/auth.validation';
+import createDOMPurify from 'dompurify';
+import { JSDOM } from 'jsdom';
 
-interface AuthenticatedRequest extends Request {
-  user?: UserDocument;
-}
+
+const window = new JSDOM('').window
+const DOMPurify = createDOMPurify(window)
+
+
 
 const generateAccessTokenAndRefreshToken = async (
   userId: string,
@@ -19,13 +23,15 @@ const generateAccessTokenAndRefreshToken = async (
   }
   const accessToken = await user?.generateAccessToken();
   const refreshToken = await user?.generateRefreshToken();
+
   user.refreshToken = refreshToken;
   await user?.save({ validateBeforeSave: false });
+
   return { accessToken , refreshToken};
 };
 
-const signUp = async (request: Request, response: Response) => {
-  // console.log('Request body' ,request.body)
+const signUp = async (request: express.Request, response: express.Response) => {
+  // console.log('express.Request body' ,request.body)
   const { error, value } = signUpSchema.validate(request.body);
 
   if (error) {
@@ -39,9 +45,11 @@ const signUp = async (request: Request, response: Response) => {
       message : "Validation error"
     })
   }
-
-  const { username, email, password, firstName, lastName} =
-    value;
+  const username = DOMPurify.sanitize(value.username)
+  const firstName = DOMPurify.sanitize(value.firstName)
+  const lastName = DOMPurify.sanitize(value.lastName)
+  const email = DOMPurify.sanitize(value.email)
+  const password = DOMPurify.sanitize(value.password)
 
   const existingUser = await User.findOne({
     $or: [{ email }, { username }],
@@ -101,26 +109,24 @@ const signUp = async (request: Request, response: Response) => {
   });
 };
 
-const signIn = async (request: Request, response: Response) => {
-  // console.log('Request'  , request.body)
-  const { username, email, password } = request.body;
+const signIn = async (request: express.Request, response: express.Response) => {
+  // console.log('express.Request'  , request.body)
+  const {error , value} = loginSchema.validate(request.body)
 
-  if (!username &&  !email) {
-    logger.error("Username or Email is required")
-    return response.status(400).json({
-      success : false ,
-      message : 'User or Email is required'
+  if(error){
+    logger.error(error)
+    const errors  = error.details.map((detail) => detail.message)
+    return response.status(401).json({
+      success: false,
+      message : 'Validation error',
+      error  : {error}
     })
   }
 
-  if (!password) {
-    logger.error('Password is required')
-    return response.status(400).json({
-      success : false, 
-      message : 'Password is required'
-    })
-  }
-
+  const username = DOMPurify.sanitize(value.username)
+  const email = DOMPurify.sanitize(value.email)
+  const password = DOMPurify.sanitize(value.password)
+  
   const user = await User.findOne({
     $or: [{ username }, { email }],
   });
@@ -132,7 +138,6 @@ const signIn = async (request: Request, response: Response) => {
       message: 'User not registered with email or username'
     })
   }
-  
   
   //Check password
   const isPasswordValid = await user?.isPasswordCorrect(password);
@@ -172,13 +177,14 @@ const signIn = async (request: Request, response: Response) => {
         lastName : user?.lastName, 
         email: user?.email,
         isActive: user?.isActive,
+        createdAt: user?.createdAt
       },
     },
     message: 'User logged in successfully',
   });
 };
 
-const signOut = async(request : AuthenticatedRequest , response : Response) => {
+const signOut = async(request : express.Request, response : express.Response) => {
     const userId  = request.user?._id; 
 
     if(!userId){
@@ -208,96 +214,104 @@ const signOut = async(request : AuthenticatedRequest , response : Response) => {
   });
 }
 
-const updateProfileDetails = async(request: AuthenticatedRequest , response: Response) => {
+const updateProfileDetails = async (
+  request: express.Request,
+  response: express.Response
+) => {
+  try {
     const updateSchema = Joi.object({
-        firstName: Joi.string().optional(),
-        lastName: Joi.string().optional(),
-        email: Joi.string().optional()
-    })
-    
-    const {error, value} = updateSchema.validate(request.body)
+      firstName: Joi.string().optional(),
+      lastName: Joi.string().optional(),
+      email: Joi.string().optional(),
+    });
 
-    const userId = request.user?._id
-
-    if(error){
-        logger.error('Validation error')
-        return response.json({
-            success: false, 
-            message : error.message
-        })
+    const { error, value } = updateSchema.validate(request.body);
+    if (error) {
+      return response.status(400).json({
+        success: false,
+        message: error.message,
+      });
     }
 
-    const updateUser = await User.findByIdAndUpdate(
-       userId, 
-       value, 
-       {new : true}
-    )
+    const userId = request.user?._id;
+    if (!userId) {
+      return response.status(401).json({
+        success: false,
+        message: 'User not authenticated',
+      });
+    }
 
-    return response.status(201).json({
-        success : true, 
-        message : 'User details updated successfully'
-       
-    })
-}
+    const updateData = {
+      firstName: value.firstName ? DOMPurify.sanitize(value.firstName) : undefined,
+      lastName: value.lastName ? DOMPurify.sanitize(value.lastName) : undefined,
+      email: value.email ? DOMPurify.sanitize(value.email) : undefined,
+    };
+
+    await User.findByIdAndUpdate(userId, updateData, { new: true });
+
+    return response.status(200).json({
+      success: true,
+      message: 'Profile updated successfully',
+    });
+  } catch (err) {
+    logger.error(err);
+    return response.status(500).json({
+      success: false,
+      message: 'Server error',
+    });
+  }
+};
 
 
 const changePassword = async (
-  request: AuthenticatedRequest,
-  response: Response,
+  request: express.Request,
+  response: express.Response
 ) => {
-  const schema = Joi.object({
-    oldPassword: Joi.string()
-      .min(8)
-      .max(128)
-      .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/)
-      .required()
-      .messages({
-        'string.empty': 'Old password is required',
-        'string.min': 'Old password must be at least 8 characters long',
-        'string.max': 'Old password must not exceed 128 characters',
-        'string.pattern.base':
-          'Old password must contain uppercase, lowercase, number, and special character',
-      }),
-    newPassword: Joi.string()
-      .min(8)
-      .max(128)
-      .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/)
-      .required()
-      .messages({
-        'string.empty': 'New password is required',
-        'string.min': 'New password must be at least 8 characters long',
-        'string.max': 'New password must not exceed 128 characters',
-        'string.pattern.base':
-          'New password must contain uppercase, lowercase, number, and special character',
-      }),
-  });
-
-  const { error, value } = schema.validate(request.body);
-
-  if (error) {
-    logger.error('Validation error', {
-      message: error.message,
-      stack: error.stack,
-    });
-  }
-
-  const { oldPassword, newPassword } = value;
-  const userId = request.user?._id;
-
-  if (!userId) {
-    logger.error('User ID missing from request');
-  }
-
   try {
-    const user = await User.findById(userId);
-    if (!user) {
-      logger.error('User not found');
-      throw new Error('User not found')
+    const schema = Joi.object({
+      oldPassword: Joi.string().required(),
+      newPassword: Joi.string().required(),
+    });
+
+    const { error, value } = schema.validate(request.body);
+    if (error) {
+      return response.status(400).json({
+        success: false,
+        message: error.message,
+      });
     }
 
-    const isMatch = await user?.isPasswordCorrect(oldPassword);
+    const { oldPassword, newPassword } = value;
+    const userId = request.user?._id;
+
+    if (!userId) {
+      return response.status(401).json({
+        success: false,
+        message: 'User not authenticated',
+      });
+    }
+
+    const user = await User.findById(userId);
+    if (!user) {
+      return response.status(404).json({
+        success: false,
+        message: 'User not found',
+      });
+    }
+
+    const isMatch = await user.isPasswordCorrect(oldPassword);
     if (!isMatch) {
-      logger.error('Old password is incorrect');
+      return response.status(400).json({
+        success: false,
+        message: 'Old password incorrect',
+      });
+    }
+
+    if (oldPassword === newPassword) {
+      return response.status(400).json({
+        success: false,
+        message: 'New password cannot be the same as old password',
+      });
     }
 
     user.password = newPassword;
@@ -308,44 +322,46 @@ const changePassword = async (
       message: 'Password changed successfully',
     });
   } catch (err) {
-    logger.error('Error while changing password');
+    logger.error(err);
+    return response.status(500).json({
+      success: false,
+      message: 'Server error',
+    });
   }
-}
+};
 
 
-const getRandomUserForTweet = async(request: Request , response:Response) => {
+
+const getRandomUserForTweet = async (request: express.Request, response: express.Response) => {
   try {
-    const users = await User.aggregate(
-      [
-        {
-          $sample: {
-            size: 3
-          }
+    const loggedUser = request.user?._id;
+
+    const users = await User.aggregate([
+      { $match: { _id: { $ne: loggedUser } } },
+      { $sample: { size: 3 } },
+      {
+        $project: {
+          _id: 1,
+          firstName: 1,
+          lastName: 1,
+          username: 1,
         },
-        {
-          $project:{
-            _id:1, 
-            firstName:1,
-            lastName:1,
-            username:1,
-          }
-        }
-      ]
-    )
-    response.status(200).json({
-      success: true, 
-      message : 'Users fetched successfully',
-      data : {users}
-    })
+      },
+    ]);
+
+    return response.status(200).json({
+      success: true,
+      message: 'Users fetched successfully',
+      users,
+    });
   } catch (error) {
-    console.error(error)
-    logger.error('Server error')
-    response.status(400).json({
-      success: false, 
-      message : 'Error fetching user'
-    })
+    return response.status(500).json({
+      success: false,
+      message: 'Server error fetching users',
+    });
   }
-}
+};
+
 
 
 export {signIn , signOut , signUp , updateProfileDetails , changePassword , getRandomUserForTweet}
