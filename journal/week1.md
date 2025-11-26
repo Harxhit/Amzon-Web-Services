@@ -4,7 +4,7 @@ At first, I tried running the AWS CLI inside Gitpod, but Gitpod repeatedly requi
 
 I downloaded the AWS CLI for Linux, installed it using the package manager, and verified the installation using aws --version. After that, I ran aws configure to link my local environment with my AWS account. I entered my Access Key ID, Secret Access Key, default region, and output format.
 
-Now the AWS CLI works completely on my local machine without needing Gitpod or card verification. Below is the screenshot showing my AWS CLI installation, setup, and configuration steps. 
+Now the AWS CLI works completely on my local machine without needing Gitpod or card verification. Below is the screenshot showing my AWS CLI installation, setup, and configuration steps.
 
 ```bash
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -12,11 +12,14 @@ unzip awscliv2.zip
 sudo ./aws/install
 aws --version
 ```
-Below is the screen shot of the working 
+
+Below is the screen shot of the working
+
 ```bash
 aws --version
 ```
-[!AWS CLI running locally proof](/assets/aws.png)
+
+![AWS CLI running locally proof](/assets/aws.png)
 
 After installation, I used aws configure to connect my local environment to my AWS account by entering my Access Key ID, Secret Access Key, default region, and output format. The CLI now works fully on my local machine without requiring Gitpod or repeated verification checks. My screenshot confirms the successful installation and configuration.
 

@@ -24,15 +24,15 @@ docker ps -a
 
 **Below is the screenshot of my terminal for all these commands**
 
-[!Creating an image](/assets/build.png)
+![Creating an image](/assets/build.png)
 
 In the above you can see I have created or build an image successfully after running first docker command you can see the name of image in my docker extension.
 
-[!Running the image and building a container](/assets/run.png)
+![Running the image and building a container](/assets/run.png)
 
 In the above you can see that I have successfully created a container you can see in my extension and **docker ps -a** command to.
 
-[!Showing the logs of container](/assets/logs.png)
+![Showing the logs of container](/assets/logs.png)
 
 In the above you can see my container ran successfully with the files I just added and gave me the same output I get when I run my backend.
 
