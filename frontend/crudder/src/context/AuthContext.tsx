@@ -1,4 +1,4 @@
-import  {
+import  React, {
   createContext,
   useContext,
 } from "react";
@@ -7,6 +7,7 @@ interface AuthContextType {
   isLoggedIn: boolean;
   userAuth: any;
   loading: boolean;
+  setUserAuth: React.Dispatch<React.SetStateAction<any>>
   login: (user: any) => void;
   logout: () => void;
 }

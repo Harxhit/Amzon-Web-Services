@@ -182,7 +182,7 @@ Each milestone aligns with weekly AWS Cloud concepts, DevOps practices, and arch
 
 **Frontend:** React, TypeScript, TailwindCSS  
 **Backend:** Node.js, Express, TypeScript  
-**Database:** PostgreSQL (RDS), DynamoDB  
+**Database:** MongoDb , DynamoDB  
 **Auth:** Cognito  
 **Infra:** ECS Fargate, CloudFormation, Lambda, S3, CloudFront  
 **DevOps:** CodeBuild, CodePipeline, GitHub Actions  

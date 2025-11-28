@@ -29,6 +29,11 @@ const SideBar = () => {
           <h2>Profile</h2>
         </NavLink>
 
+        <NavLink to="/message" className={linkClass}>
+          <img src="/message.png" className="w-6 h-6" />
+          <h2>Message</h2>
+        </NavLink>
+
         <NavLink to="/more" className={linkClass}>
           <img src="/apps.png" className="w-6 h-6" />
           <h2>More</h2>

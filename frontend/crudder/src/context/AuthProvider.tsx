@@ -1,8 +1,14 @@
 import { AuthContext } from "./AuthContext";
 import { useState, useEffect } from "react";
 import api from "../api/axios";
+import {io} from 'socket.io-client'
 
+const  socket = io('http://localhost:3000', {
+  withCredentials: true,
+  transports: ["websocket"]
+});
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userAuth, setUserAuth] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -20,13 +26,18 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setLoading(false);
       }
     }
-
     checkAuth();
   }, []);
 
+  useEffect(() => {
+    if(!loading && userAuth?._id){
+      socket.emit('joinRoom',userAuth?._id)
+    }
+  },[loading, userAuth])
+
   const login = (user: any) => {
-    setIsLoggedIn(true);
     setUserAuth(user);
+    setIsLoggedIn(true);
   };
 
   const logout = async () => {
@@ -46,6 +57,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         loading,
         login,
         logout,
+        setUserAuth
       }}
     >
       {children}
@@ -54,4 +66,4 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 };
 
 
-export default AuthProvider
+export {AuthProvider , socket}

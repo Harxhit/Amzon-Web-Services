@@ -11,7 +11,7 @@ interface ProfileTweet {
 }
 
 const ProfilePage = () => {
-
+  
   const {userAuth} = useAuth()
   const [allTweet,setTweet] = useState<ProfileTweet[]>([])
 
@@ -60,8 +60,10 @@ const ProfilePage = () => {
 
 
   useEffect(() => {
-    userTweets()
-  },[])
+    if(userAuth && userAuth._id){
+      userTweets()
+    }
+  },[userAuth])
 
   return (
     <div className="max-w-2xl mx-auto py-6 bg-yellow-100 rounded-2xl">
@@ -90,10 +92,10 @@ const ProfilePage = () => {
 
         <div className="flex gap-6 mt-3 text-sm">
           <span>
-            <span className="font-semibold">{}</span> Following
+            <span className="font-semibold">{userAuth.followingCount}</span> Following
           </span>
           <span>
-            <span className="font-semibold">{}</span> Followers
+            <span className="font-semibold">{userAuth.followerCount}</span> Followers
           </span>
         </div>
       </div>

@@ -331,7 +331,6 @@ const changePassword = async (
 };
 
 
-
 const getRandomUserForTweet = async (request: express.Request, response: express.Response) => {
   try {
     const loggedUser = request.user?._id;

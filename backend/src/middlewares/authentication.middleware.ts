@@ -17,6 +17,7 @@ const verifyJwt = async (
   response: express.Response,
   next: NextFunction,
 ) => {
+  try {
   const authHeader = request.header('Authorization');
 
   const token =
@@ -28,7 +29,6 @@ const verifyJwt = async (
     logger.warn('Token not found');
   }
 
-  try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET!) as jwtPayload;
 
     const user = await User.findById(decoded._id).select('-refreshToken');

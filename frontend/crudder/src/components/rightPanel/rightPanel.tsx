@@ -1,24 +1,32 @@
 import { useAuth } from "../../context/AuthContext";
 import { useState, useEffect } from "react";
 import api from "../../api/axios";
+import { toast } from "react-toastify";
 
 interface TweeterUser {
   firstName: string;
   username: string;
+  _id: string;
 }
 
 const RightPanel = () => {
-  const [user, setUser] = useState<TweeterUser[]>([]);
 
+  const {setUserAuth} = useAuth()
+
+  const [user, setUser] = useState<TweeterUser[]>([]);
+  const { userAuth } = useAuth();
+  const defaultUserImage = "/default.png";
+
+  // State to store follow/unfollow status per user
+  const [followingState, setFollowingState] = useState<Record<string, boolean>>({});
+
+  // Load suggested users
   const registeredUser = async () => {
     const response = await api.get("/users/tweet");
 
-    const users: Array<{
-      firstName: string;
-      username: string;
-    }> = response.data?.users;
-
-    const mappedUser = users.map((u) => ({
+    const users = response.data.users;
+    const mappedUser = users.map((u: TweeterUser) => ({
+      _id: u._id,
       firstName: u.firstName,
       username: u.username,
     }));
@@ -26,12 +34,66 @@ const RightPanel = () => {
     setUser(mappedUser);
   };
 
+  // Load initial following state
+  const loadFollowing = async () => {
+    const response = await api.get("/follower/following");
+    const followingIds: string[] = response.data?.following;
+    const initialState: Record<string, boolean> = {};
+    followingIds.forEach((id: string) => {
+      initialState[id] = true;
+    });
+
+    setFollowingState(initialState);
+  };
+
+  // Toggle follow/unfollow
+  const updateFollowing = async (id: string) => {
+    try {
+      const isCurrentlyFollowing = followingState[id];
+
+      // Unfollow
+      if (isCurrentlyFollowing) {
+        const response = await api.delete(`/follower/unfollow/${id}`);
+        if (response) {
+          setFollowingState((prev) => ({
+            ...prev,
+            [id]: false,
+          }));
+
+          setUserAuth((prev:any) => ({
+            ...prev,
+            followingCount: prev.followingCount - 1
+          })) 
+        }
+        return;
+      }
+
+      // Follow
+      const response = await api.post(`/follower/follow/${id}`);
+      if (response) {
+        setFollowingState((prev) => ({
+          ...prev,
+          [id]: true,
+        }));
+
+        setUserAuth((prev:any) => ({
+          ...prev,
+          followingCount: prev.following + 1
+        }))
+      }
+    } catch (error: any) {
+      const msg = error.response?.data?.message;
+      if (msg) toast(msg);
+    }
+
+    
+  };
+
+  // Load data on mount
   useEffect(() => {
     registeredUser();
+    loadFollowing();
   }, []);
-
-  const defaultUserImage = "/default.png";
-  const { userAuth } = useAuth();
 
   return (
     <aside className="h-full p-6 border-l border-black bg-[#151B23] flex flex-col gap-8">
@@ -47,21 +109,25 @@ const RightPanel = () => {
       <div className="bg-black p-4 pl-5 rounded-2xl">
         <h3 className="text-lg font-semibold mb-4 text-white">Suggested for you</h3>
 
-        {user.map((u, index) => (
-          <div key={index} className="flex flex-col gap-4">
+        {user.map((u) => (
+          <div key={u._id} className="flex flex-col gap-4">
             <div className="flex items-center justify-between space-x-4">
               <div className="flex items-center gap-3">
-                <img
-                  src={defaultUserImage}
-                  className="w-10 h-10 rounded-full bg-white"
-                />
+                <img src={defaultUserImage} className="w-10 h-10 rounded-full bg-white" />
                 <div>
                   <p className="font-medium text-white">{u.firstName}</p>
-                  <p className="text-sm text-gray-500">@{u.username}</p>
+                  <a href="/profile">
+                  <p className="text-sm text-gray-500 cursor-pointer">@{u.username}</p>
+                </a>
                 </div>
               </div>
-              <button className="text-blue-600 font-medium hover:underline">
-                Follow
+
+              {/* Follow / Unfollow Button */}
+              <button
+                className="text-blue-600 font-medium hover:underline cursor-pointer"
+                onClick={() => updateFollowing(u._id)}
+              >
+                {followingState[u._id] ? "Unfollow" : "Follow"}
               </button>
             </div>
           </div>
@@ -69,9 +135,7 @@ const RightPanel = () => {
       </div>
 
       <div className="bg-black rounded-2xl pr-4 pl-4 pb-1 pt-1">
-        <h3 className="text-lg font-semibold mb-4 text-white text-center">
-          Trending
-        </h3>
+        <h3 className="text-lg font-semibold mb-4 text-white text-center">Trending</h3>
 
         <div className="flex flex-col gap-3">
           <div className="text-sm text-gray-700">
@@ -90,13 +154,9 @@ const RightPanel = () => {
       </div>
 
       <div className="grid grid-cols-3 gap-4 rounded-lg text-sm text-black">
-        <a className="hover:text-blue-600 cursor-pointer">About</a>
-        <a className="truncate hover:text-blue-600 cursor-pointer">
-          Terms of Service
-        </a>
-        <a className="truncate hover:text-blue-600 cursor-pointer">
-          Privacy and Policy
-        </a>
+        <a className="hover:text-blue-600 cursor-pointer truncate">About</a>
+        <a className="hover:text-blue-600 cursor-pointer truncate">Terms of Service</a>
+        <a className="hover:text-blue-600 cursor-pointer truncate">Privacy and Policy</a>
       </div>
     </aside>
   );

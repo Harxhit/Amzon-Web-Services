@@ -15,6 +15,8 @@ export interface UserDocument extends Document {
   resetPasswordToken?: string;
   createdAt: Date;
   updatedAt: Date;
+  followingCount: number; 
+  followerCount : number; 
 
   isPasswordCorrect(password: string): Promise<boolean>;
   generateAccessToken(): Promise<string>;
@@ -59,6 +61,14 @@ const userSchema = new Schema<UserDocument>({
         type: String, 
         required : [true , 'Password is required']
     }, 
+    followerCount: {
+      type : Number , 
+      default : 0, 
+    }, 
+   followingCount : {
+    type :Number, 
+    default: 0
+   },
     resetPasswordToken : {
         type : String , 
         select : false
