@@ -10,6 +10,15 @@ import followerRouter from './routes/follower.route'
 import notificationRouter  from './routes/notification.route'
 import { createServer } from 'node:http'
 import { Server } from 'socket.io'
+import Message from './models/message.model'
+import jwt from 'jsonwebtoken'
+import dotenv, { populate } from 'dotenv'
+import logger from './utils/logger.util'
+import messageRouter from './routes/message.route'
+
+
+
+dotenv.config()
 
 const app = express()
 
@@ -47,7 +56,7 @@ app.use('/api/users', userRouter)
 app.use('/api/tweet',tweetRouter)
 app.use('/api/follower',followerRouter)
 app.use('/api/notification',notificationRouter)
-
+app.use('/api/message', messageRouter)
 
 export const server = createServer(app)
 export const io = new Server(server, {
@@ -57,14 +66,45 @@ export const io = new Server(server, {
   }
 });
 
-io.on('connection',(socket) => {
-  console.log('User connected successfully')
+io.on("connection", (socket) => {
+  console.log("User connected successfully");
 
-  socket.on('joinRoom',(userId:string)=> {
-    socket.join(userId);
-    console.log(`User ${userId} have joined the room`)
+  const request = socket.request as any
+  const token = request.cookies?.token
+
+  let userId : string | null = null
+  if(token){
+    try {
+      const payLoad = jwt.verify(token , process.env.JWT_SECRET!) as any
+      userId = payLoad._id
+      socket.on('joinRoom' , (userId:string) => {
+        socket.join(userId)
+        console.log(`User with ${userId} has joined the room`)
+      })
+    } catch (error:any) {
+      logger.error(error)
+    }
+  }
+
+  socket.on('joinChatRoom' , (chatId) => {
+    console.log('User joined chat room successfully',chatId)
+    socket.join(chatId)
   })
-})
+  socket.on("message", async (data) => {
+  const { chatId, senderId, receiverId, content } = data;
+  console.log(data)
+  const newMessage = {
+    chatId, 
+    senderId,
+    receiverId,
+    content,
+    deliveredAt: Date.now(),
+  };
+  await Message.create(newMessage)
+  io.to(chatId).emit("message:received", newMessage);
+  });
+});
+
 
 app.use((request, response, next) => {
   console.log(

@@ -361,6 +361,68 @@ const getRandomUserForTweet = async (request: express.Request, response: express
   }
 };
 
+const messageSearchQuery = async (request: express.Request, response: express.Response) => {
+  console.log("Search query hit:", request.query.query);
+  const sanitizeQuery = (text: string) =>
+    text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+  try {
+    const rawQuery = (request.query.query as string) || "";
+    const query = sanitizeQuery(rawQuery).trim().toLowerCase();
+
+    if (!query) {
+      return response.status(200).json({
+        success: true,
+        results: []
+      });
+    }
+
+    const results = await User.find({
+      $or: [
+        { username: { $regex: query, $options: "i" } },
+        { firstName: { $regex: query, $options: "i" } },
+        { lastName: { $regex: query, $options: "i" } },
+      ]
+    })
+      .select("firstName lastName username _id")
+      .limit(10);
+
+    return response.status(200).json({
+      success: true,
+      results
+    });
+
+  } catch (error: any) {
+    logger.error(error);
+    return response.status(500).json({
+      success: false,
+      message: "Server error"
+    });
+  }
+};
+
+const getUserById = async(request:express.Request, response:express.Response) => {
+  const userId = request.params.id;
+  if(!userId){
+    return response.status(400).json({
+      success: false, 
+      message: 'Id not came frontend'
+    })
+  }
+  const userDetails = await User.findById(userId).select('firstName lastName username _id')
+  if(!userDetails){
+    return response.status(400).json({
+      success : false, 
+      message : 'Server error'
+    })
+  }
+  return response.status(201).json({
+    success: true, 
+    message: 'User details fetched successfully',
+    userDetails
+  })
+}
 
 
-export {signIn , signOut , signUp , updateProfileDetails , changePassword , getRandomUserForTweet}
+
+export {signIn , signOut , signUp , updateProfileDetails , changePassword , getRandomUserForTweet ,messageSearchQuery , getUserById}

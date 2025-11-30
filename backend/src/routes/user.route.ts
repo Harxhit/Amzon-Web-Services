@@ -1,5 +1,5 @@
 import {Router} from  'express'
-import { signUp , signIn , signOut , updateProfileDetails , getRandomUserForTweet} from '../controllers/user.controllers'
+import { signUp , signIn, getUserById , signOut , updateProfileDetails , getRandomUserForTweet , messageSearchQuery} from '../controllers/user.controllers'
 import verifyJwt from '../middlewares/authentication.middleware'
 import asyncHandler from '../utils/asynHandler'
 import rateLimit from 'express-rate-limit'
@@ -33,5 +33,11 @@ userRouter.route('/update').patch(verifyJwt,asyncHandler(updateProfileDetails))
 
 //Route to get random for user Tweets
 userRouter.route('/tweet').get(verifyJwt,asyncHandler(getRandomUserForTweet))
+
+userRouter.route('/search').get( verifyJwt , asyncHandler(messageSearchQuery))
+
+userRouter.route('/details/:id').get( verifyJwt , asyncHandler(getUserById))
+
+
 
 export default userRouter

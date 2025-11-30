@@ -14,6 +14,7 @@ import {AuthProvider }from './context/AuthProvider'
 import ProtectedLayout from './routes/ProtectedRoute'
 import Tweet from './pages/tweet/Tweet'
 import Message from './pages/message/Message'
+import Chat from './pages/chat/Chat'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
         <Route path='/notifications' element={<Notifications />} />
         <Route path="/profile" element={<Profile />} />
         <Route path='/message' element={<Message />} />
+        <Route path='/chat/:id' element={<Chat />} />
         <Route path='/tweet' element={<Tweet/>}/>
         <Route path='/more' element={<More/>}/>
       </Route>

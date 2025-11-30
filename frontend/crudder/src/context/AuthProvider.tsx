@@ -29,12 +29,6 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     checkAuth();
   }, []);
 
-  useEffect(() => {
-    if(!loading && userAuth?._id){
-      socket.emit('joinRoom',userAuth?._id)
-    }
-  },[loading, userAuth])
-
   const login = (user: any) => {
     setUserAuth(user);
     setIsLoggedIn(true);

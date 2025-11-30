@@ -448,7 +448,8 @@ const getRandomTweets = async (request: express.Request, response: express.Respo
         createdAt: 1,
         firstName: "$user.firstName",
         lastName: "$user.lastName",
-        username: "$user.username"
+        username: "$user.username",
+        userId: "$user._id"
       }
     }
   ]);

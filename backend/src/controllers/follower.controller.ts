@@ -139,12 +139,12 @@ const unFollowUser = async(request: express.Request , response:express.Response)
     }
 }
 
-const getFollower = async (req: express.Request, res: express.Response) => {
+const getFollower = async (request: express.Request, response: express.Response) => {
   try {
-    const userId = req.user?._id;
+    const userId = request.user?._id;
 
     if (!userId) {
-      return res.status(401).json({
+      return response.status(401).json({
         success: false,
         message: "Unable to find user"
       });
@@ -157,14 +157,14 @@ const getFollower = async (req: express.Request, res: express.Response) => {
 
     const followingIds = followDocs.map(doc => doc.userWhoIsGettingFollowed.toString());
 
-    return res.status(200).json({
+    return response.status(200).json({
       success: true,
       following: followingIds
     });
 
   } catch (error) {
     logger.error(error);
-    return res.status(500).json({
+    return response.status(500).json({
       success: false,
       message: "Server error"
     });

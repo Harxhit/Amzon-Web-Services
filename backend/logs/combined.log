@@ -1308,3 +1308,197 @@
     at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
     at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
     at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-28 20:38:21 info: MongoDB connected successfully
+2025-11-29 10:33:48 info: MongoDB connected successfully
+2025-11-29 10:51:14 info: MongoDB connected successfully
+2025-11-29 10:53:33 info: MongoDB connected successfully
+2025-11-29 10:54:21 info: MongoDB connected successfully
+2025-11-29 10:54:44 info: MongoDB connected successfully
+2025-11-29 10:55:52 info: MongoDB connected successfully
+2025-11-29 10:55:59 info: MongoDB connected successfully
+2025-11-29 10:56:11 info: MongoDB connected successfully
+2025-11-29 10:58:58 info: MongoDB connected successfully
+2025-11-29 11:01:26 info: MongoDB connected successfully
+2025-11-29 11:01:32 info: MongoDB connected successfully
+2025-11-29 11:01:49 info: MongoDB connected successfully
+2025-11-29 11:02:22 info: MongoDB connected successfully
+2025-11-29 11:02:38 info: MongoDB connected successfully
+2025-11-29 11:02:55 info: MongoDB connected successfully
+2025-11-29 11:03:08 info: MongoDB connected successfully
+2025-11-29 11:03:31 info: MongoDB connected successfully
+2025-11-29 11:04:08 info: MongoDB connected successfully
+2025-11-29 11:04:37 info: MongoDB connected successfully
+2025-11-29 11:06:35 info: MongoDB connected successfully
+2025-11-29 11:06:55 info: MongoDB connected successfully
+2025-11-29 11:07:10 info: MongoDB connected successfully
+2025-11-29 11:07:33 info: MongoDB connected successfully
+2025-11-29 11:07:59 info: MongoDB connected successfully
+2025-11-29 11:08:11 info: MongoDB connected successfully
+2025-11-29 11:09:36 info: MongoDB connected successfully
+2025-11-29 11:09:58 info: MongoDB connected successfully
+2025-11-29 11:13:50 info: MongoDB connected successfully
+2025-11-29 11:18:52 info: MongoDB connected successfully
+2025-11-29 12:30:09 info: MongoDB connected successfully
+2025-11-29 12:31:15 info: MongoDB connected successfully
+2025-11-29 12:31:29 info: MongoDB connected successfully
+2025-11-29 12:31:38 info: MongoDB connected successfully
+2025-11-29 12:32:38 info: MongoDB connected successfully
+2025-11-29 12:37:01 info: MongoDB connected successfully
+2025-11-29 12:46:25 info: MongoDB connected successfully
+2025-11-29 13:44:27 info: MongoDB connected successfully
+2025-11-29 13:48:42 info: MongoDB connected successfully
+2025-11-29 13:50:07 info: MongoDB connected successfully
+2025-11-29 14:00:01 info: MongoDB connected successfully
+2025-11-29 14:01:59 info: MongoDB connected successfully
+2025-11-29 14:04:14 info: MongoDB connected successfully
+2025-11-29 14:22:16 info: MongoDB connected successfully
+2025-11-29 14:23:34 info: MongoDB connected successfully
+2025-11-29 14:23:46 info: MongoDB connected successfully
+2025-11-29 14:24:02 info: MongoDB connected successfully
+2025-11-29 14:24:53 info: MongoDB connected successfully
+2025-11-29 14:25:08 info: MongoDB connected successfully
+2025-11-29 14:25:17 info: MongoDB connected successfully
+2025-11-29 14:25:36 info: MongoDB connected successfully
+2025-11-29 14:26:35 info: MongoDB connected successfully
+2025-11-29 14:27:11 info: MongoDB connected successfully
+2025-11-29 15:06:24 info: MongoDB connected successfully
+2025-11-29 15:07:34 info: MongoDB connected successfully
+2025-11-29 15:08:08 info: MongoDB connected successfully
+2025-11-29 15:13:26 info: MongoDB connected successfully
+2025-11-29 15:14:12 info: MongoDB connected successfully
+2025-11-29 15:14:30 info: MongoDB connected successfully
+2025-11-29 15:15:18 info: MongoDB connected successfully
+2025-11-29 15:15:39 info: MongoDB connected successfully
+2025-11-29 15:16:38 info: MongoDB connected successfully
+2025-11-29 15:17:26 info: MongoDB connected successfully
+2025-11-29 15:18:57 info: MongoDB connected successfully
+2025-11-29 15:21:33 info: MongoDB connected successfully
+2025-11-29 15:43:38 info: MongoDB connected successfully
+2025-11-29 15:45:26 info: MongoDB connected successfully
+2025-11-29 15:47:16 info: MongoDB connected successfully
+2025-11-29 15:47:58 info: MongoDB connected successfully
+2025-11-29 15:49:10 info: MongoDB connected successfully
+2025-11-29 16:14:12 info: MongoDB connected successfully
+2025-11-29 16:14:49 info: MongoDB connected successfully
+2025-11-29 16:16:10 info: MongoDB connected successfully
+2025-11-29 16:22:06 info: MongoDB connected successfully
+2025-11-29 16:26:34 info: MongoDB connected successfully
+2025-11-29 16:27:33 info: MongoDB connected successfully
+2025-11-29 16:27:35 error: Incorrect password
+2025-11-29 16:27:36 error: Incorrect password
+2025-11-29 16:28:48 info: MongoDB connected successfully
+2025-11-29 16:30:56 info: MongoDB connected successfully
+2025-11-29 16:31:14 info: MongoDB connected successfully
+2025-11-29 16:31:24 error: Incorrect password
+2025-11-29 16:31:25 error: Incorrect password
+2025-11-29 16:31:31 error: Incorrect password
+2025-11-29 16:31:33 error: Incorrect password
+2025-11-29 16:33:17 info: MongoDB connected successfully
+2025-11-29 17:21:30 info: MongoDB connected successfully
+2025-11-29 17:27:37 info: MongoDB connected successfully
+2025-11-29 17:28:22 info: MongoDB connected successfully
+2025-11-29 17:28:37 info: MongoDB connected successfully
+2025-11-29 17:30:16 info: MongoDB connected successfully
+2025-11-29 17:45:20 info: MongoDB connected successfully
+2025-11-29 17:52:19 info: MongoDB connected successfully
+2025-11-29 17:54:13 info: MongoDB connected successfully
+2025-11-29 17:57:52 info: MongoDB connected successfully
+2025-11-29 19:32:15 info: MongoDB connected successfully
+2025-11-29 19:32:30 info: MongoDB connected successfully
+2025-11-29 19:42:58 info: MongoDB connected successfully
+2025-11-29 19:43:37 info: MongoDB connected successfully
+2025-11-29 19:46:46 info: MongoDB connected successfully
+2025-11-29 19:48:15 info: MongoDB connected successfully
+2025-11-29 19:48:50 info: MongoDB connected successfully
+2025-11-29 19:54:11 info: MongoDB connected successfully
+2025-11-29 19:55:15 info: MongoDB connected successfully
+2025-11-29 19:55:53 info: MongoDB connected successfully
+2025-11-29 19:59:35 info: MongoDB connected successfully
+2025-11-29 20:00:51 info: MongoDB connected successfully
+2025-11-29 20:05:00 info: MongoDB connected successfully
+2025-11-29 20:49:23 info: MongoDB connected successfully
+2025-11-29 20:52:35 info: MongoDB connected successfully
+2025-11-29 20:56:23 info: MongoDB connected successfully
+2025-11-29 20:59:35 info: MongoDB connected successfully
+2025-11-29 20:59:38 warn: Token not found
+2025-11-29 20:59:38 error: JsonWebTokenError: jwt must be provided
+    at Object.module.exports [as verify] (/home/harshit/Amzon-Web-Services/backend/node_modules/jsonwebtoken/verify.js:60:17)
+    at verifyJwt (/home/harshit/Amzon-Web-Services/backend/src/middlewares/authentication.middleware.ts:32:25)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/route.js:117:3)
+    at handle (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/home/harshit/Amzon-Web-Services/backend/node_modules/router/lib/layer.js:152:17)
+    at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
+    at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
+    at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-11-29 21:01:31 info: MongoDB connected successfully
+2025-11-29 21:08:51 info: MongoDB connected successfully
+2025-11-29 21:12:42 info: MongoDB connected successfully
+2025-11-29 21:15:42 info: MongoDB connected successfully
+2025-11-29 21:51:58 info: MongoDB connected successfully
+2025-11-29 21:53:50 info: MongoDB connected successfully
+2025-11-30 14:38:15 info: MongoDB connected successfully
+2025-11-30 14:42:34 info: MongoDB connected successfully
+2025-11-30 14:48:55 info: MongoDB connected successfully
+2025-11-30 14:49:06 error: Incorrect password
+2025-11-30 14:49:23 error: Incorrect password
+2025-11-30 14:53:06 info: MongoDB connected successfully
+2025-11-30 14:57:09 info: MongoDB connected successfully
+2025-11-30 15:01:53 info: MongoDB connected successfully
+2025-11-30 15:25:43 info: MongoDB connected successfully
+2025-11-30 15:26:26 info: MongoDB connected successfully
+2025-11-30 15:26:38 info: MongoDB connected successfully
+2025-11-30 15:26:48 info: MongoDB connected successfully
+2025-11-30 15:31:54 info: MongoDB connected successfully
+2025-11-30 15:40:01 info: MongoDB connected successfully
+2025-11-30 15:40:32 info: MongoDB connected successfully
+2025-11-30 15:40:55 info: MongoDB connected successfully
+2025-11-30 15:44:35 info: MongoDB connected successfully
+2025-11-30 15:46:16 info: MongoDB connected successfully
+2025-11-30 15:46:22 info: MongoDB connected successfully
+2025-11-30 15:48:40 info: MongoDB connected successfully
+2025-11-30 15:48:52 error: Incorrect password
+2025-11-30 15:48:53 error: Incorrect password
+2025-11-30 15:48:59 error: Incorrect password
+2025-11-30 15:54:16 info: MongoDB connected successfully
+2025-11-30 15:55:25 info: MongoDB connected successfully
+2025-11-30 15:58:10 info: MongoDB connected successfully
+2025-11-30 16:05:46 info: MongoDB connected successfully
+2025-11-30 16:06:34 info: MongoDB connected successfully
+2025-11-30 16:07:12 info: MongoDB connected successfully
+2025-11-30 17:00:27 info: MongoDB connected successfully
+2025-11-30 17:01:57 info: MongoDB connected successfully
+2025-11-30 17:02:58 info: MongoDB connected successfully
+2025-11-30 17:04:41 info: MongoDB connected successfully
+2025-11-30 17:08:47 info: MongoDB connected successfully
+2025-11-30 17:12:20 info: MongoDB connected successfully
+2025-11-30 17:12:26 error: ValidationError: "password" is not allowed to be empty
+2025-11-30 17:15:40 info: MongoDB connected successfully
+2025-11-30 17:15:49 info: MongoDB connected successfully
+2025-11-30 17:15:56 info: MongoDB connected successfully
+2025-11-30 17:17:06 info: MongoDB connected successfully
+2025-11-30 17:22:15 info: MongoDB connected successfully
+2025-11-30 17:24:50 info: MongoDB connected successfully
+2025-11-30 17:26:44 info: MongoDB connected successfully
+2025-11-30 17:28:12 info: MongoDB connected successfully
+2025-11-30 17:29:56 info: MongoDB connected successfully
+2025-11-30 17:31:21 info: MongoDB connected successfully
+2025-11-30 17:32:37 info: MongoDB connected successfully
+2025-11-30 17:36:44 info: MongoDB connected successfully
+2025-11-30 17:37:18 info: MongoDB connected successfully
+2025-11-30 17:39:58 info: MongoDB connected successfully
+2025-11-30 17:43:51 info: MongoDB connected successfully
+2025-11-30 17:44:11 error: Incorrect password
+2025-11-30 17:44:14 error: Incorrect password
+2025-11-30 17:46:02 info: MongoDB connected successfully
+2025-11-30 17:48:38 info: MongoDB connected successfully
+2025-11-30 17:58:59 info: MongoDB connected successfully
+2025-11-30 18:02:44 info: MongoDB connected successfully
+2025-11-30 18:08:20 info: MongoDB connected successfully
+2025-11-30 18:08:20 info: MongoDB connected successfully
+2025-11-30 18:08:28 info: MongoDB connected successfully
+2025-11-30 18:30:19 info: MongoDB connected successfully
+2025-11-30 18:36:41 info: MongoDB connected successfully
+2025-11-30 18:37:26 info: MongoDB connected successfully
+2025-11-30 18:45:22 info: MongoDB connected successfully
