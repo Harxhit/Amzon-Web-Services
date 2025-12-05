@@ -1,18 +1,13 @@
 FROM node:20-alpine
 
-WORKDIR /usr/app/src
+RUN apk add --no-cache bind-tools
 
 COPY package*.json ./
 
-ENV NODE_ENV=production
-
-RUN  --mount=type=cache,target=/usr/app/src/.npm \ 
-    npm set cache /usr/app/src/.npm && \
-    npm ci  
-
+RUN npm ci  
 
 USER node
 
 COPY --chown=node:node . . 
 
-CMD [ "npm","run","dev" ]
+CMD ["npm", "run", "otel"]

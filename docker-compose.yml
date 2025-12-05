@@ -1,0 +1,49 @@
+services:
+  frontend-vite:
+    build:
+      context: ./frontend/crudder
+      dockerfile: Dockerfile
+    image: frontend-vite
+    env_file:
+      - ./frontend/crudder/.env
+    networks:
+      - frontend
+    ports:
+      - "5173:5173"
+    restart: unless-stopped
+
+  backend-node:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: backend-node
+    env_file:
+      - ./backend/.env
+    init: true
+    depends_on:
+      - mongodb
+    networks:
+      - frontend
+      - backend
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
+  mongodb:
+    image: mongo:6.0
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - backend
+    env_file:
+      - .env
+    ports:
+      - "27017:27017"
+    restart: unless-stopped
+
+volumes:
+  mongodb_data:
+
+networks:
+  frontend:
+  backend:

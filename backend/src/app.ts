@@ -12,7 +12,7 @@ import { createServer } from 'node:http'
 import { Server } from 'socket.io'
 import Message from './models/message.model'
 import jwt from 'jsonwebtoken'
-import dotenv, { populate } from 'dotenv'
+import dotenv from 'dotenv'
 import logger from './utils/logger.util'
 import messageRouter from './routes/message.route'
 

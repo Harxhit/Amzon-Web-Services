@@ -5,12 +5,11 @@ import logger from '../utils/logger.util';
 dotenv.config();
 
 const connectToDataBase = async () => {
-  const connectionString = process.env.MONGO_DB_URL;
-
+  const connectionString = process.env.DATABASE_URL;
   // logger.info('Connection String:', connectionString);
 
   if (!connectionString) {
-    throw new Error('MONGO_DB_URL is not defined in the environment variables');
+    throw new Error('Database url is not defined in the environment variables');
   }
 
   try {
