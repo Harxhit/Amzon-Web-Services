@@ -378,6 +378,7 @@ const messageSearchQuery = async (request: express.Request, response: express.Re
     }
 
     const results = await User.find({
+      _id:{$ne : request.user?._id},
       $or: [
         { username: { $regex: query, $options: "i" } },
         { firstName: { $regex: query, $options: "i" } },

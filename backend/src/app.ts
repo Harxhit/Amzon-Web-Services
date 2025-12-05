@@ -15,7 +15,8 @@ import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 import logger from './utils/logger.util'
 import messageRouter from './routes/message.route'
-
+import https from 'https';
+import axios from 'axios';
 
 
 dotenv.config()
@@ -50,6 +51,12 @@ app.use((request:Request,response:Response, next:NextFunction) => {
   response.setHeader("Access-Control-Allow-Credentials", "true")
   next()
 })
+
+axios.defaults.httpsAgent = new https.Agent({
+  keepAlive: true,
+  maxSockets: 100,
+  keepAliveMsecs: 30000,
+});
 
 app.use('/api/auth' , authRouter )
 app.use('/api/users', userRouter)

@@ -17,7 +17,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const checkAuth = async() =>  {
       try {
         const response = await api.get("/auth/me"); 
-        setIsLoggedIn(true);
+        setIsLoggedIn(true);  
         setUserAuth(response.data?.user);
       } catch (err) {
         setIsLoggedIn(false);
@@ -32,6 +32,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const login = (user: any) => {
     setUserAuth(user);
     setIsLoggedIn(true);
+    setLoading(false)
   };
 
   const logout = async () => {
@@ -49,6 +50,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         isLoggedIn,
         userAuth,
         loading,
+        setLoading,
         login,
         logout,
         setUserAuth

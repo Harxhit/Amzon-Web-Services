@@ -6,16 +6,13 @@ dotenv.config();
 
 const connectToDataBase = async () => {
   const connectionString = process.env.DATABASE_URL;
-  // logger.info('Connection String:', connectionString);
-
+  // console.log('Connection String',connectionString)
   if (!connectionString) {
     throw new Error('Database url is not defined in the environment variables');
   }
 
   try {
-    const connection = await mongoose.connect(connectionString, {
-      dbName: process.env.DATABASE_NAME,
-    });
+    const connection = await mongoose.connect(connectionString);
     logger.info(
       'MongoDB connected successfully',
       ` DB Host: ${connection.connection.host}`,

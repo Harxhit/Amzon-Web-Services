@@ -8,6 +8,7 @@ const Login = () => {
   const navigate = useNavigate()
 
   const {login} = useAuth()
+  const {setLoading} = useAuth()
 
   const [formData , setFormData] = useState({
     username : "", 
@@ -34,7 +35,7 @@ const Login = () => {
         const user = response.data?.data?.user;
 
         login(user)
-
+        setLoading(false)
         toast("Logged in successfully")
         
         navigate('/home')

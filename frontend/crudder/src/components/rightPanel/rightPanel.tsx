@@ -78,7 +78,7 @@ const RightPanel = () => {
 
         setUserAuth((prev:any) => ({
           ...prev,
-          followingCount: prev.following + 1
+          followingCount: prev.followingCount + 1
         }))
       }
     } catch (error: any) {

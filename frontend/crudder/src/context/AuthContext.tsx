@@ -6,7 +6,8 @@ import  React, {
 interface AuthContextType {
   isLoggedIn: boolean;
   userAuth: any;
-  loading: boolean;
+  loading: boolean
+  setLoading:React.Dispatch<React.SetStateAction<boolean>>,
   setUserAuth: React.Dispatch<React.SetStateAction<any>>
   login: (user: any) => void;
   logout: () => void;

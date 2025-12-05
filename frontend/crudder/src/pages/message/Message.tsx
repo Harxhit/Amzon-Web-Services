@@ -45,7 +45,6 @@ const Message = () => {
     return `${Math.floor(weeks)}w`;
   };
 
-  // SEARCH USERS
   useEffect(() => {
     if (!query) {
       setResults([]);
@@ -65,7 +64,6 @@ const Message = () => {
     return () => clearTimeout(timeoutId);
   }, [query]);
 
-  // FETCH ALL CONVERSATIONS
   const allConversation = async () => {
     try {
       const response = await api.get("/message/getAll");
@@ -83,7 +81,6 @@ const Message = () => {
   return (
     <div className="space-y-6">
 
-      {/* SEARCH BAR */}
       <div className="bg-[#1E293B] p-3 rounded-xl shadow-md max-w-md">
         <input
           type="text"
