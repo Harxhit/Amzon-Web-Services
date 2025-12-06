@@ -77,3 +77,60 @@ npm install
 
 **In simple terms:**
 I am making my backend visible, traceable, and debuggable in Honeycomb.
+
+### Configuring X-Ray
+
+#### How to install sdk with nodejs?
+
+1. Install the required AWS X-Ray SDK packages
+
+- X-Ray SDK for Node.js
+
+```bash
+npm install aws-xray-sdk
+```
+
+2. Create an AWS IAM role/user for X-Ray
+
+- Given it permissions: AWSXRayDaemonWriteAccess
+
+3. Configure the X-Ray Daemon
+
+- Run the X-Ray Daemon as a sidecar container in Docker Compose and for local dev we download and run it directly.
+
+**How to run daemon locally as well in Docker**
+
+```bash
+cd ~/Directory for xray file exists
+./xray -o
+```
+
+**Added xray service in docker-compose file**
+
+4. Initialize the X-Ray SDK in your Node.js application
+
+- Import and configure the X-Ray SDK at the entry point of my application (e.g., app.ts)
+
+```typescript
+import AWSXRay from "aws-xray-sdk";
+AWSXRay.express.openSegment("backend-service"); // Name of the service
+// My existing Express app setup code here
+AWSXRay.express.closeSegment();
+```
+
+5. Adding subSegments for specific operations
+   When performing specific operations like database queries or external API calls, I can create subsegments to get more granular tracing information.
+
+```typescript
+const segment = AWSXRay.getSegment(); // Get the current segment
+const subsegment = segment.addNewSubsegment("database-query");
+// Perform database operation here
+subsegment.close(); // Close the subsegment after operation
+```
+
+6. Submit traces to AWS X-Ray
+
+- Ensure that my application has network access to the X-Ray Daemon (localhost:2000 by default)
+- The SDK will automatically send trace data to the daemon, which then forwards it to the AWS X-Ray service.
+
+**I have successfully configured AWS X-Ray tracing in my backend service locally and in docker**

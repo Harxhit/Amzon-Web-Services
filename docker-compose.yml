@@ -19,9 +19,11 @@ services:
     image: backend-node
     env_file:
       - ./backend/.env
+      - .env.aws
     init: true
     depends_on:
       - mongodb
+      - xray
     networks:
       - frontend
       - backend
@@ -40,6 +42,16 @@ services:
     ports:
       - "27017:27017"
     restart: unless-stopped
+
+  xray:
+    image: amazon/aws-xray-daemon
+    env_file:
+      - .env.aws
+    ports:
+      - "2000:2000/udp"
+    networks:
+      - backend
+    
 
 volumes:
   mongodb_data:

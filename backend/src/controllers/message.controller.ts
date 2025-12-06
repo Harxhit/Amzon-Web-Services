@@ -2,11 +2,13 @@ import logger from "../utils/logger.util";
 import Message from "../models/message.model";
 import express, {Request , Response} from 'express'
 import mongoose from "mongoose";
+import AWSXRay from 'aws-xray-sdk'
+
 
 const getConversations = async(request: express.Request, response: express.Response) => {
     try {
         const chatId = request.params.id
-        console.log('ChatId' , chatId)
+        // console.log('ChatId' , chatId)
         if(!chatId){
             return response.status(400).json({
                 success : false, 
@@ -14,14 +16,21 @@ const getConversations = async(request: express.Request, response: express.Respo
             })
         }
 
+        const segement = AWSXRay.getSegment()
+
+        const subSegment = segement?.addNewSubsegment('db-old-message')
+
         const chats = await Message.find({chatId}).sort({createdAt:1})
 
         if(!chats){
+          subSegment?.addError('Old message error')
             return response.status(400).json({
                 success: false, 
                 message: 'Chats not found'
             })
         }
+
+        subSegment?.close()
 
         return response.status(201).json({
             success:true, 
@@ -54,6 +63,10 @@ const getAllConversations = async (request: express.Request, response: express.R
     }
 
     const myId = new mongoose.Types.ObjectId(userId);
+
+    const segment = AWSXRay.getSegment()
+
+    const subSegment = segment?.addNewSubsegment('db-all-conversations')
 
     const conversations = await Message.aggregate([
       {
@@ -95,6 +108,16 @@ const getAllConversations = async (request: express.Request, response: express.R
         $unwind: "$user"
       }
     ]);
+
+    if(!conversations){
+      subSegment?.addError('Error finding conversations')
+      return response.status(400).json({
+        success: false, 
+        message: 'Either user dont have conversation or server erorr'
+      })
+    }
+
+    subSegment?.close()
 
     return response.status(200).json({
       success: true,

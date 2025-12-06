@@ -5,7 +5,8 @@ import Joi from 'joi'
 import { signUpSchema , loginSchema } from '../validation/auth.validation';
 import createDOMPurify from 'dompurify';
 import { JSDOM } from 'jsdom';
-
+import AWSXRay, { getSegment } from 'aws-xray-sdk'
+import { access } from 'fs';
 
 const window = new JSDOM('').window
 const DOMPurify = createDOMPurify(window)
@@ -51,18 +52,32 @@ const signUp = async (request: express.Request, response: express.Response) => {
   const email = DOMPurify.sanitize(value.email)
   const password = DOMPurify.sanitize(value.password)
 
+
+  const segment = AWSXRay.getSegment()
+
+
+  const subSegment1 = segment?.addNewSubsegment('db-get-existing-user')
+
   const existingUser = await User.findOne({
     $or: [{ email }, { username }],
   });
 
+
+  
   if (existingUser) {
+    subSegment1?.addError('User already exists')
     logger.warn('User already exists with this email or username');
     return response.status(400).json({
       success : false, 
       message: 'User already exist'
     })
   }
- 
+  
+  subSegment1?.close()
+  
+
+  const subSegment2 = segment?.addNewSubsegment('db-create-user')
+  
   // Create user
   const user = await User.create({
     username,
@@ -74,6 +89,7 @@ const signUp = async (request: express.Request, response: express.Response) => {
 
 
   if (!user) {
+    subSegment2?.addError('User creation failed')
     logger.error('User creation failed');
     return response.status(400).json({
       success: false, 
@@ -81,9 +97,25 @@ const signUp = async (request: express.Request, response: express.Response) => {
     })
   }
 
+  subSegment2?.addMetadata("userId",user._id)
+  subSegment2?.close()
+
   logger.info('User successfully created', { userId: user._id });
 
+
+  const subSegment3 = segment?.addNewSubsegment('jwt-tokens')
+
   const {accessToken, refreshToken}  =  await generateAccessTokenAndRefreshToken(user?._id as any) 
+
+  if(!accessToken && !refreshToken){
+    subSegment3?.addError('Error in access token')
+    logger.error('Error creating sub segment')
+    return response.status(400).json({
+      success : false, 
+      message: 'Error creating access token and refresh token'
+    })
+  }
+  subSegment3?.close()
 
    response.cookie('accessToken', accessToken, {
     httpOnly: true,
@@ -107,6 +139,7 @@ const signUp = async (request: express.Request, response: express.Response) => {
     },
     message: 'User logged in successfully',
   });
+
 };
 
 const signIn = async (request: express.Request, response: express.Response) => {
@@ -127,21 +160,33 @@ const signIn = async (request: express.Request, response: express.Response) => {
   const email = DOMPurify.sanitize(value.email)
   const password = DOMPurify.sanitize(value.password)
   
+
+  const segment = AWSXRay.getSegment()
+
+  const subSegment1 = segment?.addNewSubsegment('db-finding-user')
+
   const user = await User.findOne({
     $or: [{ username }, { email }],
   });
   
   if(!user){
+    subSegment1?.addError('User not found')
     logger.error('User not found with the email or username')
     return response.status(400).json({
       success : false, 
       message: 'User not registered with email or username'
     })
-  }
+  } 
+
+  subSegment1?.close()
   
+
+
+  const subSegment2 = segment?.addNewSubsegment('password-check')
   //Check password
   const isPasswordValid = await user?.isPasswordCorrect(password);
   if (!isPasswordValid) {
+    subSegment2?.addError('Incorrect password')
     logger.error('Incorrect password');
     return response.status(400).json({
       success: false, 
@@ -149,15 +194,25 @@ const signIn = async (request: express.Request, response: express.Response) => {
     })
   }
   
+  subSegment2?.close()
     
   //Mark user as active
  if (user) {
   user.isActive = true;
   await user.save({ validateBeforeSave: false });
-}
+  }
+  const subSegment3 = segment?.addNewSubsegment('jwt-token')
 
   const { accessToken, refreshToken } =
     await generateAccessTokenAndRefreshToken(user?._id as any);
+
+  if(!accessToken && !refreshToken){
+    subSegment3?.addError('Error refresh and access token')
+    return response.status(400).json({
+      success: false, 
+      message: 'Error creating refresh and access token'
+    })
+  }
 
   response.cookie('accessToken', accessToken, {
     httpOnly: true,
@@ -166,7 +221,10 @@ const signIn = async (request: express.Request, response: express.Response) => {
     maxAge: 7 * 24 * 60 * 60 * 1000,
     path: '/',
   });
-  
+
+
+  subSegment3?.close()
+
   return response.status(200).json({
     success: true,
     data: {
@@ -367,15 +425,26 @@ const messageSearchQuery = async (request: express.Request, response: express.Re
     text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
   try {
+    const segment = AWSXRay.getSegment()
+
+    const subSegment1 = segment?.addNewSubsegment('chat-message-searchBar')
+    
     const rawQuery = (request.query.query as string) || "";
     const query = sanitizeQuery(rawQuery).trim().toLowerCase();
-
+    
     if (!query) {
+      subSegment1?.addError('Query error')
       return response.status(200).json({
         success: true,
         results: []
       });
     }
+
+    subSegment1?.close()
+    
+
+
+    const subSegment2 = segment?.addNewSubsegment('db-seach-results')
 
     const results = await User.find({
       _id:{$ne : request.user?._id},
@@ -387,6 +456,12 @@ const messageSearchQuery = async (request: express.Request, response: express.Re
     })
       .select("firstName lastName username _id")
       .limit(10);
+
+    if(!results){
+      subSegment2?.addError('Error fetching results')
+    }
+
+    subSegment2?.close()
 
     return response.status(200).json({
       success: true,
@@ -403,6 +478,9 @@ const messageSearchQuery = async (request: express.Request, response: express.Re
 };
 
 const getUserById = async(request:express.Request, response:express.Response) => {
+
+  const segment = AWSXRay.getSegment()
+
   const userId = request.params.id;
   if(!userId){
     return response.status(400).json({
@@ -410,13 +488,19 @@ const getUserById = async(request:express.Request, response:express.Response) =>
       message: 'Id not came frontend'
     })
   }
+  const subSegment1= segment?.addNewSubsegment('db-user')
+
   const userDetails = await User.findById(userId).select('firstName lastName username _id')
   if(!userDetails){
+    subSegment1?.addError('Error fetching details')
     return response.status(400).json({
       success : false, 
       message : 'Server error'
     })
   }
+
+  subSegment1?.close()
+  
   return response.status(201).json({
     success: true, 
     message: 'User details fetched successfully',

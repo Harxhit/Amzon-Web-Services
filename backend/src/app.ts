@@ -1,3 +1,4 @@
+import AWSXRay from 'aws-xray-sdk';
 import express from 'express'
 import cookie from 'cookie-parser'
 import userRouter from './routes/user.route'
@@ -22,6 +23,8 @@ import axios from 'axios';
 dotenv.config()
 
 const app = express()
+
+app.use(AWSXRay.express.openSegment('backend-service'))
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
@@ -52,11 +55,15 @@ app.use((request:Request,response:Response, next:NextFunction) => {
   next()
 })
 
+
+
+
 axios.defaults.httpsAgent = new https.Agent({
   keepAlive: true,
   maxSockets: 100,
   keepAliveMsecs: 30000,
 });
+
 
 app.use('/api/auth' , authRouter )
 app.use('/api/users', userRouter)
@@ -111,6 +118,9 @@ io.on("connection", (socket) => {
   io.to(chatId).emit("message:received", newMessage);
   });
 });
+
+
+app.use(AWSXRay.express.closeSegment())
 
 
 app.use((request, response, next) => {

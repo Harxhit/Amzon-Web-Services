@@ -5,6 +5,7 @@ import createDOMPurify from 'dompurify';
 import { JSDOM } from 'jsdom';
 import LikeModel from "../models/like.model";
 import express from 'express'
+import AWSXRay from 'aws-xray-sdk' 
 
 const window = new JSDOM('').window
 const DOMPurify = createDOMPurify(window)
@@ -403,6 +404,9 @@ const getRepliesForTweet = async(request:express.Request, response:express.Respo
 }
 
 const getUserTweet = async(request:express.Request, response:express.Response ) => {
+
+    const segment = AWSXRay.getSegment()
+
     const userId = request.user?._id;
     if(!userId){
         return response.status(401).json({
@@ -411,10 +415,20 @@ const getUserTweet = async(request:express.Request, response:express.Response ) 
         })
     }
 
+    const subSegment1 = segment?.addNewSubsegment('db-user-tweets')
+
     const userTweets = await Tweet.find({
         author : userId
     })
 
+    if(!userTweets){
+        subSegment1?.addError('User tweet error')
+        return response.status(400).json({
+            success: false, 
+            message: 'Error fetching user tweets'
+        })
+    }
+    subSegment1?.close()
     return response.status(201).json({
         success : true, 
         message : 'User tweets fetched successfully', 
@@ -425,6 +439,11 @@ const getUserTweet = async(request:express.Request, response:express.Response ) 
 
 const getRandomTweets = async (request: express.Request, response: express.Response) => {
   const currentUser = request.user?._id;
+
+
+  const segment = AWSXRay.getSegment()
+
+  const subSegment1 = segment?.addNewSubsegment('db-three-random-tweet')
 
   const tweets = await Tweet.aggregate([
     { $match: { author: { $ne: currentUser } } },
@@ -453,6 +472,16 @@ const getRandomTweets = async (request: express.Request, response: express.Respo
       }
     }
   ]);
+
+  if(!tweets){
+    subSegment1?.addError('Fetching error')
+    return response.status(400).json({
+        success: false, 
+        message: 'Either db is empty or Server error'
+    })
+  }
+
+  subSegment1?.close()
 
   return response
   .status(201)
