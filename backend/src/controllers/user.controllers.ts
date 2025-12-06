@@ -5,8 +5,7 @@ import Joi from 'joi'
 import { signUpSchema , loginSchema } from '../validation/auth.validation';
 import createDOMPurify from 'dompurify';
 import { JSDOM } from 'jsdom';
-import AWSXRay, { getSegment } from 'aws-xray-sdk'
-import { access } from 'fs';
+import AWSXRay from 'aws-xray-sdk'
 
 const window = new JSDOM('').window
 const DOMPurify = createDOMPurify(window)
@@ -36,7 +35,12 @@ const signUp = async (request: express.Request, response: express.Response) => {
   const { error, value } = signUpSchema.validate(request.body);
 
   if (error) {
-    console.log(error)
+    logger.error("Validation Error", {
+      meta: {
+        error:error.message, 
+        route: request.originalUrl,
+      }
+    })
     const errors  = error.details.map((detail) => detail.message)
     return response.status(400).json({
       success : false , 
@@ -52,9 +56,14 @@ const signUp = async (request: express.Request, response: express.Response) => {
   const email = DOMPurify.sanitize(value.email)
   const password = DOMPurify.sanitize(value.password)
 
+  logger.info('User signup started',{
+    meta:{
+      username: username, 
+      route:request.originalUrl
+    }
+  })
 
   const segment = AWSXRay.getSegment()
-
 
   const subSegment1 = segment?.addNewSubsegment('db-get-existing-user')
 
@@ -66,7 +75,12 @@ const signUp = async (request: express.Request, response: express.Response) => {
   
   if (existingUser) {
     subSegment1?.addError('User already exists')
-    logger.warn('User already exists with this email or username');
+    logger.warn('User already exists with this email or username',{
+      meta: {
+        user:username,
+        route:request.originalUrl
+      }
+    });
     return response.status(400).json({
       success : false, 
       message: 'User already exist'
@@ -90,7 +104,11 @@ const signUp = async (request: express.Request, response: express.Response) => {
 
   if (!user) {
     subSegment2?.addError('User creation failed')
-    logger.error('User creation failed');
+    logger.error('User creation failed',{
+      meta: {
+        route:request.originalUrl
+      }
+    });
     return response.status(400).json({
       success: false, 
       message: "Error creating a new user"
@@ -100,7 +118,12 @@ const signUp = async (request: express.Request, response: express.Response) => {
   subSegment2?.addMetadata("userId",user._id)
   subSegment2?.close()
 
-  logger.info('User successfully created', { userId: user._id });
+  logger.info('User successfully created', {
+    meta:{
+      userId:user?._id,
+      route:request.originalUrl
+    }
+  });
 
 
   const subSegment3 = segment?.addNewSubsegment('jwt-tokens')
@@ -109,7 +132,11 @@ const signUp = async (request: express.Request, response: express.Response) => {
 
   if(!accessToken && !refreshToken){
     subSegment3?.addError('Error in access token')
-    logger.error('Error creating sub segment')
+    logger.error('Error creating access token and refresh token',{
+      meta:{
+        route: request.originalUrl,
+      }
+    })
     return response.status(400).json({
       success : false, 
       message: 'Error creating access token and refresh token'
@@ -146,20 +173,32 @@ const signIn = async (request: express.Request, response: express.Response) => {
   // console.log('express.Request'  , request.body)
   const {error , value} = loginSchema.validate(request.body)
 
-  if(error){
-    logger.error(error)
-    const errors  = error.details.map((detail) => detail.message)
-    return response.status(401).json({
-      success: false,
-      message : 'Validation error',
-      error  : {error}
-    })
-  }
-
+  
   const username = DOMPurify.sanitize(value.username)
   const email = DOMPurify.sanitize(value.email)
   const password = DOMPurify.sanitize(value.password)
   
+  logger.info('User sign-in started',{
+    meta: {
+      user:username,
+      route:request.originalUrl
+    }
+  })
+
+  if(error){
+    const errors  = error.details.map((detail) => detail.message)
+    logger.error('Validation Error',{
+      meta:{
+        username:username,
+        route:request.originalUrl
+      }
+    })
+    return response.status(401).json({
+      success: false,
+      message : 'Validation error',
+      error  : {errors}
+    })
+  }
 
   const segment = AWSXRay.getSegment()
 
@@ -171,7 +210,12 @@ const signIn = async (request: express.Request, response: express.Response) => {
   
   if(!user){
     subSegment1?.addError('User not found')
-    logger.error('User not found with the email or username')
+    logger.error('User not found with the email or username',{
+      meta: {
+        user:username,
+        route:request.originalUrl
+      }
+    })
     return response.status(400).json({
       success : false, 
       message: 'User not registered with email or username'
@@ -179,15 +223,18 @@ const signIn = async (request: express.Request, response: express.Response) => {
   } 
 
   subSegment1?.close()
-  
-
 
   const subSegment2 = segment?.addNewSubsegment('password-check')
   //Check password
   const isPasswordValid = await user?.isPasswordCorrect(password);
   if (!isPasswordValid) {
     subSegment2?.addError('Incorrect password')
-    logger.error('Incorrect password');
+    logger.error('Incorrect password',{
+      meta:{
+        user:username,
+        route:request.originalUrl
+      }
+    });
     return response.status(400).json({
       success: false, 
       message : "Incorrect password"
@@ -208,6 +255,12 @@ const signIn = async (request: express.Request, response: express.Response) => {
 
   if(!accessToken && !refreshToken){
     subSegment3?.addError('Error refresh and access token')
+    logger.error('Error creating refresh and access token',{
+      meta :{
+        user:username, 
+        route:request.originalUrl
+      }
+    })
     return response.status(400).json({
       success: false, 
       message: 'Error creating refresh and access token'
@@ -246,7 +299,12 @@ const signOut = async(request : express.Request, response : express.Response) =>
     const userId  = request.user?._id; 
 
     if(!userId){
-        logger.error('User not found')
+        logger.error('User not found', {
+          meta: {
+            user:userId,
+            route:request.originalUrl
+          }
+        })
     }
 
     await User.findByIdAndUpdate(
@@ -283,8 +341,21 @@ const updateProfileDetails = async (
       email: Joi.string().optional(),
     });
 
+    logger.info('User change in details started',{
+      meta: {
+        user:request.user?._id,
+        route:request.originalUrl
+      }
+    })
+
     const { error, value } = updateSchema.validate(request.body);
     if (error) {
+      logger.error('Validation error',{
+        meta:{
+          user:request.user?._id,
+          route:request.originalUrl
+        }
+      })
       return response.status(400).json({
         success: false,
         message: error.message,
@@ -293,6 +364,12 @@ const updateProfileDetails = async (
 
     const userId = request.user?._id;
     if (!userId) {
+      logger.error('User not found',{
+        meta: {
+          user:userId,
+          route:request.originalUrl
+        }
+      })
       return response.status(401).json({
         success: false,
         message: 'User not authenticated',
@@ -311,8 +388,13 @@ const updateProfileDetails = async (
       success: true,
       message: 'Profile updated successfully',
     });
-  } catch (err) {
-    logger.error(err);
+  } catch (err:any) {
+    logger.error('Server Error', {
+      meta: {
+        message: err.message, 
+        route:request.originalUrl,
+      }
+    });
     return response.status(500).json({
       success: false,
       message: 'Server error',
@@ -331,8 +413,21 @@ const changePassword = async (
       newPassword: Joi.string().required(),
     });
 
+    logger.info('User change password started',{
+      meta: {
+        user:request.user?._id,
+        route:request.originalUrl
+      }
+    })
+
     const { error, value } = schema.validate(request.body);
     if (error) {
+      logger.error('Validation error',{
+        meta:{
+          user:request.user?._id,
+          route:request.originalUrl
+        }
+      })
       return response.status(400).json({
         success: false,
         message: error.message,
@@ -343,6 +438,12 @@ const changePassword = async (
     const userId = request.user?._id;
 
     if (!userId) {
+      logger.error('UserId not found',{
+        meta: {
+          user:userId,
+          route:request.originalUrl
+        }
+      })  
       return response.status(401).json({
         success: false,
         message: 'User not authenticated',
@@ -351,6 +452,12 @@ const changePassword = async (
 
     const user = await User.findById(userId);
     if (!user) {
+      logger.error('User not found',{
+        meta: {
+          user:userId,
+          route:request.originalUrl
+        }
+      })
       return response.status(404).json({
         success: false,
         message: 'User not found',
@@ -359,6 +466,12 @@ const changePassword = async (
 
     const isMatch = await user.isPasswordCorrect(oldPassword);
     if (!isMatch) {
+      logger.error('Old password incorrect',{
+        meta:{
+          user:request.user?._id,
+          route:request.originalUrl
+        }
+      })
       return response.status(400).json({
         success: false,
         message: 'Old password incorrect',
@@ -375,12 +488,24 @@ const changePassword = async (
     user.password = newPassword;
     await user.save();
 
+    logger.info('Password changed successfully',{ 
+      meta: {   
+        user:request.user?._id,
+        route:request.originalUrl
+      }
+    })
+
     return response.status(200).json({
       success: true,
       message: 'Password changed successfully',
     });
-  } catch (err) {
-    logger.error(err);
+  } catch (err:any) {
+    logger.error('Server error',{
+      meta:{
+        message: err.message,
+        route:request.originalUrl
+      }
+    });
     return response.status(500).json({
       success: false,
       message: 'Server error',
@@ -392,6 +517,12 @@ const changePassword = async (
 const getRandomUserForTweet = async (request: express.Request, response: express.Response) => {
   try {
     const loggedUser = request.user?._id;
+    logger.info('Fetching random users for tweet',{
+      meta: {
+        user:loggedUser,
+        route:request.originalUrl
+      }
+    })
 
     const users = await User.aggregate([
       { $match: { _id: { $ne: loggedUser } } },
@@ -406,12 +537,31 @@ const getRandomUserForTweet = async (request: express.Request, response: express
       },
     ]);
 
+    if(!users){
+      logger.error('Error fetching random users',{
+        meta: {
+          user:loggedUser,
+          route:request.originalUrl
+        }
+      })
+      return response.status(400).json({
+        success: false,
+        message: 'Error fetching users',
+      });
+    } 
+
     return response.status(200).json({
       success: true,
       message: 'Users fetched successfully',
       users,
     });
-  } catch (error) {
+  } catch (error:any) {
+    logger.error('Server error fetching users',{
+      meta: {
+        message: error.message,
+        route:request.originalUrl
+      }
+    })  
     return response.status(500).json({
       success: false,
       message: 'Server error fetching users',
@@ -420,7 +570,14 @@ const getRandomUserForTweet = async (request: express.Request, response: express
 };
 
 const messageSearchQuery = async (request: express.Request, response: express.Response) => {
-  console.log("Search query hit:", request.query.query);
+  // console.log("Search query hit:", request.query.query);
+  logger.info('Message search query started',{
+    meta: {
+      user:request.user?._id,
+      route:request.originalUrl
+    }
+  })
+
   const sanitizeQuery = (text: string) =>
     text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
@@ -434,6 +591,12 @@ const messageSearchQuery = async (request: express.Request, response: express.Re
     
     if (!query) {
       subSegment1?.addError('Query error')
+      logger.error('Empty search query',{
+        meta: {
+          user:request.user?._id,
+          route:request.originalUrl
+        }
+      })
       return response.status(200).json({
         success: true,
         results: []
@@ -441,8 +604,6 @@ const messageSearchQuery = async (request: express.Request, response: express.Re
     }
 
     subSegment1?.close()
-    
-
 
     const subSegment2 = segment?.addNewSubsegment('db-seach-results')
 
@@ -459,6 +620,16 @@ const messageSearchQuery = async (request: express.Request, response: express.Re
 
     if(!results){
       subSegment2?.addError('Error fetching results')
+      logger.error('Error fetching search results',{
+        meta: {
+          user:request.user?._id,
+          route:request.originalUrl
+        }
+      })
+      return response.status(400).json({
+        success: false,
+        message: "Error fetching results"
+      }); 
     }
 
     subSegment2?.close()
@@ -469,7 +640,12 @@ const messageSearchQuery = async (request: express.Request, response: express.Re
     });
 
   } catch (error: any) {
-    logger.error(error);
+    logger.error("Server error in search query",{
+      meta: {
+        message: error.message,
+        route:request.originalUrl
+      }
+    });
     return response.status(500).json({
       success: false,
       message: "Server error"
@@ -479,10 +655,22 @@ const messageSearchQuery = async (request: express.Request, response: express.Re
 
 const getUserById = async(request:express.Request, response:express.Response) => {
 
+  logger.info('Fetching user by ID',{
+    meta: {
+      user:request.user?._id,
+      route:request.originalUrl
+    }
+  })
   const segment = AWSXRay.getSegment()
 
   const userId = request.params.id;
   if(!userId){
+    logger.error('UserId not came from frontend',{  
+      meta: {
+        user:request.user?._id,
+        route:request.originalUrl
+      }
+    })
     return response.status(400).json({
       success: false, 
       message: 'Id not came frontend'
@@ -493,6 +681,12 @@ const getUserById = async(request:express.Request, response:express.Response) =>
   const userDetails = await User.findById(userId).select('firstName lastName username _id')
   if(!userDetails){
     subSegment1?.addError('Error fetching details')
+    logger.error('Error fetching user details by ID',{
+      meta: {
+        user:request.user?._id,
+        route:request.originalUrl
+      }
+    })
     return response.status(400).json({
       success : false, 
       message : 'Server error'

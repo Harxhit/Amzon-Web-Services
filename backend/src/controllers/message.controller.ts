@@ -6,10 +6,23 @@ import AWSXRay from 'aws-xray-sdk'
 
 
 const getConversations = async(request: express.Request, response: express.Response) => {
+  logger.log('Get old messages called', {
+    meta: {
+      user: request.user?._id,
+      route: request.originalUrl,
+    }
+  }) 
+
     try {
         const chatId = request.params.id
         // console.log('ChatId' , chatId)
         if(!chatId){
+            logger.error('Chat Id not found',{
+              meta: {
+                user: request.user?._id,
+                route: request.originalUrl
+              }
+            })
             return response.status(400).json({
                 success : false, 
                 message: 'Chat Id not found'
@@ -24,6 +37,12 @@ const getConversations = async(request: express.Request, response: express.Respo
 
         if(!chats){
           subSegment?.addError('Old message error')
+          logger.error('Chats not found', {
+            meta: {
+              user: request.user?._id,
+              route: request.originalUrl
+            }
+          })
             return response.status(400).json({
                 success: false, 
                 message: 'Chats not found'
@@ -39,7 +58,13 @@ const getConversations = async(request: express.Request, response: express.Respo
         })
         
     } catch (error:any) {
-        logger.log(error)
+        logger.log('Error fetching old messages', {
+          meta: {
+            user: request.user?._id,
+            route: request.originalUrl,
+            error: error.message
+          }
+        })
         return response.status(400).json({
             success: false, 
             message :error
@@ -52,10 +77,21 @@ const getMessageByUser = async(request:express.Request, response:express.Respons
 const markMessageAsRead = async(request:express.Request, response:express.Response) => {}
 
 const getAllConversations = async (request: express.Request, response: express.Response) => {
+  logger.info('Get all conversations called', {
+    meta: {
+      user: request.user?._id,
+      route: request.originalUrl,
+    }
+  })
   try {
     const userId = request.user?._id 
 
     if (!userId) {
+      logger.error('Unauthorized: userId missing', {
+        meta: {
+          route: request.originalUrl,
+        }
+      })
       return response.status(401).json({
         success: false,
         message: "Unauthorized: userId missing",
@@ -111,6 +147,12 @@ const getAllConversations = async (request: express.Request, response: express.R
 
     if(!conversations){
       subSegment?.addError('Error finding conversations')
+      logger.error('Either user dont have conversation or server erorr', {
+        meta: {
+          user: request.user?._id,
+          route: request.originalUrl
+        }
+      })
       return response.status(400).json({
         success: false, 
         message: 'Either user dont have conversation or server erorr'
@@ -124,7 +166,13 @@ const getAllConversations = async (request: express.Request, response: express.R
       conversations,
     });
   } catch (error: any) {
-    console.error("Conversation Error:", error);
+    logger.error('Server error while fetching conversations', {
+      meta: {
+        user: request.user?._id,
+        route: request.originalUrl,
+        error: error.message
+      }
+    })
     return response.status(500).json({
       success: false,
       message: "Server Error",

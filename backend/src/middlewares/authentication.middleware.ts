@@ -17,6 +17,7 @@ const verifyJwt = async (
   response: express.Response,
   next: NextFunction,
 ) => {
+  logger.info('Verifying JWT token');
   try {
   const authHeader = request.header('Authorization');
 
@@ -26,7 +27,12 @@ const verifyJwt = async (
     (authHeader?.startsWith('Bearer ') ? authHeader.split(' ')[1] : null);
 
   if (!token) {
-    logger.warn('Token not found');
+    logger.warn('Token not found',{
+      meta: {
+        ip: request.ip,
+        route: request.originalUrl,
+      }
+    });
   }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET!) as jwtPayload;
@@ -34,7 +40,12 @@ const verifyJwt = async (
     const user = await User.findById(decoded._id).select('-refreshToken');
 
     if (!user) {
-      logger.error(`User not found decoded id : ${decoded._id}`);
+      logger.error(`User not found decoded id`,{
+        meta: {
+          userId: decoded._id,
+          route: request.originalUrl,
+        } 
+      });
       throw new Error('User does not exist')
     }
 
@@ -43,8 +54,12 @@ const verifyJwt = async (
   } catch (error: unknown) {
     if (error instanceof Error) {
       logger.error('Authentication failed', {
-        message: error.message,
-        stack: error.stack,
+        meta: {
+          ip: request.ip,
+          route: request.originalUrl,
+          message: error.message,
+          stack: error.stack,
+        }
       });
     }
   }

@@ -32,7 +32,8 @@
     "mongoose": "^9.0.0",
     "nodemon": "^3.1.11",
     "sendmail": "^1.6.1",
-    "socket.io": "^4.8.1"
+    "socket.io": "^4.8.1",
+    "winston-cloudwatch": "^6.3.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",

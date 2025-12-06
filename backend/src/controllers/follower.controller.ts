@@ -9,14 +9,31 @@ import AWSXRay from 'aws-xray-sdk'
 
 
 const followUser = async (request: Request, response: Response) => {
+  logger.info("Follow user controller called", {
+    meta: {
+      route: request.originalUrl,
+      user: request.user?._id
+    }
+  });
   try {
     const userId = request.user?._id;
     if (!userId) {
+      logger.warn("User not found in follow user controller", {
+        meta: {
+          route: request.originalUrl
+        }
+      });
       return response.status(401).json({ success: false, message: "User not found" });
     }
 
     const followingId = request.params.id;
     if (!followingId) {
+      logger.warn("Following id not found in follow user controller", {
+        meta: {
+          route: request.originalUrl,
+          user: userId
+        }
+      });
       return response.status(400).json({ success: false, message: "Following id not found" });
     }
 
@@ -30,6 +47,13 @@ const followUser = async (request: Request, response: Response) => {
 
     if (alreadyFollowed) {
       subsegment1?.addError('Already following this user');
+      logger.error("Attempt to follow an already followed user", {
+        meta: {
+          route: request.originalUrl,
+          user: userId,
+          followingId: followingId
+        }
+      }); 
       return response.status(400).json({
         success: false,
         message: "Already following this user"
@@ -90,23 +114,45 @@ const followUser = async (request: Request, response: Response) => {
       message: "Followed user successfully", 
     });
 
-  } catch (error) {
-    logger.error(error);
+  } catch (error:any) {
+    logger.error('Error in follow user controller', {
+      meta: {
+        route: request.originalUrl,
+        user: request.user?._id,
+        error: error.message
+      }
+    });
     return response.status(500).json({ success: false, message: error });
   }
 };
 
 
 const unFollowUser = async(request: express.Request , response:express.Response) => {
-    try {
-        
+  logger.info("Unfollow user controller called", {
+    meta: {
+      route: request.originalUrl,
+      user: request.user?._id
+    }
+  });
+  try {
         const userId = request.user?._id;
         if(!userId){
+          logger.warn("User not found in unfollow user controller", {
+            meta: {
+              route: request.originalUrl
+            }
+          });
             return response.status(401).json({success : false , message : "User not found"})
         }
         
         const followingId = request.params.id;  
         if(!followingId){
+          logger.warn("Following id not found in unfollow user controller", {
+            meta: {
+              route: request.originalUrl,
+              user: userId
+            }
+          });
             return response.status(400).json({success : false , message : "Following id not found"})
         }
 
@@ -120,6 +166,13 @@ const unFollowUser = async(request: express.Request , response:express.Response)
         })
         if(!alreadyFollowed){
             subsegment1?.addError('Not following this user');
+            logger.error("Attempt to unfollow a user who is not followed", {
+              meta: {
+                route: request.originalUrl,
+                user: userId,
+                followingId: followingId
+              }
+            });
             return response.status(400).json({
                 success : false , 
                 message : "You are not following this user"
@@ -152,8 +205,14 @@ const unFollowUser = async(request: express.Request , response:express.Response)
             success : true , 
             message : "Unfollowed user successfully"
         })  
-    } catch (error) {
-        logger.error(error)
+    } catch (error:any) {
+        logger.error('Server error', {
+          meta: {
+            route: request.originalUrl,
+            user: request.user?._id,
+            error: error.message
+          }
+        });
         return response.status(400).json({
             success : false ,
             message: error
@@ -162,10 +221,21 @@ const unFollowUser = async(request: express.Request , response:express.Response)
 }
 
 const getFollower = async (request: express.Request, response: express.Response) => {
+  logger.info("Get follower controller called", {
+    meta: {
+      route: request.originalUrl,
+      user: request.user?._id
+    }
+  });
   try {
     const userId = request.user?._id;
 
     if (!userId) {
+      logger.warn("User not found in get follower controller", {
+        meta: {
+          route: request.originalUrl
+        }
+      });
       return response.status(401).json({
         success: false,
         message: "Unable to find user"
@@ -181,6 +251,12 @@ const getFollower = async (request: express.Request, response: express.Response)
     }).select("userWhoIsGettingFollowed");
     if (!followDocs) {
       subsegment?.addError('No following found for this user');
+      logger.error("No following found for user", {
+        meta: {
+          route: request.originalUrl,
+          user: userId
+        }
+      });
       return response.status(404).json({
         success: false,
         message: "No following found for this user"
@@ -195,8 +271,14 @@ const getFollower = async (request: express.Request, response: express.Response)
       following: followingIds
     });
 
-  } catch (error) {
-    logger.error(error);
+  } catch (error:any) {
+    logger.error('Server error in get follower controller', {
+      meta: {
+        route: request.originalUrl,
+        user: request.user?._id,
+        error: error.message
+      }
+    });
     return response.status(500).json({
       success: false,
       message: "Server error"
