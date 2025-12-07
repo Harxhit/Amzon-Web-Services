@@ -1,29 +1,48 @@
+import { toast } from "react-toastify";
 import api from "../../api/axios";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useAuth } from "../../context/AuthContext";
 
 interface TweetType {
-  _id: string;         
+  _id: string;
   firstName: string;
   lastName: string;
   username: string;
   content: string;
+  likeCount: number;
+  retweetCount: number;
+  replyCount: number;
+  isLiked: boolean;
 }
 
 const Home = () => {
   const [tweets, setTweets] = useState<TweetType[]>([]);
+  const [likeTweet, setLikeTweet] = useState<Record<string, boolean>>({});
+  const [tweetLikeCount, setTweetLikeCount] = useState<Record<string, number>>({});
+  const [commentText, setCommentText] = useState("");
+  const [tweetComments, setTweetComments] = useState<Record<string, any>>({});
+  const [openCommentBox, setOpenCommentBox] = useState<Record<string, boolean>>({});
+  const { userAuth } = useAuth();
 
   const randomTweets = async () => {
     const response = await api.get("/tweet/random");
-
-    const usersTweets = response.data?.tweet?.tweets;
+    const usersTweets = response.data?.tweets;
 
     const tweetsOfUser = usersTweets.map((tweet: any) => ({
-      _id: tweet.userId,             
+      _id: tweet._id,
       username: tweet.username,
       firstName: tweet.firstName,
       lastName: tweet.lastName,
       content: tweet.content,
+      likeCount: tweet.likeCount,
+      retweetCount: tweet.retweetCount,
+      replyCount: tweet.replyCount,
+      isLiked: tweet.isLiked
     }));
+
+    setLikeTweet(
+      Object.fromEntries(tweetsOfUser.map((t: any) => [t._id, t.isLiked]))
+    );
 
     setTweets(tweetsOfUser);
   };
@@ -31,6 +50,113 @@ const Home = () => {
   useEffect(() => {
     randomTweets();
   }, []);
+
+  const handleLike = async (tweetId: string) => {
+    const isLiked = likeTweet[tweetId];
+    let updatedCount: number;
+
+    try {
+      if (!isLiked) {
+        const response = await api.post(`/tweet/like/${tweetId}`);
+        updatedCount = response.data?.tweet?.likeCount;
+      } else {
+        const response = await api.patch(`/tweet/unlike/${tweetId}`);
+        updatedCount = response.data?.tweet?.likeCount;
+      }
+
+      setLikeTweet((prev) => ({ ...prev, [tweetId]: !isLiked }));
+
+      setTweetLikeCount((prev) => ({
+        ...prev,
+        [tweetId]: updatedCount
+      }));
+    } catch (error: any) {
+      toast(error);
+    }
+  };
+
+  const opensCommentBox = (tweetId: string) => {
+  setOpenCommentBox(prev => {
+    const newState = !prev[tweetId];
+
+    if (newState === true) {
+      showPreviousComments(tweetId);  
+    }
+
+    return { ...prev, [tweetId]: newState };
+  });
+};
+
+  const timeAgo = (dateString: string) => {
+    const date = new Date(dateString);
+    const now = new Date();
+    const seconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+
+    if (seconds < 60) return "just now";
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) return `${minutes}m`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours}h`;
+    const days = Math.floor(hours / 24);
+    if (days < 7) return `${days}d`;
+    const weeks = Math.floor(days / 7);
+    if (weeks < 4) return `${weeks}w`;
+    const months = Math.floor(days / 30);
+    if (months < 12) return `${months}mo`;
+    const years = Math.floor(days / 365);
+    return `${years}y`;
+  };
+
+  const handleCommentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCommentText(e.target.value);
+  };
+
+  const submitComment = async (tweetId: string) => {
+    try {
+
+      await api.post(`/tweet/comment/${tweetId}`, {content: commentText})
+
+      const newComment = {
+        username: userAuth.username,
+        content: commentText,
+        createdAt: new Date()
+      };
+
+      setTweetComments((prev) => ({
+        ...prev,
+        [tweetId]: [newComment, ...(prev[tweetId] || [])]
+      }));
+
+      setCommentText("");
+    } catch (error: any) {
+      toast(error);
+    }
+  };
+
+  const showPreviousComments = async(tweetId:string) => {
+    try {
+      const response =  await api.get(`/tweet/replies/${tweetId}`)
+      const commentData = response.data?.comments
+
+
+      const mappedComments = commentData.map((c: any) => ({
+        username: c.userId.username,
+        content: c.content,
+        createdAt: c.createdAt,
+      }));
+
+
+      setTweetComments((prev) => ({
+        ...prev, 
+        [tweetId]: mappedComments
+      }))
+
+    } catch (error:any) {
+      console.log(error)
+      toast(error)
+    }
+  }
+
 
   return (
     <div className="flex flex-col gap-6 p-6 overflow-hidden">
@@ -41,7 +167,7 @@ const Home = () => {
       <section className="flex flex-col gap-4">
         {tweets.map((tweet) => (
           <div
-            key={tweet._id}  
+            key={tweet._id}
             className="flex gap-3 p-4 bg-[#161B22] rounded-lg border border-gray-800"
           >
             <img
@@ -60,20 +186,73 @@ const Home = () => {
 
               <p className="text-gray-200 mt-1 text-sm">{tweet.content}</p>
 
-              <div className="grid grid-cols-4 mt-3 gap-50 p-2">
-                <a href="">
+              <div className="grid grid-cols-3 mt-3 gap-59 p-2">
+                <button
+                  onClick={() => opensCommentBox(tweet._id)}
+                  className="cursor-pointer flex flex-row gap-2"
+                >
                   <img src="/comment.png" alt="Comment Icon" />
-                </a>
-                <a href="">
+                  <p className="text-gray-400">{tweet.replyCount}</p>
+                </button>
+
+                <button className="cursor-pointer flex flex-row gap-2">
                   <img src="/shuffle.png" alt="" />
-                </a>
-                <a href="">
-                  <img src="/not-heart.png" alt="Like Icon" />
-                </a>
-                <a href="">
-                  <img src="/upload.png" alt="Upload icon" />
-                </a>
+                  <p className="text-gray-400">{tweet.retweetCount}</p>
+                </button>
+
+                <button
+                  onClick={() => handleLike(tweet._id)}
+                  className="flex flex-row gap-2 cursor-pointer"
+                >
+                  <img
+                    src={likeTweet[tweet._id] ? "/heart.png" : "/not-heart.png"}
+                    alt="Like Icon"
+                  />
+                  <p className="text-gray-400">
+                    {tweetLikeCount[tweet._id] ?? tweet.likeCount}
+                  </p>
+                </button>
               </div>
+
+              {openCommentBox[tweet._id] && (
+                <div className="mt-4 p-3 bg-[#0F1620] rounded-xl border border-gray-800">
+                  <input
+                    type="text"
+                    placeholder="Write a comment"
+                    value={commentText}
+                    onChange={handleCommentChange}
+                    className="w-full p-2 bg-[#161B22] text-white border border-gray-700 rounded-lg outline-none focus:ring-2 focus:ring-blue-600"
+                  />
+
+                  <button
+                    onClick={() => submitComment(tweet._id)}
+                    className="mt-3 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                  >
+                    Comment
+                  </button>
+
+                  <div className="mt-4 flex flex-col gap-3">
+                    {(tweetComments[tweet._id] || []).map(
+                      (comment: any, index: number) => (
+                        <div
+                          key={index}
+                          className="text-sm text-gray-300 bg-[#111827] p-2 rounded-lg"
+                        >
+                          <div className="flex flex-col">
+                            <div className="flex flex-row">
+                              <span className="font-semibold text-lg text-white">
+                                {comment.username}
+                              </span>
+                              <span className="text-gray500 mt-1 ml-43">{timeAgo(comment.createdAt)}</span>
+                            </div>
+                              <span className="text-cyan-400">{comment.content}</span>
+                          </div>
+                        </div>
+                      )
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         ))}

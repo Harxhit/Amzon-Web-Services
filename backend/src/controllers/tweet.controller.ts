@@ -6,6 +6,10 @@ import { JSDOM } from 'jsdom';
 import LikeModel from "../models/like.model";
 import express from 'express'
 import AWSXRay from 'aws-xray-sdk' 
+import Notification from "../models/notificaiton.model";
+import {io} from '../app'
+import User from "../models/user.model";
+import Comment from "../models/comment.model";
 
 const window = new JSDOM('').window
 const DOMPurify = createDOMPurify(window)
@@ -278,7 +282,9 @@ const likeTweet = async(request:express.Request, response:express.Response ) => 
              route: request.originalUrl
             }
     })
-    const {tweetId} = request.params; 
+    const tweetId = request.params.id; 
+    // console.log('TweetId' , tweetId)
+
     if(!tweetId){
         logger.error('Tweet id not found while liking tweet', {
             meta: {
@@ -303,9 +309,9 @@ const likeTweet = async(request:express.Request, response:express.Response ) => 
             message : 'User id not found'
         })
     }
-    const alredyLiked = await LikeModel.findOne({userId, tweetId})
+    const alreadyLiked = await LikeModel.findOne({userId, tweetId})
 
-    if(alredyLiked){
+    if(alreadyLiked){
         logger.error('Tweet already liked by user', {
             meta: {
                 user: request.user?._id,
@@ -314,17 +320,32 @@ const likeTweet = async(request:express.Request, response:express.Response ) => 
         })
         return response.status(400).json({
             success: false, 
-            message: 'You became like your women liking more than one time cannot do that'
+            message: 'You became like your women liking more than one man cannot do that here sorry'
         })
     }
     const like = await LikeModel.create({
         userId: userId, 
         tweetId: tweetId, 
     })
-    
-    const updatedLikeCount = await Tweet.findByIdAndUpdate(tweetId, {
-        $inc: {likeCount: 1}
-    }, {new : true})
+    if(!like){
+        logger.error('Error creating like record in database', {
+            meta: {
+                user: request.user?._id,
+                 route: request.originalUrl
+                }
+        })  
+        return response.status(401).json({
+            success : false, 
+            message : 'Error liking tweet'
+        })  
+    }
+    const inc:number = 1; 
+
+    const updatedLikeCount = await Tweet.findByIdAndUpdate(tweetId , 
+        {$inc:
+            {likeCount: inc}
+        },{new:true}
+    ).populate("author",'username firstName lastName _id')
 
     if(!updatedLikeCount){
         logger.error('Error updating like count in database', {
@@ -337,6 +358,42 @@ const likeTweet = async(request:express.Request, response:express.Response ) => 
             success : false, 
             message : 'Error liking tweet'
         })
+    }
+
+    const receiver = updatedLikeCount.author._id
+
+    const sender =  await User.findById(userId).select('firstName lastName username')
+
+    io.to(receiver.toString()).emit('notification:new', {
+        type: 'follow',
+        senderId: {
+          firstName:sender?.firstName,
+          lastName: sender?.lastName,
+          username: sender?.username
+
+        },
+        message: `Liked your tweet`,
+        timeStamp: Date.now()
+    })
+
+    const notificaiton = await Notification.create({
+        senderId: request.user?._id, 
+        receiverId: receiver,
+        tweetId : tweetId, 
+        type: 'like'
+    })
+
+    if(!notificaiton){
+        logger.error('Error creating notification in database while liking tweet', {
+            meta: {
+                user: request.user?._id,
+                 route: request.originalUrl
+                }
+        })  
+        return response.status(401).json({
+            success : false, 
+            message : 'Error creating notification'
+        })      
     }
 
     return response.status(201).json({
@@ -353,7 +410,7 @@ const unlikeTweet = async(request:express.Request, response:express.Response ) =
                 route: request.originalUrl  
             }
     })
-    const {tweetId} = request.params; 
+    const tweetId = request.params.id; 
     if(!tweetId){
         logger.error('Tweet id not found while unliking tweet', {
             meta: {
@@ -393,6 +450,8 @@ const unlikeTweet = async(request:express.Request, response:express.Response ) =
             message: 'Stop unlinking me I am not your ex'
         })
     }
+
+    await likedRecord.deleteOne()
 
     const updatedLikeCount = await Tweet.findByIdAndUpdate(tweetId, {
         $inc: {likeCount: -1}
@@ -659,7 +718,8 @@ const getRepliesForTweet = async(request:express.Request, response:express.Respo
             route: request.originalUrl
             }
     })
-    const {tweetId} = request.params;
+    const tweetId = request.params.id;
+    console.log('TweetId', tweetId)
     if(!tweetId){
         logger.error('Tweet id not found while getting replies for tweet', {
             meta: {
@@ -673,13 +733,10 @@ const getRepliesForTweet = async(request:express.Request, response:express.Respo
         })
     }
 
-    const replies = await Tweet.find({
-        isReply : true, 
-        replyTo : tweetId
-    })
-
-    if(!replies){
-        logger.error('Error fetching replies from database', {
+    const comments = await Comment.find({tweetId: tweetId}).populate('userId',"username").sort({createdAt: -1})
+    // console.log('Comments' , comments)
+    if(!comments){
+        logger.error('Error fetching comments from database', {
             meta: {
                 user: request.user?._id,
                  route: request.originalUrl
@@ -687,16 +744,136 @@ const getRepliesForTweet = async(request:express.Request, response:express.Respo
         })  
         return response.status(400).json({
             success: false, 
-            message: 'Error fetching replies'
+            message: 'Error fetching comments'
         })
     }
 
     return response.status(201).json({
         success : true, 
         message : 'Replies fetched successfully', 
-        replies
+        comments
     })  
 }
+
+const createReplyForTweet = async(request:express.Request , response:express.Response) => {
+    logger.info('Creating reply for tweet', {       
+        meta: {
+            user: request.user?._id,
+             route: request.originalUrl
+            }
+    })
+    const tweetId = request.params.id; 
+    if(!tweetId){
+        logger.error('Tweet id not found while creating reply for tweet', {
+            meta: {
+                user: request.user?._id,
+                 route: request.originalUrl
+                }
+        })  
+        return response.status(401).json({      
+            success : false, 
+            message : 'Error getting tweetId'
+        })      
+    }
+    const contentText = request.body.content;
+
+    const purifiedContent = DOMPurify.sanitize(contentText)
+    if(!purifiedContent){
+        logger.error('Content purfication failed', {
+            meta: {
+                user: request.user?._id,
+                 route: request.originalUrl
+                }
+        })  
+        return response.status(401).json({
+            success : false, 
+            message : 'Content purfication failed'
+        })  
+    }
+    const userId = request.user?._id
+    if(!userId){
+        logger.error('User id not found while creating reply for tweet', {
+            meta: {
+                route: request.originalUrl
+                }
+        })  
+        return response.status(401).json({
+            success : false, 
+            message : 'Error finding userId'
+        })
+    }
+    const comment = await Comment.create({
+        tweetId: tweetId, 
+        userId: userId,
+        content: purifiedContent, 
+    })
+    if(!comment){
+        logger.error('Error creating comment in database', {
+            meta: {
+                user: request.user?._id,
+                 route: request.originalUrl
+                }
+        })  
+        return response.status(401).json({
+            success : false, 
+            message : 'Error creating comment'
+        })
+    }
+
+    const updatedTweet = await Tweet.findByIdAndUpdate(
+        tweetId,
+        {
+            $inc: {
+            replyCount: 1
+            }
+        },
+        {
+            new: true
+        }
+        ).populate("author", "_id username");
+
+    if(!updatedTweet){
+        logger.error('Error updating reply count in database after creating comment', {
+            meta: {
+                user: request.user?._id,
+                 route: request.originalUrl
+                }
+        })  
+        return response.status(401).json({
+            success : false, 
+            message : 'Error updating reply count'
+        })
+    }
+
+    const receiver = updatedTweet?.author._id
+
+
+    await Notification.create({
+        receiverId: receiver, 
+        senderId:request.user?._id , 
+        tweetId: tweetId, 
+        type: 'comment'
+    })
+
+    io.to(receiver.toString()).emit('notification:new', {
+        type: 'comment',
+        senderId: {
+          firstName: request.user?.firstName,
+          lastName: request.user?.lastName,
+          username: request.user?.username
+
+        },
+        message: `Commented on your tweet`,
+        timeStamp: Date.now()
+    })
+
+    return response.status(201).json({
+        success : true, 
+        message : 'Comment created successfully', 
+        comment
+    })
+}
+
 
 const getUserTweet = async(request:express.Request, response:express.Response ) => {
     logger.info('Getting user tweets', {
@@ -766,28 +943,49 @@ const getRandomTweets = async (request: express.Request, response: express.Respo
     { $sample: { size: 3 } },
 
     {
-      $lookup: {
+        $lookup: {
         from: "users",
         localField: "author",
         foreignField: "_id",
         as: "user"
-      }
+        }
     },
-
     { $unwind: "$user" },
 
     {
-      $project: {
+        $lookup: {
+        from: "likes",
+        localField: "_id",
+        foreignField: "tweetId",
+        as: "likes"
+        }
+    },
+
+    {
+        $addFields: {
+        isLiked: {
+            $in: [ currentUser, "$likes.userId" ]
+        }
+        }
+    },
+
+    {
+        $project: {
         _id: 1,
         content: 1,
         createdAt: 1,
         firstName: "$user.firstName",
         lastName: "$user.lastName",
         username: "$user.username",
-        userId: "$user._id"
-      }
+        userId: "$user._id",
+        likeCount: 1,
+        retweetCount: 1,
+        replyCount: 1,
+        isLiked: 1
+        }
     }
-  ]);
+    ]);
+
 
   if(!tweets){
     subSegment1?.addError('Fetching error')
@@ -811,11 +1009,13 @@ const getRandomTweets = async (request: express.Request, response: express.Respo
     { 
         success: true,
         message  : "Founded three random tweet",
-        tweet : {tweets}
+        tweets
     }
         )
 };
 
 
 
-export {createTweet , getUserTweet, getRepliesForTweet , replyToTweet, undoReTweet , reTweet , unlikeTweet,likeTweet , getTweetById , deleteTweet , editTweet , getRandomTweets}
+
+
+export {createTweet , getUserTweet, getRepliesForTweet , replyToTweet, undoReTweet , reTweet , unlikeTweet,likeTweet , getTweetById , deleteTweet , editTweet , getRandomTweets , createReplyForTweet}

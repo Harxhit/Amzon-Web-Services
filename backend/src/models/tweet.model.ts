@@ -34,18 +34,19 @@ const tweetSchema = new Schema<TweetDocument>(
       default: 0 
     },
     retweetCount: {
-       type: Number, 
-       default: 0 
-      },
+      type: Number, 
+      default: 0 
+    },
     replyCount: { 
       type: Number,
        default: 0 
-      },
+    },
 
     isRetweet: { 
       type: Boolean,
        default: false
        },
+       
     retweetOf: { 
       type: Schema.Types.ObjectId,
        ref: "Tweet",

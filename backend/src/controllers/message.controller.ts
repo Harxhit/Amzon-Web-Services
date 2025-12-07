@@ -4,7 +4,6 @@ import express, {Request , Response} from 'express'
 import mongoose from "mongoose";
 import AWSXRay from 'aws-xray-sdk'
 
-
 const getConversations = async(request: express.Request, response: express.Response) => {
   logger.log('Get old messages called', {
     meta: {

@@ -78,7 +78,7 @@ useEffect(() => {
   const getMessage = (type:string) => {
     switch (type) {
       case "follow": return `started following you`;
-      case "like": return "liked your comment";
+      case "like": return "liked your tweet";
       case "comment": return "commented on your tweet";
       case "reply": return "replied your tweet";
       case "mention": return "metioned you";

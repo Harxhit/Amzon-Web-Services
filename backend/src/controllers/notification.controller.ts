@@ -27,7 +27,8 @@ const getNotifications = async(request:express.Request, response:express.Respons
 
         const subSegment1 = segment?.addNewSubsegment('db-old-notifications')
 
-        const notificaitons = await Notification.find({receiverId: userId}).populate('senderId','firstName lastName username').sort({createdAt: -1})
+        const notificaitons = await Notification.find({receiverId: userId}).populate('senderId','firstName lastName username').populate('tweetId', "type").sort({createdAt: -1})
+
         if(!notificaitons){
             subSegment1?.addError('Notification fetching error')
             logger.error('Error fetching notifications from database', {

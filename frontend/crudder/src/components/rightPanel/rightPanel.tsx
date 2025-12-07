@@ -15,6 +15,7 @@ const RightPanel = () => {
 
   const [user, setUser] = useState<TweeterUser[]>([]);
   const { userAuth } = useAuth();
+  
   const defaultUserImage = "/default.png";
 
   // State to store follow/unfollow status per user
@@ -89,7 +90,6 @@ const RightPanel = () => {
     
   };
 
-  // Load data on mount
   useEffect(() => {
     registeredUser();
     loadFollowing();

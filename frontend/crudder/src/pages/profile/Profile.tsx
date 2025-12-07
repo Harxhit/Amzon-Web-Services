@@ -60,10 +60,8 @@ const ProfilePage = () => {
 
 
   useEffect(() => {
-    if(userAuth && userAuth._id){
-      userTweets()
-    }
-  },[userAuth])
+    userTweets()
+  },[])
 
   return (
     <div className="max-w-2xl mx-auto py-6 bg-yellow-100 rounded-2xl">
@@ -104,8 +102,6 @@ const ProfilePage = () => {
         <button className="flex-1 py-3 hover:bg-gray-200 font-medium border-b-2 border-black">
           Tweets
         </button>
-        <button className="flex-1 py-3 hover:bg-gray-200">Replies</button>
-        <button className="flex-1 py-3 hover:bg-gray-200">Media</button>
       </div>
 
       <div className="mt-4 space-y-4">
@@ -123,8 +119,8 @@ const ProfilePage = () => {
               {tweet.content}
             </p>
 
-            <div className="flex gap-6 text-gray-500 text-sm mt-2">
-              <span>💬 {tweet.replyCount}</span>
+            <div className="flex gap-40 text-gray-500 text-sm mt-2">
+                <span>💬 {tweet.replyCount}</span>
               <span>❤️ {tweet.like}</span>
               <span>🔁 {tweet.reTweetCount}</span>
             </div>

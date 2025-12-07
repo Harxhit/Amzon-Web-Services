@@ -1237,3 +1237,60 @@
     at /home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:295:15
     at processParams (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:582:12)
     at next (/home/harshit/Amzon-Web-Services/backend/node_modules/router/index.js:291:5)
+2025-12-07 16:11:43 error: Tweet already liked by user
+2025-12-07 16:11:45 error: Tweet already liked by user
+2025-12-07 16:11:50 error: Tweet already liked by user
+2025-12-07 16:12:16 error: Tweet already liked by user
+2025-12-07 16:12:17 error: Tweet already liked by user
+2025-12-07 16:12:35 error: Tweet already liked by user
+2025-12-07 16:18:35 error: Authentication failed
+2025-12-07 16:18:55 error: Authentication failed
+2025-12-07 16:32:06 error: Tweet already liked by user
+2025-12-07 16:32:07 error: Tweet already liked by user
+2025-12-07 16:32:08 error: Tweet already liked by user
+2025-12-07 16:32:08 error: Tweet already liked by user
+2025-12-07 16:32:08 error: Tweet already liked by user
+2025-12-07 16:32:08 error: Tweet already liked by user
+2025-12-07 16:33:42 error: Tweet already liked by user
+2025-12-07 16:34:00 error: Tweet already liked by user
+2025-12-07 16:34:00 error: Tweet already liked by user
+2025-12-07 16:39:48 error: Tweet already liked by user
+2025-12-07 16:40:22 error: Tweet already liked by user
+2025-12-07 16:41:41 error: Tweet already liked by user
+2025-12-07 16:41:42 error: Tweet already liked by user
+2025-12-07 16:41:42 error: Tweet already liked by user
+2025-12-07 16:41:42 error: Tweet already liked by user
+2025-12-07 16:41:43 error: Tweet already liked by user
+2025-12-07 16:41:44 error: Tweet already liked by user
+2025-12-07 16:41:45 error: Tweet already liked by user
+2025-12-07 16:41:45 error: Tweet already liked by user
+2025-12-07 16:44:31 error: Tweet already liked by user
+2025-12-07 16:44:32 error: Tweet already liked by user
+2025-12-07 16:44:32 error: Tweet already liked by user
+2025-12-07 16:46:20 error: Tweet already liked by user
+2025-12-07 16:50:51 error: Tweet already liked by user
+2025-12-07 16:52:33 error: Tweet already liked by user
+2025-12-07 16:52:35 error: Tweet already liked by user
+2025-12-07 16:52:38 error: Tweet already liked by user
+2025-12-07 16:52:48 error: Tweet already liked by user
+2025-12-07 16:52:52 error: Tweet already liked by user
+2025-12-07 16:56:22 error: Tweet already liked by user
+2025-12-07 16:56:26 error: Tweet already liked by user
+2025-12-07 16:56:29 error: Tweet already liked by user
+2025-12-07 16:56:33 error: Tweet already liked by user
+2025-12-07 16:58:40 error: Tweet already liked by user
+2025-12-07 16:58:43 error: Tweet already liked by user
+2025-12-07 17:10:19 error: Authentication failed
+2025-12-07 17:10:19 error: Authentication failed
+2025-12-07 18:43:06 error: Tweet already liked by user
+2025-12-07 20:51:32 error: Error fetching comments from database
+2025-12-07 20:57:26 error: Error fetching comments from database
+2025-12-07 20:57:27 error: Error fetching comments from database
+2025-12-07 20:57:29 error: Error fetching comments from database
+2025-12-07 20:57:29 error: Error fetching comments from database
+2025-12-07 20:58:17 error: Error fetching comments from database
+2025-12-07 20:58:17 error: Error fetching comments from database
+2025-12-07 21:01:18 error: Error fetching comments from database
+2025-12-07 21:01:18 error: Error fetching comments from database
+2025-12-07 21:02:16 error: Error fetching comments from database
+2025-12-07 21:02:16 error: Error fetching comments from database
