@@ -81,7 +81,7 @@ useEffect(() => {
       case "like": return "liked your tweet";
       case "comment": return "commented on your tweet";
       case "reply": return "replied your tweet";
-      case "mention": return "metioned you";
+      case "retweet": return "re tweeted your tweet";
       default: return "Fuck you";
     }
   }

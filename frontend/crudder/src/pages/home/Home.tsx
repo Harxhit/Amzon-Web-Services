@@ -22,6 +22,11 @@ const Home = () => {
   const [commentText, setCommentText] = useState("");
   const [tweetComments, setTweetComments] = useState<Record<string, any>>({});
   const [openCommentBox, setOpenCommentBox] = useState<Record<string, boolean>>({});
+  const [commentCount, setCommentCount] = useState<Record<string,number>>({})
+  const [reTweet, setReTweet] = useState<Record<string, any>>({});
+  const [openReTweetBox, setOpenReTweetBox] = useState<Record<string, any>>({});
+  const [reTweetCount , setReTweetCount] = useState<Record<string,number>>({})
+  const [userReTweetId , setUserReTweetId] = useState<Record<string , boolean>>({})
   const { userAuth } = useAuth();
 
   const randomTweets = async () => {
@@ -40,10 +45,7 @@ const Home = () => {
       isLiked: tweet.isLiked
     }));
 
-    setLikeTweet(
-      Object.fromEntries(tweetsOfUser.map((t: any) => [t._id, t.isLiked]))
-    );
-
+    setLikeTweet(Object.fromEntries(tweetsOfUser.map((t: any) => [t._id, t.isLiked])));
     setTweets(tweetsOfUser);
   };
 
@@ -65,27 +67,19 @@ const Home = () => {
       }
 
       setLikeTweet((prev) => ({ ...prev, [tweetId]: !isLiked }));
-
-      setTweetLikeCount((prev) => ({
-        ...prev,
-        [tweetId]: updatedCount
-      }));
+      setTweetLikeCount((prev) => ({ ...prev, [tweetId]: updatedCount }));
     } catch (error: any) {
       toast(error);
     }
   };
 
   const opensCommentBox = (tweetId: string) => {
-  setOpenCommentBox(prev => {
-    const newState = !prev[tweetId];
-
-    if (newState === true) {
-      showPreviousComments(tweetId);  
-    }
-
-    return { ...prev, [tweetId]: newState };
-  });
-};
+    setOpenCommentBox((prev) => {
+      const newState = !prev[tweetId];
+      if (newState) showPreviousComments(tweetId);
+      return { ...prev, [tweetId]: newState };
+    });
+  };
 
   const timeAgo = (dateString: string) => {
     const date = new Date(dateString);
@@ -113,8 +107,9 @@ const Home = () => {
 
   const submitComment = async (tweetId: string) => {
     try {
+      const response = await api.post(`/tweet/comment/${tweetId}`, { content: commentText });
 
-      await api.post(`/tweet/comment/${tweetId}`, {content: commentText})
+      const updatedCount:number = response.data?.updatedCount
 
       const newComment = {
         username: userAuth.username,
@@ -127,54 +122,120 @@ const Home = () => {
         [tweetId]: [newComment, ...(prev[tweetId] || [])]
       }));
 
+
       setCommentText("");
+
+
+      setCommentCount((prev) => ({...prev, [tweetId]: updatedCount}))
+
     } catch (error: any) {
       toast(error);
     }
   };
 
-  const showPreviousComments = async(tweetId:string) => {
+  const showPreviousComments = async (tweetId: string) => {
     try {
-      const response =  await api.get(`/tweet/replies/${tweetId}`)
-      const commentData = response.data?.comments
-
+      const response = await api.get(`/tweet/replies/${tweetId}`);
+      const commentData = response.data?.comments;
 
       const mappedComments = commentData.map((c: any) => ({
         username: c.userId.username,
         content: c.content,
-        createdAt: c.createdAt,
+        createdAt: c.createdAt
       }));
 
 
-      setTweetComments((prev) => ({
-        ...prev, 
-        [tweetId]: mappedComments
+      setTweetComments((prev) => ({ ...prev, [tweetId]: mappedComments }));
+    } catch (error: any) {
+      toast(error);
+    }
+  };
+
+  const toggleTweetBox = async(tweetId: string) => {
+    setOpenReTweetBox((prev) => ({
+      ...prev,
+      [tweetId]: !prev[tweetId]
+    }));
+
+    try {
+      const response = await api.get(`tweet/getReTweets/${tweetId}`);
+  
+      const oldReTweets:any = response.data?.reTweets || []
+
+      if (oldReTweets.length === 0) {
+        setReTweet(prev => ({ ...prev, [tweetId]: [] }));
+        setUserReTweetId(prev => ({ ...prev, [tweetId]: false }));
+        return;
+      }
+
+      const mappedTweets = oldReTweets.map((r:any) => ({
+        id: r._id,
+        username: r.author.username, 
+        content: r.content, 
+        createdAt : r.createdAt, 
+        authorId: r.author?._id?.toString()
       }))
 
+
+      setReTweet((prev) => ({
+        ...prev, 
+        [tweetId] : mappedTweets
+      }))
+
+      const userId = userAuth?.user?._id || userAuth?._id || userAuth?.id;
+
+      const uid:string = userId.toString()
+
+      const hasReTweeted = mappedTweets.some((m:any) => m.authorId === uid); 
+
+      setUserReTweetId(prev => ({...prev, [tweetId]:hasReTweeted}))
+
     } catch (error:any) {
-      console.log(error)
+      console.error(error);
       toast(error)
     }
-  }
+  };
 
+  const handlesReTweet = async (tweetId: string) => {
+    try {
+      const response = await api.post(`/tweet/retweet/${tweetId}`);
+      const reTweetData = response.data?.reTweet;
+
+      const updatedCount = response.data?.retweetCount; 
+      console.log(updatedCount)
+      const userId = userAuth?.user?._id || userAuth?._id || userAuth?.id;
+
+      const author = userId.toString()
+      const mappedNew = {
+        id: reTweetData._id, 
+        username: reTweetData.author.username, 
+        content: reTweetData.content, 
+        createdAt: reTweetData.createdAt, 
+        authorId: author
+      }
+
+      setReTweet((prev) => ({
+        ...prev,
+        [tweetId]: [mappedNew , ...(prev[tweetId] || [])]
+      }));
+
+      setReTweetCount((prev) => ({...prev, [tweetId]: updatedCount}))
+
+      setUserReTweetId(prev => ({ ...prev, [tweetId]: true }));
+
+    } catch (error: any) {
+      toast(error);
+    }
+  };
 
   return (
     <div className="flex flex-col gap-6 p-6 overflow-hidden">
-      <h1 className="text-white text-2xl font-extrabold text-center mb-4">
-        Home
-      </h1>
+      <h1 className="text-white text-2xl font-extrabold text-center mb-4">Home</h1>
 
       <section className="flex flex-col gap-4">
         {tweets.map((tweet) => (
-          <div
-            key={tweet._id}
-            className="flex gap-3 p-4 bg-[#161B22] rounded-lg border border-gray-800"
-          >
-            <img
-              src="/default.png"
-              alt="profile"
-              className="w-12 h-12 rounded-full bg-white"
-            />
+          <div key={tweet._id} className="flex gap-3 p-4 bg-[#161B22] rounded-lg border border-gray-800">
+            <img src="/default.png" alt="profile" className="w-12 h-12 rounded-full bg-white" />
 
             <div>
               <div className="flex flex-col gap-2">
@@ -187,30 +248,19 @@ const Home = () => {
               <p className="text-gray-200 mt-1 text-sm">{tweet.content}</p>
 
               <div className="grid grid-cols-3 mt-3 gap-59 p-2">
-                <button
-                  onClick={() => opensCommentBox(tweet._id)}
-                  className="cursor-pointer flex flex-row gap-2"
-                >
+                <button onClick={() => opensCommentBox(tweet._id)} className="cursor-pointer flex flex-row gap-2">
                   <img src="/comment.png" alt="Comment Icon" />
-                  <p className="text-gray-400">{tweet.replyCount}</p>
+                  <p className="text-gray-400">{ commentCount[tweet._id] ??tweet.replyCount}</p>
                 </button>
 
-                <button className="cursor-pointer flex flex-row gap-2">
+                <button onClick={() => toggleTweetBox(tweet._id)} className="cursor-pointer flex flex-row gap-2">
                   <img src="/shuffle.png" alt="" />
-                  <p className="text-gray-400">{tweet.retweetCount}</p>
+                  <p className="text-gray-400">{reTweetCount[tweet._id] ??tweet.retweetCount}</p>
                 </button>
 
-                <button
-                  onClick={() => handleLike(tweet._id)}
-                  className="flex flex-row gap-2 cursor-pointer"
-                >
-                  <img
-                    src={likeTweet[tweet._id] ? "/heart.png" : "/not-heart.png"}
-                    alt="Like Icon"
-                  />
-                  <p className="text-gray-400">
-                    {tweetLikeCount[tweet._id] ?? tweet.likeCount}
-                  </p>
+                <button onClick={() => handleLike(tweet._id)} className="flex flex-row gap-2 cursor-pointer">
+                  <img src={likeTweet[tweet._id] ? "/heart.png" : "/not-heart.png"} alt="Like Icon" />
+                  <p className="text-gray-400">{tweetLikeCount[tweet._id] ?? tweet.likeCount}</p>
                 </button>
               </div>
 
@@ -232,25 +282,50 @@ const Home = () => {
                   </button>
 
                   <div className="mt-4 flex flex-col gap-3">
-                    {(tweetComments[tweet._id] || []).map(
-                      (comment: any, index: number) => (
-                        <div
-                          key={index}
-                          className="text-sm text-gray-300 bg-[#111827] p-2 rounded-lg"
-                        >
-                          <div className="flex flex-col">
-                            <div className="flex flex-row">
-                              <span className="font-semibold text-lg text-white">
-                                {comment.username}
-                              </span>
-                              <span className="text-gray500 mt-1 ml-43">{timeAgo(comment.createdAt)}</span>
-                            </div>
-                              <span className="text-cyan-400">{comment.content}</span>
+                    {(tweetComments[tweet._id] || []).map((comment: any, index: number) => (
+                      <div key={index} className="text-sm text-gray-300 bg-[#111827] p-2 rounded-lg">
+                        <div className="flex flex-col">
+                          <div className="flex flex-row">
+                            <span className="font-semibold text-lg text-white">{comment.username}</span>
+                            <span className="text-gray500 mt-1 ml-43">{timeAgo(comment.createdAt)}</span>
                           </div>
+                          <span className="text-cyan-400">{comment.content}</span>
                         </div>
-                      )
-                    )}
+                      </div>
+                    ))}
                   </div>
+                </div>
+              )}
+
+              {openReTweetBox[tweet._id] && (
+                <div className="mt-4 p-3 bg-[#0F1620] rounded-xl border border-gray-800">
+                  {Array.isArray(reTweet[tweet._id]) && reTweet[tweet._id].length > 0 && (
+                    <div className="mb-3 space-y-2">
+                      {reTweet[tweet._id].map((r: any) => (
+                        <div key={r.id} className="bg-[#111827] p-3 rounded-lg text-gray-200">
+                          <div className="flex justify-between">
+                            <span className="font-semibold">@{r.username}</span>
+                            <span className="text-sm text-gray-400">{timeAgo(r.createdAt)}</span>
+                          </div>
+                          <p className="mt-1 text-sm text-gray-300">{r.content}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {userReTweetId[tweet._id] ? (
+                    <div className="text-green-400 font-semibold">You retweeted this</div>
+                  ) : (
+                    <div>
+                      <p className="text-gray-300 mb-2">Retweet this tweet?</p>
+                      <button
+                        onClick={() => handlesReTweet(tweet._id)}
+                        className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+                      >
+                        Retweet
+                      </button>
+                    </div>
+                  )}
                 </div>
               )}
             </div>

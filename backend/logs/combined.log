@@ -5720,3 +5720,2321 @@
 2025-12-07 21:36:27 info: Verifying JWT token
 2025-12-07 21:36:27 info: Fetching random users for tweet
 2025-12-07 21:36:27 info: Get follower controller called
+2025-12-08 10:02:28 info: Connecting to MongoDB...
+2025-12-08 10:02:30 info: MongoDB connected successfully
+2025-12-08 10:02:58 info: Verifying JWT token
+2025-12-08 10:02:58 info: Auth Me Route Accessed
+2025-12-08 10:02:58 info: Verifying JWT token
+2025-12-08 10:02:58 info: Auth Me Route Accessed
+2025-12-08 10:03:02 info: User sign-in started
+2025-12-08 10:03:03 info: Verifying JWT token
+2025-12-08 10:03:03 info: Verifying JWT token
+2025-12-08 10:03:03 info: Verifying JWT token
+2025-12-08 10:03:03 info: Fetching random users for tweet
+2025-12-08 10:03:03 info: Getting three random tweets
+2025-12-08 10:03:03 info: Get follower controller called
+2025-12-08 10:03:03 info: Verifying JWT token
+2025-12-08 10:03:03 info: Verifying JWT token
+2025-12-08 10:03:03 info: Verifying JWT token
+2025-12-08 10:03:03 info: Get follower controller called
+2025-12-08 10:03:03 info: Fetching random users for tweet
+2025-12-08 10:03:03 info: Getting three random tweets
+2025-12-08 10:03:07 info: Verifying JWT token
+2025-12-08 10:03:08 info: Retweeting tweet
+2025-12-08 10:03:08 info: Verifying JWT token
+2025-12-08 10:03:09 info: Retweeting tweet
+2025-12-08 10:03:46 info: Verifying JWT token
+2025-12-08 10:03:47 info: Retweeting tweet
+2025-12-08 10:04:36 info: Verifying JWT token
+2025-12-08 10:04:36 info: Auth Me Route Accessed
+2025-12-08 10:04:36 info: Verifying JWT token
+2025-12-08 10:04:36 info: Verifying JWT token
+2025-12-08 10:04:36 info: Verifying JWT token
+2025-12-08 10:04:36 info: Verifying JWT token
+2025-12-08 10:04:36 info: Auth Me Route Accessed
+2025-12-08 10:04:36 info: Fetching random users for tweet
+2025-12-08 10:04:36 info: Get follower controller called
+2025-12-08 10:04:36 info: Getting three random tweets
+2025-12-08 10:04:36 info: Verifying JWT token
+2025-12-08 10:04:36 info: Verifying JWT token
+2025-12-08 10:04:36 info: Verifying JWT token
+2025-12-08 10:04:36 info: Fetching random users for tweet
+2025-12-08 10:04:36 info: Get follower controller called
+2025-12-08 10:04:36 info: Getting three random tweets
+2025-12-08 10:04:38 info: Verifying JWT token
+2025-12-08 10:04:38 info: Retweeting tweet
+2025-12-08 10:06:08 info: Verifying JWT token
+2025-12-08 10:06:08 info: Getting three random tweets
+2025-12-08 10:06:18 info: Verifying JWT token
+2025-12-08 10:06:18 info: Retweeting tweet
+2025-12-08 10:06:23 info: Verifying JWT token
+2025-12-08 10:06:23 info: Getting replies for tweet
+2025-12-08 10:06:24 info: Verifying JWT token
+2025-12-08 10:06:24 info: Getting replies for tweet
+2025-12-08 10:06:38 info: Verifying JWT token
+2025-12-08 10:06:38 info: Auth Me Route Accessed
+2025-12-08 10:06:38 info: Verifying JWT token
+2025-12-08 10:06:38 info: Verifying JWT token
+2025-12-08 10:06:38 info: Verifying JWT token
+2025-12-08 10:06:38 info: Verifying JWT token
+2025-12-08 10:06:39 info: Auth Me Route Accessed
+2025-12-08 10:06:39 info: Getting three random tweets
+2025-12-08 10:06:39 info: Fetching random users for tweet
+2025-12-08 10:06:39 info: Get follower controller called
+2025-12-08 10:06:39 info: Verifying JWT token
+2025-12-08 10:06:39 info: Verifying JWT token
+2025-12-08 10:06:39 info: Verifying JWT token
+2025-12-08 10:06:39 info: Fetching random users for tweet
+2025-12-08 10:06:39 info: Get follower controller called
+2025-12-08 10:06:39 info: Getting three random tweets
+2025-12-08 10:06:42 info: Verifying JWT token
+2025-12-08 10:06:42 info: Getting replies for tweet
+2025-12-08 10:06:43 info: Verifying JWT token
+2025-12-08 10:06:43 info: Getting replies for tweet
+2025-12-08 10:06:45 info: Verifying JWT token
+2025-12-08 10:06:45 info: Auth Me Route Accessed
+2025-12-08 10:06:45 info: Verifying JWT token
+2025-12-08 10:06:45 info: Verifying JWT token
+2025-12-08 10:06:45 info: Verifying JWT token
+2025-12-08 10:06:45 info: Verifying JWT token
+2025-12-08 10:06:45 info: Auth Me Route Accessed
+2025-12-08 10:06:45 info: Fetching random users for tweet
+2025-12-08 10:06:45 info: Getting three random tweets
+2025-12-08 10:06:45 info: Get follower controller called
+2025-12-08 10:06:45 info: Verifying JWT token
+2025-12-08 10:06:45 info: Verifying JWT token
+2025-12-08 10:06:45 info: Verifying JWT token
+2025-12-08 10:06:45 info: Get follower controller called
+2025-12-08 10:06:45 info: Fetching random users for tweet
+2025-12-08 10:06:45 info: Getting three random tweets
+2025-12-08 10:06:47 info: Verifying JWT token
+2025-12-08 10:06:47 info: Auth Me Route Accessed
+2025-12-08 10:06:47 info: Verifying JWT token
+2025-12-08 10:06:47 info: Verifying JWT token
+2025-12-08 10:06:47 info: Verifying JWT token
+2025-12-08 10:06:47 info: Verifying JWT token
+2025-12-08 10:06:47 info: Auth Me Route Accessed
+2025-12-08 10:06:47 info: Fetching random users for tweet
+2025-12-08 10:06:47 info: Getting three random tweets
+2025-12-08 10:06:47 info: Get follower controller called
+2025-12-08 10:06:47 info: Verifying JWT token
+2025-12-08 10:06:47 info: Verifying JWT token
+2025-12-08 10:06:47 info: Verifying JWT token
+2025-12-08 10:06:47 info: Fetching random users for tweet
+2025-12-08 10:06:47 info: Get follower controller called
+2025-12-08 10:06:47 info: Getting three random tweets
+2025-12-08 10:06:49 info: Verifying JWT token
+2025-12-08 10:06:49 info: Auth Me Route Accessed
+2025-12-08 10:06:49 info: Verifying JWT token
+2025-12-08 10:06:50 info: Verifying JWT token
+2025-12-08 10:06:50 info: Verifying JWT token
+2025-12-08 10:06:50 info: Verifying JWT token
+2025-12-08 10:06:50 info: Auth Me Route Accessed
+2025-12-08 10:06:50 info: Fetching random users for tweet
+2025-12-08 10:06:50 info: Getting three random tweets
+2025-12-08 10:06:50 info: Get follower controller called
+2025-12-08 10:06:50 info: Verifying JWT token
+2025-12-08 10:06:50 info: Verifying JWT token
+2025-12-08 10:06:50 info: Verifying JWT token
+2025-12-08 10:06:50 info: Fetching random users for tweet
+2025-12-08 10:06:50 info: Getting three random tweets
+2025-12-08 10:06:50 info: Get follower controller called
+2025-12-08 10:06:54 info: Verifying JWT token
+2025-12-08 10:06:54 info: Auth Me Route Accessed
+2025-12-08 10:06:54 info: Verifying JWT token
+2025-12-08 10:06:54 info: Verifying JWT token
+2025-12-08 10:06:54 info: Verifying JWT token
+2025-12-08 10:06:54 info: Verifying JWT token
+2025-12-08 10:06:54 info: Auth Me Route Accessed
+2025-12-08 10:06:54 info: Fetching random users for tweet
+2025-12-08 10:06:54 info: Getting three random tweets
+2025-12-08 10:06:54 info: Get follower controller called
+2025-12-08 10:06:54 info: Verifying JWT token
+2025-12-08 10:06:54 info: Verifying JWT token
+2025-12-08 10:06:54 info: Verifying JWT token
+2025-12-08 10:06:55 info: Get follower controller called
+2025-12-08 10:06:55 info: Getting three random tweets
+2025-12-08 10:06:55 info: Fetching random users for tweet
+2025-12-08 10:06:57 info: Verifying JWT token
+2025-12-08 10:06:57 info: Retweeting tweet
+2025-12-08 10:07:06 info: Verifying JWT token
+2025-12-08 10:07:07 info: Auth Me Route Accessed
+2025-12-08 10:07:07 info: Verifying JWT token
+2025-12-08 10:07:07 info: Verifying JWT token
+2025-12-08 10:07:07 info: Verifying JWT token
+2025-12-08 10:07:07 info: Verifying JWT token
+2025-12-08 10:07:07 info: Auth Me Route Accessed
+2025-12-08 10:07:07 info: Getting three random tweets
+2025-12-08 10:07:07 info: Fetching random users for tweet
+2025-12-08 10:07:07 info: Get follower controller called
+2025-12-08 10:07:07 info: Verifying JWT token
+2025-12-08 10:07:07 info: Verifying JWT token
+2025-12-08 10:07:07 info: Verifying JWT token
+2025-12-08 10:07:07 info: Getting three random tweets
+2025-12-08 10:07:07 info: Fetching random users for tweet
+2025-12-08 10:07:07 info: Get follower controller called
+2025-12-08 10:07:09 info: Verifying JWT token
+2025-12-08 10:07:09 info: Auth Me Route Accessed
+2025-12-08 10:07:09 info: Verifying JWT token
+2025-12-08 10:07:09 info: Verifying JWT token
+2025-12-08 10:07:09 info: Verifying JWT token
+2025-12-08 10:07:09 info: Verifying JWT token
+2025-12-08 10:07:09 info: Auth Me Route Accessed
+2025-12-08 10:07:09 info: Getting three random tweets
+2025-12-08 10:07:09 info: Fetching random users for tweet
+2025-12-08 10:07:09 info: Get follower controller called
+2025-12-08 10:07:09 info: Verifying JWT token
+2025-12-08 10:07:09 info: Verifying JWT token
+2025-12-08 10:07:09 info: Verifying JWT token
+2025-12-08 10:07:10 info: Get follower controller called
+2025-12-08 10:07:10 info: Getting three random tweets
+2025-12-08 10:07:10 info: Fetching random users for tweet
+2025-12-08 10:07:11 info: Verifying JWT token
+2025-12-08 10:07:11 info: Auth Me Route Accessed
+2025-12-08 10:07:11 info: Verifying JWT token
+2025-12-08 10:07:11 info: Verifying JWT token
+2025-12-08 10:07:11 info: Verifying JWT token
+2025-12-08 10:07:11 info: Verifying JWT token
+2025-12-08 10:07:12 info: Auth Me Route Accessed
+2025-12-08 10:07:12 info: Getting three random tweets
+2025-12-08 10:07:12 info: Fetching random users for tweet
+2025-12-08 10:07:12 info: Get follower controller called
+2025-12-08 10:07:12 info: Verifying JWT token
+2025-12-08 10:07:12 info: Verifying JWT token
+2025-12-08 10:07:12 info: Verifying JWT token
+2025-12-08 10:07:12 info: Fetching random users for tweet
+2025-12-08 10:07:12 info: Getting three random tweets
+2025-12-08 10:07:12 info: Get follower controller called
+2025-12-08 10:07:14 info: Verifying JWT token
+2025-12-08 10:07:14 info: Auth Me Route Accessed
+2025-12-08 10:07:14 info: Verifying JWT token
+2025-12-08 10:07:14 info: Verifying JWT token
+2025-12-08 10:07:14 info: Verifying JWT token
+2025-12-08 10:07:14 info: Verifying JWT token
+2025-12-08 10:07:14 info: Auth Me Route Accessed
+2025-12-08 10:07:14 info: Fetching random users for tweet
+2025-12-08 10:07:14 info: Getting three random tweets
+2025-12-08 10:07:14 info: Get follower controller called
+2025-12-08 10:07:14 info: Verifying JWT token
+2025-12-08 10:07:14 info: Verifying JWT token
+2025-12-08 10:07:14 info: Verifying JWT token
+2025-12-08 10:07:14 info: Getting three random tweets
+2025-12-08 10:07:14 info: Get follower controller called
+2025-12-08 10:07:14 info: Fetching random users for tweet
+2025-12-08 10:07:17 info: Verifying JWT token
+2025-12-08 10:07:17 info: Auth Me Route Accessed
+2025-12-08 10:07:17 info: Verifying JWT token
+2025-12-08 10:07:17 info: Verifying JWT token
+2025-12-08 10:07:17 info: Verifying JWT token
+2025-12-08 10:07:17 info: Verifying JWT token
+2025-12-08 10:07:17 info: Auth Me Route Accessed
+2025-12-08 10:07:17 info: Fetching random users for tweet
+2025-12-08 10:07:17 info: Getting three random tweets
+2025-12-08 10:07:17 info: Get follower controller called
+2025-12-08 10:07:17 info: Verifying JWT token
+2025-12-08 10:07:17 info: Verifying JWT token
+2025-12-08 10:07:17 info: Verifying JWT token
+2025-12-08 10:07:18 info: Fetching random users for tweet
+2025-12-08 10:07:18 info: Getting three random tweets
+2025-12-08 10:07:18 info: Get follower controller called
+2025-12-08 10:07:21 info: Verifying JWT token
+2025-12-08 10:07:21 info: Retweeting tweet
+2025-12-08 10:07:23 info: Verifying JWT token
+2025-12-08 10:07:23 info: Auth Me Route Accessed
+2025-12-08 10:07:23 info: Verifying JWT token
+2025-12-08 10:07:24 info: Verifying JWT token
+2025-12-08 10:07:24 info: Verifying JWT token
+2025-12-08 10:07:24 info: Verifying JWT token
+2025-12-08 10:07:24 info: Auth Me Route Accessed
+2025-12-08 10:07:24 info: Getting three random tweets
+2025-12-08 10:07:24 info: Fetching random users for tweet
+2025-12-08 10:07:24 info: Get follower controller called
+2025-12-08 10:07:24 info: Verifying JWT token
+2025-12-08 10:07:24 info: Verifying JWT token
+2025-12-08 10:07:24 info: Verifying JWT token
+2025-12-08 10:07:24 info: Getting three random tweets
+2025-12-08 10:07:24 info: Fetching random users for tweet
+2025-12-08 10:07:24 info: Get follower controller called
+2025-12-08 10:07:51 info: Verifying JWT token
+2025-12-08 10:07:52 info: Getting replies for tweet
+2025-12-08 10:07:52 info: Verifying JWT token
+2025-12-08 10:07:52 info: Getting replies for tweet
+2025-12-08 10:07:54 info: Verifying JWT token
+2025-12-08 10:07:54 info: Getting replies for tweet
+2025-12-08 10:07:55 info: Verifying JWT token
+2025-12-08 10:07:55 info: Getting replies for tweet
+2025-12-08 10:07:56 info: Verifying JWT token
+2025-12-08 10:07:57 info: Getting replies for tweet
+2025-12-08 10:07:57 info: Verifying JWT token
+2025-12-08 10:07:57 info: Getting replies for tweet
+2025-12-08 10:07:59 info: Verifying JWT token
+2025-12-08 10:07:59 info: Getting replies for tweet
+2025-12-08 10:07:59 info: Verifying JWT token
+2025-12-08 10:08:00 info: Getting replies for tweet
+2025-12-08 10:12:25 info: Verifying JWT token
+2025-12-08 10:12:25 info: Getting replies for tweet
+2025-12-08 10:12:26 info: Verifying JWT token
+2025-12-08 10:12:26 info: Getting replies for tweet
+2025-12-08 10:12:27 info: Verifying JWT token
+2025-12-08 10:12:27 info: Creating reply for tweet
+2025-12-08 10:13:06 info: Verifying JWT token
+2025-12-08 10:13:06 info: Verifying JWT token
+2025-12-08 10:13:06 info: Verifying JWT token
+2025-12-08 10:13:06 info: Fetching random users for tweet
+2025-12-08 10:13:06 info: Get follower controller called
+2025-12-08 10:13:06 info: Getting three random tweets
+2025-12-08 10:13:48 info: Verifying JWT token
+2025-12-08 10:13:48 info: Verifying JWT token
+2025-12-08 10:13:48 info: Verifying JWT token
+2025-12-08 10:13:48 info: Get follower controller called
+2025-12-08 10:13:48 info: Fetching random users for tweet
+2025-12-08 10:13:48 info: Getting three random tweets
+2025-12-08 10:16:04 info: Verifying JWT token
+2025-12-08 10:16:04 info: Verifying JWT token
+2025-12-08 10:16:04 info: Auth Me Route Accessed
+2025-12-08 10:16:04 info: Auth Me Route Accessed
+2025-12-08 10:16:06 info: User sign-in started
+2025-12-08 10:16:06 info: Verifying JWT token
+2025-12-08 10:16:06 info: Verifying JWT token
+2025-12-08 10:16:06 info: Verifying JWT token
+2025-12-08 10:16:06 info: Verifying JWT token
+2025-12-08 10:16:06 info: Verifying JWT token
+2025-12-08 10:16:06 info: Verifying JWT token
+2025-12-08 10:16:06 info: Fetching random users for tweet
+2025-12-08 10:16:06 info: Get follower controller called
+2025-12-08 10:16:06 info: Getting three random tweets
+2025-12-08 10:16:06 info: Getting three random tweets
+2025-12-08 10:16:07 info: Fetching random users for tweet
+2025-12-08 10:16:07 info: Get follower controller called
+2025-12-08 10:16:08 info: Verifying JWT token
+2025-12-08 10:16:08 info: Verifying JWT token
+2025-12-08 10:16:08 info: Getting notifications for user
+2025-12-08 10:16:08 info: Getting notifications for user
+2025-12-08 10:16:10 info: Verifying JWT token
+2025-12-08 10:16:10 info: Verifying JWT token
+2025-12-08 10:16:10 info: Auth Me Route Accessed
+2025-12-08 10:16:10 info: Auth Me Route Accessed
+2025-12-08 10:16:10 info: Verifying JWT token
+2025-12-08 10:16:10 info: Verifying JWT token
+2025-12-08 10:16:10 info: Verifying JWT token
+2025-12-08 10:16:10 info: Verifying JWT token
+2025-12-08 10:16:10 info: Verifying JWT token
+2025-12-08 10:16:10 info: Verifying JWT token
+2025-12-08 10:16:10 info: Get follower controller called
+2025-12-08 10:16:10 info: Getting notifications for user
+2025-12-08 10:16:10 info: Fetching random users for tweet
+2025-12-08 10:16:10 info: Getting notifications for user
+2025-12-08 10:16:10 info: Fetching random users for tweet
+2025-12-08 10:16:10 info: Get follower controller called
+2025-12-08 10:16:11 info: Verifying JWT token
+2025-12-08 10:16:11 info: Verifying JWT token
+2025-12-08 10:16:11 info: Auth Me Route Accessed
+2025-12-08 10:16:11 info: Auth Me Route Accessed
+2025-12-08 10:16:11 info: Verifying JWT token
+2025-12-08 10:16:11 info: Verifying JWT token
+2025-12-08 10:16:11 info: Verifying JWT token
+2025-12-08 10:16:11 info: Verifying JWT token
+2025-12-08 10:16:11 info: Verifying JWT token
+2025-12-08 10:16:11 info: Verifying JWT token
+2025-12-08 10:16:12 info: Fetching random users for tweet
+2025-12-08 10:16:12 info: Getting notifications for user
+2025-12-08 10:16:12 info: Get follower controller called
+2025-12-08 10:16:12 info: Getting notifications for user
+2025-12-08 10:16:12 info: Fetching random users for tweet
+2025-12-08 10:16:12 info: Get follower controller called
+2025-12-08 10:16:36 info: Verifying JWT token
+2025-12-08 10:16:36 info: Verifying JWT token
+2025-12-08 10:16:36 info: Getting user tweets
+2025-12-08 10:16:36 info: Getting user tweets
+2025-12-08 10:16:41 info: Verifying JWT token
+2025-12-08 10:16:41 info: Verifying JWT token
+2025-12-08 10:16:42 info: Get all conversations called
+2025-12-08 10:16:42 info: Get all conversations called
+2025-12-08 10:16:43 info: Verifying JWT token
+2025-12-08 10:16:43 info: Verifying JWT token
+2025-12-08 10:16:43 info: Getting three random tweets
+2025-12-08 10:16:43 info: Getting three random tweets
+2025-12-08 10:17:56 info: Connecting to MongoDB...
+2025-12-08 10:17:58 info: MongoDB connected successfully
+2025-12-08 10:19:04 info: Connecting to MongoDB...
+2025-12-08 10:19:06 info: MongoDB connected successfully
+2025-12-08 10:45:45 info: Connecting to MongoDB...
+2025-12-08 10:45:57 info: MongoDB connected successfully
+2025-12-08 10:46:02 info: User sign-in started
+2025-12-08 10:46:03 info: Verifying JWT token
+2025-12-08 10:46:03 info: Verifying JWT token
+2025-12-08 10:46:03 info: Verifying JWT token
+2025-12-08 10:46:03 info: Getting three random tweets
+2025-12-08 10:46:03 info: Fetching random users for tweet
+2025-12-08 10:46:03 info: Get follower controller called
+2025-12-08 10:46:03 info: Verifying JWT token
+2025-12-08 10:46:03 info: Verifying JWT token
+2025-12-08 10:46:03 info: Getting three random tweets
+2025-12-08 10:46:03 info: Verifying JWT token
+2025-12-08 10:46:03 info: Fetching random users for tweet
+2025-12-08 10:46:03 info: Get follower controller called
+2025-12-08 10:46:05 info: Verifying JWT token
+2025-12-08 10:46:05 info: Getting replies for tweet
+2025-12-08 10:46:06 info: Verifying JWT token
+2025-12-08 10:46:06 info: Getting replies for tweet
+2025-12-08 10:46:09 info: Verifying JWT token
+2025-12-08 10:46:10 info: Auth Me Route Accessed
+2025-12-08 10:46:10 info: Verifying JWT token
+2025-12-08 10:46:10 info: Verifying JWT token
+2025-12-08 10:46:10 info: Verifying JWT token
+2025-12-08 10:46:10 info: Verifying JWT token
+2025-12-08 10:46:10 info: Auth Me Route Accessed
+2025-12-08 10:46:10 info: Fetching random users for tweet
+2025-12-08 10:46:10 info: Getting three random tweets
+2025-12-08 10:46:10 info: Get follower controller called
+2025-12-08 10:46:10 info: Verifying JWT token
+2025-12-08 10:46:10 info: Fetching random users for tweet
+2025-12-08 10:46:10 info: Verifying JWT token
+2025-12-08 10:46:10 info: Verifying JWT token
+2025-12-08 10:46:10 info: Get follower controller called
+2025-12-08 10:46:10 info: Getting three random tweets
+2025-12-08 10:46:12 info: Verifying JWT token
+2025-12-08 10:46:12 info: Auth Me Route Accessed
+2025-12-08 10:46:12 info: Verifying JWT token
+2025-12-08 10:46:12 info: Verifying JWT token
+2025-12-08 10:46:12 info: Verifying JWT token
+2025-12-08 10:46:12 info: Verifying JWT token
+2025-12-08 10:46:12 info: Auth Me Route Accessed
+2025-12-08 10:46:12 info: Getting three random tweets
+2025-12-08 10:46:12 info: Get follower controller called
+2025-12-08 10:46:12 info: Fetching random users for tweet
+2025-12-08 10:46:12 info: Verifying JWT token
+2025-12-08 10:46:12 info: Verifying JWT token
+2025-12-08 10:46:12 info: Verifying JWT token
+2025-12-08 10:46:13 info: Get follower controller called
+2025-12-08 10:46:13 info: Fetching random users for tweet
+2025-12-08 10:46:13 info: Getting three random tweets
+2025-12-08 10:46:14 info: Verifying JWT token
+2025-12-08 10:46:14 info: Auth Me Route Accessed
+2025-12-08 10:46:14 info: Verifying JWT token
+2025-12-08 10:46:14 info: Verifying JWT token
+2025-12-08 10:46:14 info: Verifying JWT token
+2025-12-08 10:46:14 info: Verifying JWT token
+2025-12-08 10:46:14 info: Auth Me Route Accessed
+2025-12-08 10:46:14 info: Fetching random users for tweet
+2025-12-08 10:46:14 info: Getting three random tweets
+2025-12-08 10:46:14 info: Get follower controller called
+2025-12-08 10:46:15 info: Verifying JWT token
+2025-12-08 10:46:15 info: Verifying JWT token
+2025-12-08 10:46:15 info: Verifying JWT token
+2025-12-08 10:46:15 info: Fetching random users for tweet
+2025-12-08 10:46:15 info: Getting three random tweets
+2025-12-08 10:46:15 info: Get follower controller called
+2025-12-08 10:46:16 info: Verifying JWT token
+2025-12-08 10:46:17 info: Auth Me Route Accessed
+2025-12-08 10:46:17 info: Verifying JWT token
+2025-12-08 10:46:17 info: Verifying JWT token
+2025-12-08 10:46:17 info: Verifying JWT token
+2025-12-08 10:46:17 info: Verifying JWT token
+2025-12-08 10:46:17 info: Auth Me Route Accessed
+2025-12-08 10:46:17 info: Fetching random users for tweet
+2025-12-08 10:46:17 info: Getting three random tweets
+2025-12-08 10:46:17 info: Get follower controller called
+2025-12-08 10:46:17 info: Verifying JWT token
+2025-12-08 10:46:17 info: Verifying JWT token
+2025-12-08 10:46:17 info: Verifying JWT token
+2025-12-08 10:46:17 info: Getting three random tweets
+2025-12-08 10:46:17 info: Get follower controller called
+2025-12-08 10:46:17 info: Fetching random users for tweet
+2025-12-08 10:46:18 info: Verifying JWT token
+2025-12-08 10:46:18 info: Auth Me Route Accessed
+2025-12-08 10:46:18 info: Verifying JWT token
+2025-12-08 10:46:18 info: Verifying JWT token
+2025-12-08 10:46:18 info: Verifying JWT token
+2025-12-08 10:46:18 info: Verifying JWT token
+2025-12-08 10:46:19 info: Auth Me Route Accessed
+2025-12-08 10:46:19 info: Fetching random users for tweet
+2025-12-08 10:46:19 info: Getting three random tweets
+2025-12-08 10:46:19 info: Get follower controller called
+2025-12-08 10:46:19 info: Verifying JWT token
+2025-12-08 10:46:19 info: Verifying JWT token
+2025-12-08 10:46:19 info: Verifying JWT token
+2025-12-08 10:46:19 info: Getting three random tweets
+2025-12-08 10:46:19 info: Fetching random users for tweet
+2025-12-08 10:46:19 info: Get follower controller called
+2025-12-08 10:46:20 info: Verifying JWT token
+2025-12-08 10:46:20 info: Auth Me Route Accessed
+2025-12-08 10:46:20 info: Verifying JWT token
+2025-12-08 10:46:20 info: Verifying JWT token
+2025-12-08 10:46:20 info: Verifying JWT token
+2025-12-08 10:46:20 info: Verifying JWT token
+2025-12-08 10:46:21 info: Auth Me Route Accessed
+2025-12-08 10:46:21 info: Getting three random tweets
+2025-12-08 10:46:21 info: Get follower controller called
+2025-12-08 10:46:21 info: Fetching random users for tweet
+2025-12-08 10:46:21 info: Verifying JWT token
+2025-12-08 10:46:21 info: Getting three random tweets
+2025-12-08 10:46:21 info: Verifying JWT token
+2025-12-08 10:46:21 info: Verifying JWT token
+2025-12-08 10:46:21 info: Get follower controller called
+2025-12-08 10:46:21 info: Fetching random users for tweet
+2025-12-08 10:46:22 info: Verifying JWT token
+2025-12-08 10:46:22 info: Auth Me Route Accessed
+2025-12-08 10:46:22 info: Verifying JWT token
+2025-12-08 10:46:22 info: Verifying JWT token
+2025-12-08 10:46:22 info: Verifying JWT token
+2025-12-08 10:46:22 info: Verifying JWT token
+2025-12-08 10:46:22 info: Auth Me Route Accessed
+2025-12-08 10:46:22 info: Get follower controller called
+2025-12-08 10:46:22 info: Fetching random users for tweet
+2025-12-08 10:46:22 info: Getting three random tweets
+2025-12-08 10:46:22 info: Verifying JWT token
+2025-12-08 10:46:22 info: Verifying JWT token
+2025-12-08 10:46:22 info: Verifying JWT token
+2025-12-08 10:46:22 info: Get follower controller called
+2025-12-08 10:46:23 info: Fetching random users for tweet
+2025-12-08 10:46:23 info: Getting three random tweets
+2025-12-08 10:46:24 info: Verifying JWT token
+2025-12-08 10:46:24 info: Getting retweets for tweet
+2025-12-08 10:46:58 info: Verifying JWT token
+2025-12-08 10:46:59 info: Getting replies for tweet
+2025-12-08 10:46:59 info: Verifying JWT token
+2025-12-08 10:46:59 info: Getting replies for tweet
+2025-12-08 10:47:01 info: Verifying JWT token
+2025-12-08 10:47:01 info: Getting retweets for tweet
+2025-12-08 10:47:02 info: Verifying JWT token
+2025-12-08 10:47:02 info: Getting retweets for tweet
+2025-12-08 10:47:02 info: Verifying JWT token
+2025-12-08 10:47:03 info: Unliking tweet
+2025-12-08 10:47:03 info: Verifying JWT token
+2025-12-08 10:47:04 info: Liking tweet
+2025-12-08 10:47:05 info: Verifying JWT token
+2025-12-08 10:47:06 info: Getting retweets for tweet
+2025-12-08 10:47:10 info: Verifying JWT token
+2025-12-08 10:47:10 info: Getting retweets for tweet
+2025-12-08 10:47:51 info: Verifying JWT token
+2025-12-08 10:47:51 info: Auth Me Route Accessed
+2025-12-08 10:47:51 info: Verifying JWT token
+2025-12-08 10:47:51 info: Verifying JWT token
+2025-12-08 10:47:51 info: Verifying JWT token
+2025-12-08 10:47:51 info: Verifying JWT token
+2025-12-08 10:47:51 info: Auth Me Route Accessed
+2025-12-08 10:47:51 info: Getting three random tweets
+2025-12-08 10:47:51 info: Get follower controller called
+2025-12-08 10:47:51 info: Fetching random users for tweet
+2025-12-08 10:47:51 info: Verifying JWT token
+2025-12-08 10:47:51 info: Getting three random tweets
+2025-12-08 10:47:51 info: Verifying JWT token
+2025-12-08 10:47:51 info: Verifying JWT token
+2025-12-08 10:47:52 info: Get follower controller called
+2025-12-08 10:47:52 info: Fetching random users for tweet
+2025-12-08 10:48:25 info: Verifying JWT token
+2025-12-08 10:48:25 info: Auth Me Route Accessed
+2025-12-08 10:48:25 info: Verifying JWT token
+2025-12-08 10:48:25 info: Verifying JWT token
+2025-12-08 10:48:25 info: Verifying JWT token
+2025-12-08 10:48:25 info: Verifying JWT token
+2025-12-08 10:48:25 info: Auth Me Route Accessed
+2025-12-08 10:48:25 info: Get follower controller called
+2025-12-08 10:48:25 info: Getting three random tweets
+2025-12-08 10:48:25 info: Fetching random users for tweet
+2025-12-08 10:48:25 info: Verifying JWT token
+2025-12-08 10:48:25 info: Verifying JWT token
+2025-12-08 10:48:25 info: Verifying JWT token
+2025-12-08 10:48:25 info: Get follower controller called
+2025-12-08 10:48:25 info: Getting three random tweets
+2025-12-08 10:48:25 info: Fetching random users for tweet
+2025-12-08 10:48:31 info: Verifying JWT token
+2025-12-08 10:48:31 info: Verifying JWT token
+2025-12-08 10:48:32 info: Auth Me Route Accessed
+2025-12-08 10:48:32 info: Auth Me Route Accessed
+2025-12-08 10:48:33 info: User sign-in started
+2025-12-08 10:48:34 info: Verifying JWT token
+2025-12-08 10:48:34 info: Verifying JWT token
+2025-12-08 10:48:34 info: Verifying JWT token
+2025-12-08 10:48:34 info: Verifying JWT token
+2025-12-08 10:48:34 info: Verifying JWT token
+2025-12-08 10:48:34 info: Verifying JWT token
+2025-12-08 10:48:34 info: Getting three random tweets
+2025-12-08 10:48:34 info: Fetching random users for tweet
+2025-12-08 10:48:34 info: Get follower controller called
+2025-12-08 10:48:34 info: Getting three random tweets
+2025-12-08 10:48:34 info: Get follower controller called
+2025-12-08 10:48:34 info: Fetching random users for tweet
+2025-12-08 10:48:36 info: Verifying JWT token
+2025-12-08 10:48:36 info: Getting retweets for tweet
+2025-12-08 10:48:39 info: Verifying JWT token
+2025-12-08 10:48:39 info: Getting retweets for tweet
+2025-12-08 10:48:40 info: Verifying JWT token
+2025-12-08 10:48:41 info: Getting retweets for tweet
+2025-12-08 10:48:47 info: Verifying JWT token
+2025-12-08 10:48:47 info: Verifying JWT token
+2025-12-08 10:48:47 info: Auth Me Route Accessed
+2025-12-08 10:48:47 info: Auth Me Route Accessed
+2025-12-08 10:48:47 info: Verifying JWT token
+2025-12-08 10:48:47 info: Verifying JWT token
+2025-12-08 10:48:47 info: Verifying JWT token
+2025-12-08 10:48:47 info: Verifying JWT token
+2025-12-08 10:48:47 info: Verifying JWT token
+2025-12-08 10:48:47 info: Verifying JWT token
+2025-12-08 10:48:47 info: Fetching random users for tweet
+2025-12-08 10:48:47 info: Getting three random tweets
+2025-12-08 10:48:47 info: Get follower controller called
+2025-12-08 10:48:47 info: Fetching random users for tweet
+2025-12-08 10:48:47 info: Getting three random tweets
+2025-12-08 10:48:47 info: Get follower controller called
+2025-12-08 10:48:50 info: Verifying JWT token
+2025-12-08 10:48:50 info: Auth Me Route Accessed
+2025-12-08 10:48:50 info: Verifying JWT token
+2025-12-08 10:48:50 info: Verifying JWT token
+2025-12-08 10:48:50 info: Verifying JWT token
+2025-12-08 10:48:50 info: Verifying JWT token
+2025-12-08 10:48:50 info: Auth Me Route Accessed
+2025-12-08 10:48:50 info: Get follower controller called
+2025-12-08 10:48:50 info: Fetching random users for tweet
+2025-12-08 10:48:50 info: Getting three random tweets
+2025-12-08 10:48:50 info: Verifying JWT token
+2025-12-08 10:48:50 info: Verifying JWT token
+2025-12-08 10:48:50 info: Verifying JWT token
+2025-12-08 10:48:50 info: Getting three random tweets
+2025-12-08 10:48:50 info: Fetching random users for tweet
+2025-12-08 10:48:50 info: Get follower controller called
+2025-12-08 10:48:53 info: Verifying JWT token
+2025-12-08 10:48:53 info: Auth Me Route Accessed
+2025-12-08 10:48:53 info: Verifying JWT token
+2025-12-08 10:48:53 info: Verifying JWT token
+2025-12-08 10:48:53 info: Verifying JWT token
+2025-12-08 10:48:53 info: Verifying JWT token
+2025-12-08 10:48:53 info: Auth Me Route Accessed
+2025-12-08 10:48:53 info: Fetching random users for tweet
+2025-12-08 10:48:53 info: Getting three random tweets
+2025-12-08 10:48:53 info: Get follower controller called
+2025-12-08 10:48:53 info: Verifying JWT token
+2025-12-08 10:48:53 info: Verifying JWT token
+2025-12-08 10:48:53 info: Fetching random users for tweet
+2025-12-08 10:48:53 info: Getting three random tweets
+2025-12-08 10:48:53 info: Verifying JWT token
+2025-12-08 10:48:53 info: Get follower controller called
+2025-12-08 10:48:57 info: Verifying JWT token
+2025-12-08 10:48:57 info: Auth Me Route Accessed
+2025-12-08 10:48:57 info: Verifying JWT token
+2025-12-08 10:48:57 info: Verifying JWT token
+2025-12-08 10:48:57 info: Verifying JWT token
+2025-12-08 10:48:57 info: Verifying JWT token
+2025-12-08 10:48:57 info: Auth Me Route Accessed
+2025-12-08 10:48:57 info: Fetching random users for tweet
+2025-12-08 10:48:57 info: Get follower controller called
+2025-12-08 10:48:57 info: Getting three random tweets
+2025-12-08 10:48:57 info: Verifying JWT token
+2025-12-08 10:48:57 info: Verifying JWT token
+2025-12-08 10:48:57 info: Verifying JWT token
+2025-12-08 10:48:57 info: Get follower controller called
+2025-12-08 10:48:57 info: Getting three random tweets
+2025-12-08 10:48:57 info: Fetching random users for tweet
+2025-12-08 10:49:11 info: Verifying JWT token
+2025-12-08 10:49:11 info: Retweeting tweet
+2025-12-08 10:49:37 info: Verifying JWT token
+2025-12-08 10:49:37 info: Auth Me Route Accessed
+2025-12-08 10:49:37 info: Verifying JWT token
+2025-12-08 10:49:37 info: Verifying JWT token
+2025-12-08 10:49:37 info: Verifying JWT token
+2025-12-08 10:49:37 info: Verifying JWT token
+2025-12-08 10:49:37 info: Auth Me Route Accessed
+2025-12-08 10:49:37 info: Getting three random tweets
+2025-12-08 10:49:37 info: Fetching random users for tweet
+2025-12-08 10:49:37 info: Get follower controller called
+2025-12-08 10:49:37 info: Verifying JWT token
+2025-12-08 10:49:38 info: Getting three random tweets
+2025-12-08 10:49:38 info: Verifying JWT token
+2025-12-08 10:49:38 info: Verifying JWT token
+2025-12-08 10:49:38 info: Get follower controller called
+2025-12-08 10:49:38 info: Fetching random users for tweet
+2025-12-08 10:50:17 info: Connecting to MongoDB...
+2025-12-08 10:50:24 info: Connecting to MongoDB...
+2025-12-08 10:50:24 info: MongoDB connected successfully
+2025-12-08 10:50:40 info: Connecting to MongoDB...
+2025-12-08 10:50:41 info: MongoDB connected successfully
+2025-12-08 10:51:31 info: Verifying JWT token
+2025-12-08 10:51:31 info: Getting retweets for tweet
+2025-12-08 10:51:36 info: Verifying JWT token
+2025-12-08 10:51:36 info: Getting retweets for tweet
+2025-12-08 10:51:37 info: Verifying JWT token
+2025-12-08 10:51:37 info: Getting retweets for tweet
+2025-12-08 10:51:53 info: Verifying JWT token
+2025-12-08 10:51:53 info: Auth Me Route Accessed
+2025-12-08 10:51:53 info: Verifying JWT token
+2025-12-08 10:51:53 info: Verifying JWT token
+2025-12-08 10:51:53 info: Verifying JWT token
+2025-12-08 10:51:53 info: Verifying JWT token
+2025-12-08 10:51:53 info: Auth Me Route Accessed
+2025-12-08 10:51:53 info: Fetching random users for tweet
+2025-12-08 10:51:53 info: Get follower controller called
+2025-12-08 10:51:53 info: Getting three random tweets
+2025-12-08 10:51:53 info: Verifying JWT token
+2025-12-08 10:51:53 info: Verifying JWT token
+2025-12-08 10:51:53 info: Verifying JWT token
+2025-12-08 10:51:53 info: Fetching random users for tweet
+2025-12-08 10:51:53 info: Getting three random tweets
+2025-12-08 10:51:53 info: Get follower controller called
+2025-12-08 10:51:55 info: Verifying JWT token
+2025-12-08 10:51:56 info: Retweeting tweet
+2025-12-08 10:51:57 info: Verifying JWT token
+2025-12-08 10:51:57 info: Retweeting tweet
+2025-12-08 10:53:07 info: Connecting to MongoDB...
+2025-12-08 10:53:12 info: MongoDB connected successfully
+2025-12-08 10:53:27 info: Verifying JWT token
+2025-12-08 10:53:27 info: Auth Me Route Accessed
+2025-12-08 10:53:27 info: Verifying JWT token
+2025-12-08 10:53:27 info: Verifying JWT token
+2025-12-08 10:53:27 info: Verifying JWT token
+2025-12-08 10:53:27 info: Verifying JWT token
+2025-12-08 10:53:28 info: Auth Me Route Accessed
+2025-12-08 10:53:28 info: Getting three random tweets
+2025-12-08 10:53:28 info: Get follower controller called
+2025-12-08 10:53:28 info: Fetching random users for tweet
+2025-12-08 10:53:28 info: Verifying JWT token
+2025-12-08 10:53:28 info: Verifying JWT token
+2025-12-08 10:53:28 info: Verifying JWT token
+2025-12-08 10:53:28 info: Getting three random tweets
+2025-12-08 10:53:28 info: Get follower controller called
+2025-12-08 10:53:28 info: Fetching random users for tweet
+2025-12-08 10:53:29 info: Verifying JWT token
+2025-12-08 10:53:29 info: Getting retweets for tweet
+2025-12-08 10:57:55 info: Verifying JWT token
+2025-12-08 10:57:55 info: Getting retweets for tweet
+2025-12-08 10:57:57 info: Verifying JWT token
+2025-12-08 10:57:57 info: Getting retweets for tweet
+2025-12-08 10:58:55 info: Verifying JWT token
+2025-12-08 10:58:55 info: Get all conversations called
+2025-12-08 10:58:55 info: Verifying JWT token
+2025-12-08 10:58:55 info: Get all conversations called
+2025-12-08 10:58:56 info: Verifying JWT token
+2025-12-08 10:58:56 info: Getting notifications for user
+2025-12-08 10:58:56 info: Verifying JWT token
+2025-12-08 10:58:56 info: Getting notifications for user
+2025-12-08 10:58:56 info: Verifying JWT token
+2025-12-08 10:58:56 info: Getting user tweets
+2025-12-08 10:58:56 info: Verifying JWT token
+2025-12-08 10:58:57 info: Getting user tweets
+2025-12-08 10:58:57 info: Verifying JWT token
+2025-12-08 10:58:57 info: Getting notifications for user
+2025-12-08 10:58:58 info: Verifying JWT token
+2025-12-08 10:58:58 info: Getting notifications for user
+2025-12-08 10:58:58 info: Verifying JWT token
+2025-12-08 10:58:58 info: Getting user tweets
+2025-12-08 10:58:58 info: Verifying JWT token
+2025-12-08 10:58:58 info: Getting user tweets
+2025-12-08 10:59:08 info: Verifying JWT token
+2025-12-08 10:59:08 info: Getting notifications for user
+2025-12-08 10:59:09 info: Verifying JWT token
+2025-12-08 10:59:09 info: Getting notifications for user
+2025-12-08 10:59:09 info: Verifying JWT token
+2025-12-08 10:59:09 info: Getting three random tweets
+2025-12-08 10:59:09 info: Verifying JWT token
+2025-12-08 10:59:09 info: Getting three random tweets
+2025-12-08 10:59:32 info: Verifying JWT token
+2025-12-08 10:59:32 info: Auth Me Route Accessed
+2025-12-08 10:59:32 info: Verifying JWT token
+2025-12-08 10:59:32 info: Verifying JWT token
+2025-12-08 10:59:32 info: Verifying JWT token
+2025-12-08 10:59:32 info: Verifying JWT token
+2025-12-08 10:59:32 info: Auth Me Route Accessed
+2025-12-08 10:59:32 info: Getting three random tweets
+2025-12-08 10:59:32 info: Fetching random users for tweet
+2025-12-08 10:59:32 info: Get follower controller called
+2025-12-08 10:59:33 info: Verifying JWT token
+2025-12-08 10:59:33 info: Verifying JWT token
+2025-12-08 10:59:33 info: Verifying JWT token
+2025-12-08 10:59:33 info: Get follower controller called
+2025-12-08 10:59:33 info: Fetching random users for tweet
+2025-12-08 10:59:33 info: Getting three random tweets
+2025-12-08 10:59:34 info: Verifying JWT token
+2025-12-08 10:59:34 info: Getting retweets for tweet
+2025-12-08 11:01:08 info: Verifying JWT token
+2025-12-08 11:01:08 info: Auth Me Route Accessed
+2025-12-08 11:01:08 info: Verifying JWT token
+2025-12-08 11:01:08 info: Verifying JWT token
+2025-12-08 11:01:08 info: Verifying JWT token
+2025-12-08 11:01:08 info: Verifying JWT token
+2025-12-08 11:01:08 info: Auth Me Route Accessed
+2025-12-08 11:01:08 info: Get follower controller called
+2025-12-08 11:01:08 info: Fetching random users for tweet
+2025-12-08 11:01:08 info: Getting three random tweets
+2025-12-08 11:01:09 info: Verifying JWT token
+2025-12-08 11:01:09 info: Verifying JWT token
+2025-12-08 11:01:09 info: Verifying JWT token
+2025-12-08 11:01:09 info: Getting three random tweets
+2025-12-08 11:01:09 info: Fetching random users for tweet
+2025-12-08 11:01:09 info: Get follower controller called
+2025-12-08 11:01:10 info: Verifying JWT token
+2025-12-08 11:01:10 info: Getting retweets for tweet
+2025-12-08 11:03:14 info: Verifying JWT token
+2025-12-08 11:03:15 info: Auth Me Route Accessed
+2025-12-08 11:03:15 info: Verifying JWT token
+2025-12-08 11:03:15 info: Verifying JWT token
+2025-12-08 11:03:15 info: Verifying JWT token
+2025-12-08 11:03:15 info: Verifying JWT token
+2025-12-08 11:03:15 info: Auth Me Route Accessed
+2025-12-08 11:03:15 info: Fetching random users for tweet
+2025-12-08 11:03:15 info: Getting three random tweets
+2025-12-08 11:03:15 info: Get follower controller called
+2025-12-08 11:03:15 info: Verifying JWT token
+2025-12-08 11:03:15 info: Verifying JWT token
+2025-12-08 11:03:15 info: Verifying JWT token
+2025-12-08 11:03:15 info: Fetching random users for tweet
+2025-12-08 11:03:15 info: Getting three random tweets
+2025-12-08 11:03:15 info: Get follower controller called
+2025-12-08 11:03:17 info: Verifying JWT token
+2025-12-08 11:03:17 info: Getting retweets for tweet
+2025-12-08 11:04:53 info: Connecting to MongoDB...
+2025-12-08 11:05:06 info: Connecting to MongoDB...
+2025-12-08 11:05:06 info: MongoDB connected successfully
+2025-12-08 11:06:10 info: Verifying JWT token
+2025-12-08 11:06:10 info: Auth Me Route Accessed
+2025-12-08 11:06:10 info: Verifying JWT token
+2025-12-08 11:06:10 info: Verifying JWT token
+2025-12-08 11:06:10 info: Verifying JWT token
+2025-12-08 11:06:10 info: Verifying JWT token
+2025-12-08 11:06:10 info: Auth Me Route Accessed
+2025-12-08 11:06:10 info: Fetching random users for tweet
+2025-12-08 11:06:10 info: Getting three random tweets
+2025-12-08 11:06:10 info: Get follower controller called
+2025-12-08 11:06:10 info: Verifying JWT token
+2025-12-08 11:06:10 info: Verifying JWT token
+2025-12-08 11:06:10 info: Verifying JWT token
+2025-12-08 11:06:11 info: Fetching random users for tweet
+2025-12-08 11:06:11 info: Getting three random tweets
+2025-12-08 11:06:11 info: Get follower controller called
+2025-12-08 11:06:11 info: Verifying JWT token
+2025-12-08 11:06:12 info: Getting retweets for tweet
+2025-12-08 11:06:22 info: Verifying JWT token
+2025-12-08 11:06:23 info: Auth Me Route Accessed
+2025-12-08 11:06:23 info: Verifying JWT token
+2025-12-08 11:06:23 info: Verifying JWT token
+2025-12-08 11:06:23 info: Verifying JWT token
+2025-12-08 11:06:23 info: Verifying JWT token
+2025-12-08 11:06:23 info: Auth Me Route Accessed
+2025-12-08 11:06:23 info: Fetching random users for tweet
+2025-12-08 11:06:23 info: Getting three random tweets
+2025-12-08 11:06:23 info: Get follower controller called
+2025-12-08 11:06:23 info: Verifying JWT token
+2025-12-08 11:06:23 info: Verifying JWT token
+2025-12-08 11:06:23 info: Verifying JWT token
+2025-12-08 11:06:23 info: Fetching random users for tweet
+2025-12-08 11:06:23 info: Get follower controller called
+2025-12-08 11:06:23 info: Getting three random tweets
+2025-12-08 11:06:23 info: Verifying JWT token
+2025-12-08 11:06:24 info: Getting retweets for tweet
+2025-12-08 11:06:27 info: Verifying JWT token
+2025-12-08 11:06:27 info: Retweeting tweet
+2025-12-08 11:06:30 info: Verifying JWT token
+2025-12-08 11:06:30 info: Retweeting tweet
+2025-12-08 11:06:35 info: Verifying JWT token
+2025-12-08 11:06:35 info: Getting retweets for tweet
+2025-12-08 11:06:41 info: Verifying JWT token
+2025-12-08 11:06:41 info: Getting retweets for tweet
+2025-12-08 11:06:43 info: Verifying JWT token
+2025-12-08 11:06:43 info: Retweeting tweet
+2025-12-08 11:06:46 info: Verifying JWT token
+2025-12-08 11:06:46 info: Retweeting tweet
+2025-12-08 11:08:14 info: Verifying JWT token
+2025-12-08 11:08:14 info: Auth Me Route Accessed
+2025-12-08 11:08:14 info: Verifying JWT token
+2025-12-08 11:08:14 info: Verifying JWT token
+2025-12-08 11:08:14 info: Verifying JWT token
+2025-12-08 11:08:14 info: Verifying JWT token
+2025-12-08 11:08:14 info: Auth Me Route Accessed
+2025-12-08 11:08:14 info: Getting three random tweets
+2025-12-08 11:08:14 info: Fetching random users for tweet
+2025-12-08 11:08:14 info: Get follower controller called
+2025-12-08 11:08:14 info: Verifying JWT token
+2025-12-08 11:08:14 info: Verifying JWT token
+2025-12-08 11:08:14 info: Verifying JWT token
+2025-12-08 11:08:14 info: Fetching random users for tweet
+2025-12-08 11:08:14 info: Get follower controller called
+2025-12-08 11:08:14 info: Getting three random tweets
+2025-12-08 11:08:15 info: Verifying JWT token
+2025-12-08 11:08:15 info: Auth Me Route Accessed
+2025-12-08 11:08:15 info: Verifying JWT token
+2025-12-08 11:08:15 info: Verifying JWT token
+2025-12-08 11:08:15 info: Verifying JWT token
+2025-12-08 11:08:15 info: Verifying JWT token
+2025-12-08 11:08:15 info: Auth Me Route Accessed
+2025-12-08 11:08:15 info: Getting three random tweets
+2025-12-08 11:08:15 info: Get follower controller called
+2025-12-08 11:08:15 info: Fetching random users for tweet
+2025-12-08 11:08:16 info: Verifying JWT token
+2025-12-08 11:08:16 info: Verifying JWT token
+2025-12-08 11:08:16 info: Verifying JWT token
+2025-12-08 11:08:16 info: Getting three random tweets
+2025-12-08 11:08:16 info: Get follower controller called
+2025-12-08 11:08:16 info: Fetching random users for tweet
+2025-12-08 11:08:17 info: Verifying JWT token
+2025-12-08 11:08:18 info: Getting retweets for tweet
+2025-12-08 11:08:28 info: Verifying JWT token
+2025-12-08 11:08:29 info: Getting retweets for tweet
+2025-12-08 11:08:31 info: Verifying JWT token
+2025-12-08 11:08:31 info: Retweeting tweet
+2025-12-08 11:08:37 info: Verifying JWT token
+2025-12-08 11:08:37 info: Auth Me Route Accessed
+2025-12-08 11:08:37 info: Verifying JWT token
+2025-12-08 11:08:37 info: Verifying JWT token
+2025-12-08 11:08:37 info: Verifying JWT token
+2025-12-08 11:08:37 info: Verifying JWT token
+2025-12-08 11:08:37 info: Auth Me Route Accessed
+2025-12-08 11:08:37 info: Getting three random tweets
+2025-12-08 11:08:37 info: Fetching random users for tweet
+2025-12-08 11:08:37 info: Get follower controller called
+2025-12-08 11:08:37 info: Verifying JWT token
+2025-12-08 11:08:37 info: Verifying JWT token
+2025-12-08 11:08:37 info: Verifying JWT token
+2025-12-08 11:08:38 info: Fetching random users for tweet
+2025-12-08 11:08:38 info: Getting three random tweets
+2025-12-08 11:08:38 info: Get follower controller called
+2025-12-08 11:08:39 info: Verifying JWT token
+2025-12-08 11:08:39 info: Getting retweets for tweet
+2025-12-08 11:08:40 info: Verifying JWT token
+2025-12-08 11:08:40 info: Retweeting tweet
+2025-12-08 11:08:56 info: Verifying JWT token
+2025-12-08 11:08:56 info: Getting retweets for tweet
+2025-12-08 11:08:56 info: Verifying JWT token
+2025-12-08 11:08:56 info: Retweeting tweet
+2025-12-08 11:09:02 info: Verifying JWT token
+2025-12-08 11:09:02 info: Auth Me Route Accessed
+2025-12-08 11:09:02 info: Verifying JWT token
+2025-12-08 11:09:02 info: Verifying JWT token
+2025-12-08 11:09:02 info: Verifying JWT token
+2025-12-08 11:09:02 info: Verifying JWT token
+2025-12-08 11:09:02 info: Auth Me Route Accessed
+2025-12-08 11:09:02 info: Fetching random users for tweet
+2025-12-08 11:09:02 info: Get follower controller called
+2025-12-08 11:09:02 info: Getting three random tweets
+2025-12-08 11:09:02 info: Verifying JWT token
+2025-12-08 11:09:02 info: Verifying JWT token
+2025-12-08 11:09:02 info: Verifying JWT token
+2025-12-08 11:09:02 info: Fetching random users for tweet
+2025-12-08 11:09:02 info: Getting three random tweets
+2025-12-08 11:09:02 info: Get follower controller called
+2025-12-08 11:09:06 info: Verifying JWT token
+2025-12-08 11:09:06 info: Getting retweets for tweet
+2025-12-08 11:10:16 info: Verifying JWT token
+2025-12-08 11:10:16 info: Verifying JWT token
+2025-12-08 11:10:16 info: Verifying JWT token
+2025-12-08 11:10:16 info: Getting three random tweets
+2025-12-08 11:10:16 info: Get follower controller called
+2025-12-08 11:10:16 info: Fetching random users for tweet
+2025-12-08 11:10:16 info: Verifying JWT token
+2025-12-08 11:10:16 info: Verifying JWT token
+2025-12-08 11:10:16 info: Verifying JWT token
+2025-12-08 11:10:16 info: Fetching random users for tweet
+2025-12-08 11:10:16 info: Get follower controller called
+2025-12-08 11:10:16 info: Getting three random tweets
+2025-12-08 11:10:21 info: Verifying JWT token
+2025-12-08 11:10:21 info: Getting retweets for tweet
+2025-12-08 11:10:22 info: Verifying JWT token
+2025-12-08 11:10:22 info: Auth Me Route Accessed
+2025-12-08 11:10:22 info: Verifying JWT token
+2025-12-08 11:10:22 info: Verifying JWT token
+2025-12-08 11:10:22 info: Verifying JWT token
+2025-12-08 11:10:22 info: Verifying JWT token
+2025-12-08 11:10:22 info: Auth Me Route Accessed
+2025-12-08 11:10:22 info: Fetching random users for tweet
+2025-12-08 11:10:22 info: Get follower controller called
+2025-12-08 11:10:22 info: Getting three random tweets
+2025-12-08 11:10:22 info: Verifying JWT token
+2025-12-08 11:10:22 info: Verifying JWT token
+2025-12-08 11:10:22 info: Verifying JWT token
+2025-12-08 11:10:22 info: Get follower controller called
+2025-12-08 11:10:22 info: Fetching random users for tweet
+2025-12-08 11:10:22 info: Getting three random tweets
+2025-12-08 11:10:23 info: Verifying JWT token
+2025-12-08 11:10:23 info: Getting retweets for tweet
+2025-12-08 11:11:36 info: Verifying JWT token
+2025-12-08 11:11:37 info: Auth Me Route Accessed
+2025-12-08 11:11:37 info: Verifying JWT token
+2025-12-08 11:11:37 info: Verifying JWT token
+2025-12-08 11:11:37 info: Verifying JWT token
+2025-12-08 11:11:37 info: Verifying JWT token
+2025-12-08 11:11:37 info: Auth Me Route Accessed
+2025-12-08 11:11:37 info: Get follower controller called
+2025-12-08 11:11:37 info: Fetching random users for tweet
+2025-12-08 11:11:37 info: Getting three random tweets
+2025-12-08 11:11:37 info: Verifying JWT token
+2025-12-08 11:11:37 info: Verifying JWT token
+2025-12-08 11:11:37 info: Verifying JWT token
+2025-12-08 11:11:37 info: Getting three random tweets
+2025-12-08 11:11:37 info: Get follower controller called
+2025-12-08 11:11:37 info: Fetching random users for tweet
+2025-12-08 11:11:38 info: Verifying JWT token
+2025-12-08 11:11:38 info: Getting retweets for tweet
+2025-12-08 11:11:42 info: Verifying JWT token
+2025-12-08 11:11:42 info: Getting retweets for tweet
+2025-12-08 11:11:45 info: Verifying JWT token
+2025-12-08 11:11:46 info: Getting retweets for tweet
+2025-12-08 11:11:48 info: Verifying JWT token
+2025-12-08 11:11:48 info: Retweeting tweet
+2025-12-08 11:11:55 info: Verifying JWT token
+2025-12-08 11:11:55 info: Auth Me Route Accessed
+2025-12-08 11:11:55 info: Verifying JWT token
+2025-12-08 11:11:55 info: Verifying JWT token
+2025-12-08 11:11:55 info: Verifying JWT token
+2025-12-08 11:11:55 info: Verifying JWT token
+2025-12-08 11:11:55 info: Auth Me Route Accessed
+2025-12-08 11:11:55 info: Getting three random tweets
+2025-12-08 11:11:55 info: Fetching random users for tweet
+2025-12-08 11:11:55 info: Get follower controller called
+2025-12-08 11:11:55 info: Verifying JWT token
+2025-12-08 11:11:55 info: Verifying JWT token
+2025-12-08 11:11:55 info: Verifying JWT token
+2025-12-08 11:11:55 info: Getting three random tweets
+2025-12-08 11:11:55 info: Fetching random users for tweet
+2025-12-08 11:11:55 info: Get follower controller called
+2025-12-08 11:11:56 info: Verifying JWT token
+2025-12-08 11:11:57 info: Getting retweets for tweet
+2025-12-08 11:11:59 info: Verifying JWT token
+2025-12-08 11:12:00 info: Retweeting tweet
+2025-12-08 11:12:02 info: Verifying JWT token
+2025-12-08 11:12:02 info: Auth Me Route Accessed
+2025-12-08 11:12:02 info: Verifying JWT token
+2025-12-08 11:12:02 info: Verifying JWT token
+2025-12-08 11:12:02 info: Verifying JWT token
+2025-12-08 11:12:02 info: Verifying JWT token
+2025-12-08 11:12:02 info: Auth Me Route Accessed
+2025-12-08 11:12:02 info: Fetching random users for tweet
+2025-12-08 11:12:02 info: Getting three random tweets
+2025-12-08 11:12:02 info: Get follower controller called
+2025-12-08 11:12:02 info: Verifying JWT token
+2025-12-08 11:12:02 info: Verifying JWT token
+2025-12-08 11:12:02 info: Verifying JWT token
+2025-12-08 11:12:02 info: Getting three random tweets
+2025-12-08 11:12:02 info: Fetching random users for tweet
+2025-12-08 11:12:02 info: Get follower controller called
+2025-12-08 11:12:03 info: Verifying JWT token
+2025-12-08 11:12:03 info: Auth Me Route Accessed
+2025-12-08 11:12:03 info: Verifying JWT token
+2025-12-08 11:12:03 info: Verifying JWT token
+2025-12-08 11:12:03 info: Verifying JWT token
+2025-12-08 11:12:03 info: Verifying JWT token
+2025-12-08 11:12:04 info: Auth Me Route Accessed
+2025-12-08 11:12:04 info: Fetching random users for tweet
+2025-12-08 11:12:04 info: Getting three random tweets
+2025-12-08 11:12:04 info: Get follower controller called
+2025-12-08 11:12:04 info: Verifying JWT token
+2025-12-08 11:12:04 info: Verifying JWT token
+2025-12-08 11:12:04 info: Verifying JWT token
+2025-12-08 11:12:04 info: Get follower controller called
+2025-12-08 11:12:04 info: Fetching random users for tweet
+2025-12-08 11:12:04 info: Getting three random tweets
+2025-12-08 11:12:06 info: Verifying JWT token
+2025-12-08 11:12:06 info: Getting retweets for tweet
+2025-12-08 11:13:42 info: Verifying JWT token
+2025-12-08 11:13:42 info: Verifying JWT token
+2025-12-08 11:13:42 info: Auth Me Route Accessed
+2025-12-08 11:13:42 info: Auth Me Route Accessed
+2025-12-08 11:13:44 info: User sign-in started
+2025-12-08 11:13:44 info: Verifying JWT token
+2025-12-08 11:13:44 info: Verifying JWT token
+2025-12-08 11:13:44 info: Verifying JWT token
+2025-12-08 11:13:44 info: Verifying JWT token
+2025-12-08 11:13:44 info: Verifying JWT token
+2025-12-08 11:13:44 info: Verifying JWT token
+2025-12-08 11:13:44 info: Fetching random users for tweet
+2025-12-08 11:13:44 info: Getting three random tweets
+2025-12-08 11:13:44 info: Fetching random users for tweet
+2025-12-08 11:13:44 info: Getting three random tweets
+2025-12-08 11:13:45 info: Get follower controller called
+2025-12-08 11:13:45 info: Get follower controller called
+2025-12-08 11:13:45 info: Verifying JWT token
+2025-12-08 11:13:46 info: Getting retweets for tweet
+2025-12-08 13:40:58 info: Connecting to MongoDB...
+2025-12-08 13:41:04 info: MongoDB connected successfully
+2025-12-08 13:41:06 info: User sign-in started
+2025-12-08 13:41:06 info: Verifying JWT token
+2025-12-08 13:41:06 info: Verifying JWT token
+2025-12-08 13:41:06 info: Verifying JWT token
+2025-12-08 13:41:06 info: Fetching random users for tweet
+2025-12-08 13:41:06 info: Get follower controller called
+2025-12-08 13:41:06 info: Getting three random tweets
+2025-12-08 13:41:06 info: Verifying JWT token
+2025-12-08 13:41:06 info: Verifying JWT token
+2025-12-08 13:41:06 info: Verifying JWT token
+2025-12-08 13:41:06 info: Fetching random users for tweet
+2025-12-08 13:41:06 info: Get follower controller called
+2025-12-08 13:41:06 info: Getting three random tweets
+2025-12-08 13:41:08 info: Verifying JWT token
+2025-12-08 13:41:08 info: Getting retweets for tweet
+2025-12-08 13:41:13 info: Verifying JWT token
+2025-12-08 13:41:13 info: Getting retweets for tweet
+2025-12-08 13:41:15 info: Verifying JWT token
+2025-12-08 13:41:15 info: Getting retweets for tweet
+2025-12-08 13:41:17 info: Verifying JWT token
+2025-12-08 13:41:17 info: Retweeting tweet
+2025-12-08 13:41:19 info: Verifying JWT token
+2025-12-08 13:41:19 info: Retweeting tweet
+2025-12-08 13:41:19 error: Tweet already retweeted by user
+2025-12-08 13:41:24 info: Verifying JWT token
+2025-12-08 13:41:24 info: Retweeting tweet
+2025-12-08 13:41:24 info: Verifying JWT token
+2025-12-08 13:41:24 error: Tweet already retweeted by user
+2025-12-08 13:41:25 info: Retweeting tweet
+2025-12-08 13:41:25 error: Tweet already retweeted by user
+2025-12-08 13:41:56 info: Verifying JWT token
+2025-12-08 13:41:57 info: Verifying JWT token
+2025-12-08 13:41:57 info: Retweeting tweet
+2025-12-08 13:41:57 info: Verifying JWT token
+2025-12-08 13:41:57 error: Tweet already retweeted by user
+2025-12-08 13:41:57 info: Retweeting tweet
+2025-12-08 13:41:57 info: Retweeting tweet
+2025-12-08 13:41:57 error: Tweet already retweeted by user
+2025-12-08 13:41:57 error: Tweet already retweeted by user
+2025-12-08 13:41:59 info: Verifying JWT token
+2025-12-08 13:41:59 info: Auth Me Route Accessed
+2025-12-08 13:41:59 info: Verifying JWT token
+2025-12-08 13:41:59 info: Verifying JWT token
+2025-12-08 13:41:59 info: Verifying JWT token
+2025-12-08 13:41:59 info: Verifying JWT token
+2025-12-08 13:41:59 info: Auth Me Route Accessed
+2025-12-08 13:41:59 info: Fetching random users for tweet
+2025-12-08 13:41:59 info: Get follower controller called
+2025-12-08 13:41:59 info: Getting three random tweets
+2025-12-08 13:41:59 info: Verifying JWT token
+2025-12-08 13:41:59 info: Verifying JWT token
+2025-12-08 13:41:59 info: Verifying JWT token
+2025-12-08 13:41:59 info: Fetching random users for tweet
+2025-12-08 13:41:59 info: Get follower controller called
+2025-12-08 13:41:59 info: Getting three random tweets
+2025-12-08 13:42:00 info: Verifying JWT token
+2025-12-08 13:42:00 info: Getting retweets for tweet
+2025-12-08 13:42:05 info: Verifying JWT token
+2025-12-08 13:42:05 info: Getting retweets for tweet
+2025-12-08 13:42:06 info: Verifying JWT token
+2025-12-08 13:42:06 info: Retweeting tweet
+2025-12-08 13:42:09 info: Verifying JWT token
+2025-12-08 13:42:10 info: Auth Me Route Accessed
+2025-12-08 13:42:10 info: Verifying JWT token
+2025-12-08 13:42:10 info: Verifying JWT token
+2025-12-08 13:42:10 info: Verifying JWT token
+2025-12-08 13:42:10 info: Verifying JWT token
+2025-12-08 13:42:10 info: Auth Me Route Accessed
+2025-12-08 13:42:10 info: Fetching random users for tweet
+2025-12-08 13:42:10 info: Get follower controller called
+2025-12-08 13:42:10 info: Getting three random tweets
+2025-12-08 13:42:10 info: Verifying JWT token
+2025-12-08 13:42:10 info: Verifying JWT token
+2025-12-08 13:42:10 info: Verifying JWT token
+2025-12-08 13:42:10 info: Get follower controller called
+2025-12-08 13:42:10 info: Fetching random users for tweet
+2025-12-08 13:42:10 info: Getting three random tweets
+2025-12-08 13:42:11 info: Verifying JWT token
+2025-12-08 13:42:11 info: Getting retweets for tweet
+2025-12-08 13:42:15 info: Verifying JWT token
+2025-12-08 13:42:15 info: Getting retweets for tweet
+2025-12-08 13:42:16 info: Verifying JWT token
+2025-12-08 13:42:17 info: Getting retweets for tweet
+2025-12-08 13:42:19 info: Verifying JWT token
+2025-12-08 13:42:19 info: Auth Me Route Accessed
+2025-12-08 13:42:19 info: Verifying JWT token
+2025-12-08 13:42:19 info: Verifying JWT token
+2025-12-08 13:42:19 info: Verifying JWT token
+2025-12-08 13:42:19 info: Verifying JWT token
+2025-12-08 13:42:19 info: Auth Me Route Accessed
+2025-12-08 13:42:19 info: Get follower controller called
+2025-12-08 13:42:19 info: Fetching random users for tweet
+2025-12-08 13:42:19 info: Getting three random tweets
+2025-12-08 13:42:19 info: Verifying JWT token
+2025-12-08 13:42:19 info: Verifying JWT token
+2025-12-08 13:42:19 info: Verifying JWT token
+2025-12-08 13:42:19 info: Getting three random tweets
+2025-12-08 13:42:19 info: Get follower controller called
+2025-12-08 13:42:19 info: Fetching random users for tweet
+2025-12-08 13:42:21 info: Verifying JWT token
+2025-12-08 13:42:21 info: Getting retweets for tweet
+2025-12-08 13:42:23 info: Verifying JWT token
+2025-12-08 13:42:23 info: Retweeting tweet
+2025-12-08 13:42:31 info: Verifying JWT token
+2025-12-08 13:42:31 info: Auth Me Route Accessed
+2025-12-08 13:42:31 info: Verifying JWT token
+2025-12-08 13:42:31 info: Verifying JWT token
+2025-12-08 13:42:31 info: Verifying JWT token
+2025-12-08 13:42:31 info: Verifying JWT token
+2025-12-08 13:42:31 info: Auth Me Route Accessed
+2025-12-08 13:42:31 info: Get follower controller called
+2025-12-08 13:42:31 info: Getting three random tweets
+2025-12-08 13:42:31 info: Fetching random users for tweet
+2025-12-08 13:42:31 info: Verifying JWT token
+2025-12-08 13:42:31 info: Verifying JWT token
+2025-12-08 13:42:31 info: Verifying JWT token
+2025-12-08 13:42:31 info: Getting three random tweets
+2025-12-08 13:42:31 info: Get follower controller called
+2025-12-08 13:42:31 info: Fetching random users for tweet
+2025-12-08 13:44:14 info: Connecting to MongoDB...
+2025-12-08 13:44:28 info: Connecting to MongoDB...
+2025-12-08 13:44:29 info: MongoDB connected successfully
+2025-12-08 13:44:32 info: User sign-in started
+2025-12-08 13:44:32 info: Verifying JWT token
+2025-12-08 13:44:32 info: Verifying JWT token
+2025-12-08 13:44:32 info: Verifying JWT token
+2025-12-08 13:44:32 info: Fetching random users for tweet
+2025-12-08 13:44:32 info: Get follower controller called
+2025-12-08 13:44:32 info: Getting three random tweets
+2025-12-08 13:44:32 info: Verifying JWT token
+2025-12-08 13:44:32 info: Verifying JWT token
+2025-12-08 13:44:32 info: Verifying JWT token
+2025-12-08 13:44:32 info: Getting three random tweets
+2025-12-08 13:44:32 info: Fetching random users for tweet
+2025-12-08 13:44:32 info: Get follower controller called
+2025-12-08 13:44:33 info: Verifying JWT token
+2025-12-08 13:44:34 info: Getting retweets for tweet
+2025-12-08 13:44:35 info: Verifying JWT token
+2025-12-08 13:44:35 info: Retweeting tweet
+2025-12-08 13:44:37 info: Verifying JWT token
+2025-12-08 13:44:37 info: Retweeting tweet
+2025-12-08 13:44:37 error: Tweet already retweeted by user
+2025-12-08 13:44:41 info: Verifying JWT token
+2025-12-08 13:44:41 info: Retweeting tweet
+2025-12-08 13:44:41 error: Tweet already retweeted by user
+2025-12-08 13:44:41 info: Verifying JWT token
+2025-12-08 13:44:42 info: Retweeting tweet
+2025-12-08 13:44:42 error: Tweet already retweeted by user
+2025-12-08 13:44:42 info: Verifying JWT token
+2025-12-08 13:44:42 info: Retweeting tweet
+2025-12-08 13:44:42 error: Tweet already retweeted by user
+2025-12-08 13:44:47 info: Verifying JWT token
+2025-12-08 13:44:47 info: Retweeting tweet
+2025-12-08 13:44:47 error: Tweet already retweeted by user
+2025-12-08 13:46:41 info: Verifying JWT token
+2025-12-08 13:46:41 info: Retweeting tweet
+2025-12-08 13:46:41 error: Tweet already retweeted by user
+2025-12-08 13:46:43 info: Verifying JWT token
+2025-12-08 13:46:43 info: Auth Me Route Accessed
+2025-12-08 13:46:43 info: Verifying JWT token
+2025-12-08 13:46:43 info: Verifying JWT token
+2025-12-08 13:46:43 info: Verifying JWT token
+2025-12-08 13:46:43 info: Verifying JWT token
+2025-12-08 13:46:43 info: Auth Me Route Accessed
+2025-12-08 13:46:43 info: Fetching random users for tweet
+2025-12-08 13:46:43 info: Getting three random tweets
+2025-12-08 13:46:43 info: Get follower controller called
+2025-12-08 13:46:43 info: Verifying JWT token
+2025-12-08 13:46:43 info: Verifying JWT token
+2025-12-08 13:46:43 info: Verifying JWT token
+2025-12-08 13:46:43 info: Getting three random tweets
+2025-12-08 13:46:43 info: Fetching random users for tweet
+2025-12-08 13:46:43 info: Get follower controller called
+2025-12-08 13:46:45 info: Verifying JWT token
+2025-12-08 13:46:45 info: Getting retweets for tweet
+2025-12-08 13:46:46 info: Verifying JWT token
+2025-12-08 13:46:46 info: Retweeting tweet
+2025-12-08 13:47:32 info: Verifying JWT token
+2025-12-08 13:47:32 info: Auth Me Route Accessed
+2025-12-08 13:47:32 info: Verifying JWT token
+2025-12-08 13:47:32 info: Verifying JWT token
+2025-12-08 13:47:32 info: Verifying JWT token
+2025-12-08 13:47:32 info: Verifying JWT token
+2025-12-08 13:47:32 info: Auth Me Route Accessed
+2025-12-08 13:47:32 info: Fetching random users for tweet
+2025-12-08 13:47:32 info: Getting three random tweets
+2025-12-08 13:47:32 info: Get follower controller called
+2025-12-08 13:47:32 info: Verifying JWT token
+2025-12-08 13:47:32 info: Verifying JWT token
+2025-12-08 13:47:32 info: Verifying JWT token
+2025-12-08 13:47:33 info: Get follower controller called
+2025-12-08 13:47:33 info: Fetching random users for tweet
+2025-12-08 13:47:33 info: Getting three random tweets
+2025-12-08 13:47:34 info: Verifying JWT token
+2025-12-08 13:47:34 info: Getting retweets for tweet
+2025-12-08 13:47:37 info: Verifying JWT token
+2025-12-08 13:47:38 info: Retweeting tweet
+2025-12-08 13:47:38 error: Tweet already retweeted by user
+2025-12-08 13:47:39 info: Verifying JWT token
+2025-12-08 13:47:39 info: Getting retweets for tweet
+2025-12-08 13:47:40 info: Verifying JWT token
+2025-12-08 13:47:40 info: Retweeting tweet
+2025-12-08 13:47:50 info: Verifying JWT token
+2025-12-08 13:47:50 info: Auth Me Route Accessed
+2025-12-08 13:47:50 info: Verifying JWT token
+2025-12-08 13:47:50 info: Verifying JWT token
+2025-12-08 13:47:50 info: Verifying JWT token
+2025-12-08 13:47:50 info: Verifying JWT token
+2025-12-08 13:47:50 info: Auth Me Route Accessed
+2025-12-08 13:47:50 info: Get follower controller called
+2025-12-08 13:47:50 info: Fetching random users for tweet
+2025-12-08 13:47:50 info: Getting three random tweets
+2025-12-08 13:47:50 info: Verifying JWT token
+2025-12-08 13:47:50 info: Verifying JWT token
+2025-12-08 13:47:50 info: Verifying JWT token
+2025-12-08 13:47:50 info: Fetching random users for tweet
+2025-12-08 13:47:50 info: Get follower controller called
+2025-12-08 13:47:50 info: Getting three random tweets
+2025-12-08 13:47:51 info: Verifying JWT token
+2025-12-08 13:47:51 info: Getting retweets for tweet
+2025-12-08 13:47:53 info: Verifying JWT token
+2025-12-08 13:47:53 info: Retweeting tweet
+2025-12-08 13:48:15 info: Verifying JWT token
+2025-12-08 13:48:15 info: Auth Me Route Accessed
+2025-12-08 13:48:15 info: Verifying JWT token
+2025-12-08 13:48:15 info: Verifying JWT token
+2025-12-08 13:48:15 info: Verifying JWT token
+2025-12-08 13:48:15 info: Verifying JWT token
+2025-12-08 13:48:15 info: Fetching random users for tweet
+2025-12-08 13:48:15 info: Auth Me Route Accessed
+2025-12-08 13:48:15 info: Getting three random tweets
+2025-12-08 13:48:15 info: Get follower controller called
+2025-12-08 13:48:15 info: Verifying JWT token
+2025-12-08 13:48:15 info: Verifying JWT token
+2025-12-08 13:48:15 info: Verifying JWT token
+2025-12-08 13:48:15 info: Fetching random users for tweet
+2025-12-08 13:48:15 info: Getting three random tweets
+2025-12-08 13:48:15 info: Get follower controller called
+2025-12-08 13:48:17 info: Verifying JWT token
+2025-12-08 13:48:17 info: Getting retweets for tweet
+2025-12-08 13:48:19 info: Verifying JWT token
+2025-12-08 13:48:19 info: Auth Me Route Accessed
+2025-12-08 13:48:19 info: Verifying JWT token
+2025-12-08 13:48:19 info: Verifying JWT token
+2025-12-08 13:48:19 info: Verifying JWT token
+2025-12-08 13:48:19 info: Verifying JWT token
+2025-12-08 13:48:19 info: Auth Me Route Accessed
+2025-12-08 13:48:19 info: Getting three random tweets
+2025-12-08 13:48:19 info: Fetching random users for tweet
+2025-12-08 13:48:19 info: Get follower controller called
+2025-12-08 13:48:19 info: Verifying JWT token
+2025-12-08 13:48:19 info: Verifying JWT token
+2025-12-08 13:48:19 info: Verifying JWT token
+2025-12-08 13:48:20 info: Getting three random tweets
+2025-12-08 13:48:20 info: Fetching random users for tweet
+2025-12-08 13:48:20 info: Get follower controller called
+2025-12-08 13:48:21 info: Verifying JWT token
+2025-12-08 13:48:21 info: Auth Me Route Accessed
+2025-12-08 13:48:21 info: Verifying JWT token
+2025-12-08 13:48:21 info: Verifying JWT token
+2025-12-08 13:48:21 info: Verifying JWT token
+2025-12-08 13:48:21 info: Verifying JWT token
+2025-12-08 13:48:21 info: Auth Me Route Accessed
+2025-12-08 13:48:21 info: Getting three random tweets
+2025-12-08 13:48:21 info: Fetching random users for tweet
+2025-12-08 13:48:21 info: Get follower controller called
+2025-12-08 13:48:21 info: Verifying JWT token
+2025-12-08 13:48:21 info: Verifying JWT token
+2025-12-08 13:48:21 info: Verifying JWT token
+2025-12-08 13:48:21 info: Getting three random tweets
+2025-12-08 13:48:21 info: Fetching random users for tweet
+2025-12-08 13:48:21 info: Get follower controller called
+2025-12-08 13:48:22 info: Verifying JWT token
+2025-12-08 13:48:22 info: Getting retweets for tweet
+2025-12-08 13:48:24 info: Verifying JWT token
+2025-12-08 13:48:24 info: Retweeting tweet
+2025-12-08 13:49:04 info: Verifying JWT token
+2025-12-08 13:49:04 info: Getting retweets for tweet
+2025-12-08 13:49:05 info: Verifying JWT token
+2025-12-08 13:49:05 info: Getting retweets for tweet
+2025-12-08 13:53:58 info: Verifying JWT token
+2025-12-08 13:53:58 info: Auth Me Route Accessed
+2025-12-08 13:53:58 info: Verifying JWT token
+2025-12-08 13:53:59 info: Verifying JWT token
+2025-12-08 13:53:59 info: Verifying JWT token
+2025-12-08 13:53:59 info: Verifying JWT token
+2025-12-08 13:53:59 info: Auth Me Route Accessed
+2025-12-08 13:53:59 info: Get follower controller called
+2025-12-08 13:53:59 info: Getting three random tweets
+2025-12-08 13:53:59 info: Fetching random users for tweet
+2025-12-08 13:53:59 info: Verifying JWT token
+2025-12-08 13:53:59 info: Verifying JWT token
+2025-12-08 13:53:59 info: Verifying JWT token
+2025-12-08 13:53:59 info: Getting three random tweets
+2025-12-08 13:53:59 info: Get follower controller called
+2025-12-08 13:53:59 info: Fetching random users for tweet
+2025-12-08 13:54:00 info: Verifying JWT token
+2025-12-08 13:54:00 info: Auth Me Route Accessed
+2025-12-08 13:54:00 info: Verifying JWT token
+2025-12-08 13:54:00 info: Verifying JWT token
+2025-12-08 13:54:00 info: Verifying JWT token
+2025-12-08 13:54:00 info: Verifying JWT token
+2025-12-08 13:54:00 info: Auth Me Route Accessed
+2025-12-08 13:54:00 info: Getting three random tweets
+2025-12-08 13:54:00 info: Fetching random users for tweet
+2025-12-08 13:54:00 info: Get follower controller called
+2025-12-08 13:54:00 info: Verifying JWT token
+2025-12-08 13:54:00 info: Verifying JWT token
+2025-12-08 13:54:00 info: Verifying JWT token
+2025-12-08 13:54:00 info: Getting three random tweets
+2025-12-08 13:54:00 info: Fetching random users for tweet
+2025-12-08 13:54:00 info: Get follower controller called
+2025-12-08 13:54:02 info: Verifying JWT token
+2025-12-08 13:54:02 info: Getting retweets for tweet
+2025-12-08 13:54:05 info: Verifying JWT token
+2025-12-08 13:54:05 info: Retweeting tweet
+2025-12-08 13:55:11 info: Verifying JWT token
+2025-12-08 13:55:12 info: Auth Me Route Accessed
+2025-12-08 13:55:12 info: Verifying JWT token
+2025-12-08 13:55:12 info: Verifying JWT token
+2025-12-08 13:55:12 info: Verifying JWT token
+2025-12-08 13:55:12 info: Verifying JWT token
+2025-12-08 13:55:12 info: Auth Me Route Accessed
+2025-12-08 13:55:12 info: Getting three random tweets
+2025-12-08 13:55:12 info: Get follower controller called
+2025-12-08 13:55:12 info: Fetching random users for tweet
+2025-12-08 13:55:12 info: Verifying JWT token
+2025-12-08 13:55:12 info: Verifying JWT token
+2025-12-08 13:55:12 info: Verifying JWT token
+2025-12-08 13:55:12 info: Get follower controller called
+2025-12-08 13:55:12 info: Fetching random users for tweet
+2025-12-08 13:55:12 info: Getting three random tweets
+2025-12-08 13:55:13 info: Verifying JWT token
+2025-12-08 13:55:13 info: Getting retweets for tweet
+2025-12-08 13:55:14 info: Verifying JWT token
+2025-12-08 13:55:15 info: Retweeting tweet
+2025-12-08 13:55:44 info: Verifying JWT token
+2025-12-08 13:55:44 info: Verifying JWT token
+2025-12-08 13:55:44 info: Auth Me Route Accessed
+2025-12-08 13:55:44 info: Auth Me Route Accessed
+2025-12-08 13:55:44 info: Verifying JWT token
+2025-12-08 13:55:44 info: Verifying JWT token
+2025-12-08 13:55:44 info: Verifying JWT token
+2025-12-08 13:55:44 info: Verifying JWT token
+2025-12-08 13:55:44 info: Verifying JWT token
+2025-12-08 13:55:44 info: Verifying JWT token
+2025-12-08 13:55:44 info: Get follower controller called
+2025-12-08 13:55:44 info: Getting three random tweets
+2025-12-08 13:55:44 info: Fetching random users for tweet
+2025-12-08 13:55:44 info: Getting three random tweets
+2025-12-08 13:55:46 info: Fetching random users for tweet
+2025-12-08 13:55:46 info: Get follower controller called
+2025-12-08 13:55:47 info: Verifying JWT token
+2025-12-08 13:55:47 info: Getting retweets for tweet
+2025-12-08 13:55:51 info: Verifying JWT token
+2025-12-08 13:55:51 info: Getting retweets for tweet
+2025-12-08 13:55:57 info: Verifying JWT token
+2025-12-08 13:55:57 info: Retweeting tweet
+2025-12-08 13:56:00 info: Verifying JWT token
+2025-12-08 13:56:00 info: Getting retweets for tweet
+2025-12-08 13:56:01 info: Verifying JWT token
+2025-12-08 13:56:01 info: Retweeting tweet
+2025-12-08 13:56:03 info: Verifying JWT token
+2025-12-08 13:56:03 info: Verifying JWT token
+2025-12-08 13:56:03 info: Getting user tweets
+2025-12-08 13:56:03 info: Getting user tweets
+2025-12-08 13:58:24 info: Verifying JWT token
+2025-12-08 13:58:24 info: Getting retweets for tweet
+2025-12-08 13:58:25 info: Verifying JWT token
+2025-12-08 13:58:25 info: Retweeting tweet
+2025-12-08 13:58:28 info: Verifying JWT token
+2025-12-08 13:58:28 info: Getting retweets for tweet
+2025-12-08 13:58:33 info: Verifying JWT token
+2025-12-08 13:58:33 info: Getting user tweets
+2025-12-08 13:58:34 info: Verifying JWT token
+2025-12-08 13:58:34 info: Getting user tweets
+2025-12-08 13:58:44 info: Verifying JWT token
+2025-12-08 13:58:44 info: Getting three random tweets
+2025-12-08 13:58:44 info: Verifying JWT token
+2025-12-08 13:58:45 info: Getting three random tweets
+2025-12-08 13:59:30 info: Verifying JWT token
+2025-12-08 13:59:30 info: Verifying JWT token
+2025-12-08 13:59:30 info: Auth Me Route Accessed
+2025-12-08 13:59:30 info: Auth Me Route Accessed
+2025-12-08 13:59:32 info: User sign-in started
+2025-12-08 13:59:32 info: Verifying JWT token
+2025-12-08 13:59:32 info: Verifying JWT token
+2025-12-08 13:59:32 info: Verifying JWT token
+2025-12-08 13:59:32 info: Verifying JWT token
+2025-12-08 13:59:32 info: Verifying JWT token
+2025-12-08 13:59:32 info: Verifying JWT token
+2025-12-08 13:59:33 info: Getting three random tweets
+2025-12-08 13:59:33 info: Fetching random users for tweet
+2025-12-08 13:59:33 info: Get follower controller called
+2025-12-08 13:59:33 info: Getting three random tweets
+2025-12-08 13:59:33 info: Get follower controller called
+2025-12-08 13:59:33 info: Fetching random users for tweet
+2025-12-08 13:59:35 info: Verifying JWT token
+2025-12-08 13:59:35 info: Verifying JWT token
+2025-12-08 13:59:35 info: Getting notifications for user
+2025-12-08 13:59:35 info: Getting notifications for user
+2025-12-08 14:01:17 info: Verifying JWT token
+2025-12-08 14:01:18 info: Getting user tweets
+2025-12-08 14:01:18 info: Verifying JWT token
+2025-12-08 14:01:18 info: Getting user tweets
+2025-12-08 14:01:19 info: Verifying JWT token
+2025-12-08 14:01:19 info: Follow user controller called
+2025-12-08 14:01:21 info: Verifying JWT token
+2025-12-08 14:01:21 info: Unfollow user controller called
+2025-12-08 14:01:22 info: Verifying JWT token
+2025-12-08 14:01:22 info: Auth Me Route Accessed
+2025-12-08 14:01:22 info: Verifying JWT token
+2025-12-08 14:01:22 info: Verifying JWT token
+2025-12-08 14:01:22 info: Verifying JWT token
+2025-12-08 14:01:22 info: Verifying JWT token
+2025-12-08 14:01:22 info: Auth Me Route Accessed
+2025-12-08 14:01:22 info: Fetching random users for tweet
+2025-12-08 14:01:22 info: Getting user tweets
+2025-12-08 14:01:22 info: Get follower controller called
+2025-12-08 14:01:22 info: Verifying JWT token
+2025-12-08 14:01:22 info: Verifying JWT token
+2025-12-08 14:01:22 info: Verifying JWT token
+2025-12-08 14:01:22 info: Get follower controller called
+2025-12-08 14:01:22 info: Fetching random users for tweet
+2025-12-08 14:01:22 info: Getting user tweets
+2025-12-08 14:01:23 info: Verifying JWT token
+2025-12-08 14:01:23 info: Auth Me Route Accessed
+2025-12-08 14:01:23 info: Verifying JWT token
+2025-12-08 14:01:23 info: Verifying JWT token
+2025-12-08 14:01:23 info: Verifying JWT token
+2025-12-08 14:01:23 info: Verifying JWT token
+2025-12-08 14:01:23 info: Auth Me Route Accessed
+2025-12-08 14:01:23 info: Getting user tweets
+2025-12-08 14:01:23 info: Get follower controller called
+2025-12-08 14:01:23 info: Fetching random users for tweet
+2025-12-08 14:01:24 info: Verifying JWT token
+2025-12-08 14:01:24 info: Verifying JWT token
+2025-12-08 14:01:24 info: Verifying JWT token
+2025-12-08 14:01:24 info: Getting user tweets
+2025-12-08 14:01:24 info: Fetching random users for tweet
+2025-12-08 14:01:24 info: Get follower controller called
+2025-12-08 14:01:24 info: Verifying JWT token
+2025-12-08 14:01:25 info: Auth Me Route Accessed
+2025-12-08 14:01:25 info: Verifying JWT token
+2025-12-08 14:01:25 info: Verifying JWT token
+2025-12-08 14:01:25 info: Verifying JWT token
+2025-12-08 14:01:25 info: Verifying JWT token
+2025-12-08 14:01:25 info: Auth Me Route Accessed
+2025-12-08 14:01:25 info: Fetching random users for tweet
+2025-12-08 14:01:25 info: Get follower controller called
+2025-12-08 14:01:25 info: Getting user tweets
+2025-12-08 14:01:25 info: Verifying JWT token
+2025-12-08 14:01:25 info: Verifying JWT token
+2025-12-08 14:01:25 info: Verifying JWT token
+2025-12-08 14:01:25 info: Fetching random users for tweet
+2025-12-08 14:01:25 info: Get follower controller called
+2025-12-08 14:01:25 info: Getting user tweets
+2025-12-08 14:01:26 info: Verifying JWT token
+2025-12-08 14:01:26 info: Auth Me Route Accessed
+2025-12-08 14:01:26 info: Verifying JWT token
+2025-12-08 14:01:26 info: Verifying JWT token
+2025-12-08 14:01:26 info: Verifying JWT token
+2025-12-08 14:01:26 info: Verifying JWT token
+2025-12-08 14:01:26 info: Auth Me Route Accessed
+2025-12-08 14:01:26 info: Get follower controller called
+2025-12-08 14:01:26 info: Fetching random users for tweet
+2025-12-08 14:01:26 info: Getting user tweets
+2025-12-08 14:01:26 info: Verifying JWT token
+2025-12-08 14:01:26 info: Verifying JWT token
+2025-12-08 14:01:26 info: Verifying JWT token
+2025-12-08 14:01:26 info: Get follower controller called
+2025-12-08 14:01:26 info: Fetching random users for tweet
+2025-12-08 14:01:26 info: Getting user tweets
+2025-12-08 14:01:27 info: Verifying JWT token
+2025-12-08 14:01:27 info: Unfollow user controller called
+2025-12-08 14:01:28 info: Verifying JWT token
+2025-12-08 14:01:28 info: Unfollow user controller called
+2025-12-08 14:01:30 info: Verifying JWT token
+2025-12-08 14:01:31 info: Follow user controller called
+2025-12-08 14:01:32 info: Verifying JWT token
+2025-12-08 14:01:32 info: Follow user controller called
+2025-12-08 14:01:34 info: Verifying JWT token
+2025-12-08 14:01:34 info: Unfollow user controller called
+2025-12-08 14:01:35 info: Verifying JWT token
+2025-12-08 14:01:35 info: Unfollow user controller called
+2025-12-08 14:01:40 info: Verifying JWT token
+2025-12-08 14:01:40 info: Auth Me Route Accessed
+2025-12-08 14:01:40 info: Verifying JWT token
+2025-12-08 14:01:40 info: Verifying JWT token
+2025-12-08 14:01:40 info: Verifying JWT token
+2025-12-08 14:01:40 info: Verifying JWT token
+2025-12-08 14:01:40 info: Auth Me Route Accessed
+2025-12-08 14:01:40 info: Fetching random users for tweet
+2025-12-08 14:01:40 info: Get follower controller called
+2025-12-08 14:01:40 info: Getting user tweets
+2025-12-08 14:01:40 info: Verifying JWT token
+2025-12-08 14:01:40 info: Verifying JWT token
+2025-12-08 14:01:40 info: Verifying JWT token
+2025-12-08 14:01:40 info: Fetching random users for tweet
+2025-12-08 14:01:40 info: Get follower controller called
+2025-12-08 14:01:40 info: Getting user tweets
+2025-12-08 14:05:08 info: Verifying JWT token
+2025-12-08 14:05:08 info: Auth Me Route Accessed
+2025-12-08 14:05:08 info: Verifying JWT token
+2025-12-08 14:05:09 info: Auth Me Route Accessed
+2025-12-08 14:05:11 info: User sign-in started
+2025-12-08 14:05:12 info: Verifying JWT token
+2025-12-08 14:05:12 info: Verifying JWT token
+2025-12-08 14:05:12 info: Verifying JWT token
+2025-12-08 14:05:12 info: Get follower controller called
+2025-12-08 14:05:12 info: Getting three random tweets
+2025-12-08 14:05:12 info: Fetching random users for tweet
+2025-12-08 14:05:12 info: Verifying JWT token
+2025-12-08 14:05:12 info: Verifying JWT token
+2025-12-08 14:05:12 info: Verifying JWT token
+2025-12-08 14:05:12 info: Get follower controller called
+2025-12-08 14:05:12 info: Fetching random users for tweet
+2025-12-08 14:05:12 info: Getting three random tweets
+2025-12-08 14:05:13 info: Verifying JWT token
+2025-12-08 14:05:14 info: Getting user tweets
+2025-12-08 14:05:14 info: Verifying JWT token
+2025-12-08 14:05:14 info: Getting user tweets
+2025-12-08 14:05:14 info: Verifying JWT token
+2025-12-08 14:05:14 info: Getting notifications for user
+2025-12-08 14:05:14 info: Verifying JWT token
+2025-12-08 14:05:14 info: Getting notifications for user
+2025-12-08 14:44:41 info: Connecting to MongoDB...
+2025-12-08 14:44:42 info: MongoDB connected successfully
+2025-12-08 14:44:43 info: User sign-in started
+2025-12-08 14:44:44 info: Verifying JWT token
+2025-12-08 14:44:44 info: Verifying JWT token
+2025-12-08 14:44:44 info: Verifying JWT token
+2025-12-08 14:44:44 info: Getting three random tweets
+2025-12-08 14:44:44 info: Fetching random users for tweet
+2025-12-08 14:44:44 info: Get follower controller called
+2025-12-08 14:44:44 info: Verifying JWT token
+2025-12-08 14:44:44 info: Verifying JWT token
+2025-12-08 14:44:44 info: Verifying JWT token
+2025-12-08 14:44:44 info: Fetching random users for tweet
+2025-12-08 14:44:44 info: Getting three random tweets
+2025-12-08 14:44:44 info: Get follower controller called
+2025-12-08 14:44:46 info: Verifying JWT token
+2025-12-08 14:44:46 info: Getting replies for tweet
+2025-12-08 14:44:46 info: Verifying JWT token
+2025-12-08 14:44:46 info: Getting replies for tweet
+2025-12-08 14:48:04 info: Connecting to MongoDB...
+2025-12-08 14:48:26 info: Connecting to MongoDB...
+2025-12-08 14:48:27 info: MongoDB connected successfully
+2025-12-08 14:48:54 info: Connecting to MongoDB...
+2025-12-08 14:48:54 info: MongoDB connected successfully
+2025-12-08 14:49:22 info: Verifying JWT token
+2025-12-08 14:49:22 info: Creating reply for tweet
+2025-12-08 14:51:58 info: Verifying JWT token
+2025-12-08 14:51:58 info: Verifying JWT token
+2025-12-08 14:51:58 info: Verifying JWT token
+2025-12-08 14:51:58 info: Getting three random tweets
+2025-12-08 14:51:58 info: Get follower controller called
+2025-12-08 14:51:58 info: Fetching random users for tweet
+2025-12-08 14:51:59 info: Verifying JWT token
+2025-12-08 14:51:59 info: Verifying JWT token
+2025-12-08 14:51:59 info: Verifying JWT token
+2025-12-08 14:51:59 info: Fetching random users for tweet
+2025-12-08 14:51:59 info: Getting three random tweets
+2025-12-08 14:51:59 info: Get follower controller called
+2025-12-08 14:52:08 info: Verifying JWT token
+2025-12-08 14:52:08 info: Verifying JWT token
+2025-12-08 14:52:08 info: Verifying JWT token
+2025-12-08 14:52:08 info: Fetching random users for tweet
+2025-12-08 14:52:08 info: Getting three random tweets
+2025-12-08 14:52:08 info: Get follower controller called
+2025-12-08 14:53:55 info: Verifying JWT token
+2025-12-08 14:53:55 info: Verifying JWT token
+2025-12-08 14:53:55 info: Verifying JWT token
+2025-12-08 14:53:56 info: Getting three random tweets
+2025-12-08 14:53:56 info: Fetching random users for tweet
+2025-12-08 14:53:57 info: Get follower controller called
+2025-12-08 14:54:32 info: Verifying JWT token
+2025-12-08 14:54:32 info: Auth Me Route Accessed
+2025-12-08 14:54:32 info: Verifying JWT token
+2025-12-08 14:54:32 info: Verifying JWT token
+2025-12-08 14:54:32 info: Verifying JWT token
+2025-12-08 14:54:32 info: Verifying JWT token
+2025-12-08 14:54:32 info: Auth Me Route Accessed
+2025-12-08 14:54:32 info: Fetching random users for tweet
+2025-12-08 14:54:32 info: Getting three random tweets
+2025-12-08 14:54:32 info: Verifying JWT token
+2025-12-08 14:54:32 info: Verifying JWT token
+2025-12-08 14:54:33 info: Getting three random tweets
+2025-12-08 14:54:33 info: Fetching random users for tweet
+2025-12-08 14:54:33 info: Get follower controller called
+2025-12-08 14:54:33 info: Verifying JWT token
+2025-12-08 14:54:33 info: Get follower controller called
+2025-12-08 14:54:34 info: Verifying JWT token
+2025-12-08 14:54:34 info: Getting retweets for tweet
+2025-12-08 14:54:35 info: Verifying JWT token
+2025-12-08 14:54:35 info: Retweeting tweet
+2025-12-08 14:54:47 info: User sign-in started
+2025-12-08 14:54:48 info: Verifying JWT token
+2025-12-08 14:54:48 info: Verifying JWT token
+2025-12-08 14:54:48 info: Verifying JWT token
+2025-12-08 14:54:48 info: Getting three random tweets
+2025-12-08 14:54:48 info: Fetching random users for tweet
+2025-12-08 14:54:48 info: Get follower controller called
+2025-12-08 14:54:48 info: Verifying JWT token
+2025-12-08 14:54:48 info: Verifying JWT token
+2025-12-08 14:54:48 info: Verifying JWT token
+2025-12-08 14:54:48 info: Getting three random tweets
+2025-12-08 14:54:48 info: Get follower controller called
+2025-12-08 14:54:48 info: Fetching random users for tweet
+2025-12-08 14:54:50 info: Verifying JWT token
+2025-12-08 14:54:50 info: Getting retweets for tweet
+2025-12-08 14:54:51 info: Verifying JWT token
+2025-12-08 14:54:51 info: Retweeting tweet
+2025-12-08 14:55:30 info: Verifying JWT token
+2025-12-08 14:55:30 info: Auth Me Route Accessed
+2025-12-08 14:55:30 info: Verifying JWT token
+2025-12-08 14:55:30 info: Verifying JWT token
+2025-12-08 14:55:30 info: Verifying JWT token
+2025-12-08 14:55:30 info: Verifying JWT token
+2025-12-08 14:55:30 info: Auth Me Route Accessed
+2025-12-08 14:55:30 info: Getting three random tweets
+2025-12-08 14:55:30 info: Fetching random users for tweet
+2025-12-08 14:55:30 info: Get follower controller called
+2025-12-08 14:55:31 info: Verifying JWT token
+2025-12-08 14:55:31 info: Verifying JWT token
+2025-12-08 14:55:31 info: Verifying JWT token
+2025-12-08 14:55:31 info: Getting three random tweets
+2025-12-08 14:55:31 info: Fetching random users for tweet
+2025-12-08 14:55:31 info: Get follower controller called
+2025-12-08 14:55:32 info: Verifying JWT token
+2025-12-08 14:55:32 info: Getting retweets for tweet
+2025-12-08 14:55:33 info: Verifying JWT token
+2025-12-08 14:55:33 info: Retweeting tweet
+2025-12-08 14:55:33 info: Verifying JWT token
+2025-12-08 14:55:34 info: Retweeting tweet
+2025-12-08 14:55:34 error: Tweet already retweeted by user
+2025-12-08 14:55:48 info: User sign-in started
+2025-12-08 14:55:48 info: Verifying JWT token
+2025-12-08 14:55:48 info: Verifying JWT token
+2025-12-08 14:55:48 info: Verifying JWT token
+2025-12-08 14:55:48 info: Getting three random tweets
+2025-12-08 14:55:48 info: Fetching random users for tweet
+2025-12-08 14:55:48 info: Get follower controller called
+2025-12-08 14:55:48 info: Verifying JWT token
+2025-12-08 14:55:48 info: Verifying JWT token
+2025-12-08 14:55:48 info: Verifying JWT token
+2025-12-08 14:55:48 info: Getting three random tweets
+2025-12-08 14:55:48 info: Get follower controller called
+2025-12-08 14:55:48 info: Fetching random users for tweet
+2025-12-08 14:55:53 info: Verifying JWT token
+2025-12-08 14:55:53 info: Auth Me Route Accessed
+2025-12-08 14:55:53 info: Verifying JWT token
+2025-12-08 14:55:53 info: Verifying JWT token
+2025-12-08 14:55:53 info: Verifying JWT token
+2025-12-08 14:55:53 info: Verifying JWT token
+2025-12-08 14:55:53 info: Auth Me Route Accessed
+2025-12-08 14:55:53 info: Getting three random tweets
+2025-12-08 14:55:53 info: Fetching random users for tweet
+2025-12-08 14:55:53 info: Get follower controller called
+2025-12-08 14:55:53 info: Verifying JWT token
+2025-12-08 14:55:53 info: Verifying JWT token
+2025-12-08 14:55:53 info: Verifying JWT token
+2025-12-08 14:55:54 info: Get follower controller called
+2025-12-08 14:55:54 info: Getting three random tweets
+2025-12-08 14:55:54 info: Fetching random users for tweet
+2025-12-08 14:55:56 info: Verifying JWT token
+2025-12-08 14:55:56 info: Getting retweets for tweet
+2025-12-08 14:55:57 info: Verifying JWT token
+2025-12-08 14:55:57 info: Retweeting tweet
+2025-12-08 14:56:45 info: Connecting to MongoDB...
+2025-12-08 14:56:46 info: MongoDB connected successfully
+2025-12-08 14:56:46 info: Verifying JWT token
+2025-12-08 14:56:47 info: Auth Me Route Accessed
+2025-12-08 14:56:47 info: Verifying JWT token
+2025-12-08 14:56:47 info: Verifying JWT token
+2025-12-08 14:56:47 info: Verifying JWT token
+2025-12-08 14:56:47 info: Verifying JWT token
+2025-12-08 14:56:47 info: Auth Me Route Accessed
+2025-12-08 14:56:47 info: Get follower controller called
+2025-12-08 14:56:47 info: Fetching random users for tweet
+2025-12-08 14:56:47 info: Getting three random tweets
+2025-12-08 14:56:47 info: Verifying JWT token
+2025-12-08 14:56:47 info: Verifying JWT token
+2025-12-08 14:56:47 info: Verifying JWT token
+2025-12-08 14:56:47 info: Fetching random users for tweet
+2025-12-08 14:56:47 info: Get follower controller called
+2025-12-08 14:56:47 info: Getting three random tweets
+2025-12-08 14:56:50 info: Verifying JWT token
+2025-12-08 14:56:50 info: Auth Me Route Accessed
+2025-12-08 14:56:50 info: Verifying JWT token
+2025-12-08 14:56:50 info: Verifying JWT token
+2025-12-08 14:56:50 info: Verifying JWT token
+2025-12-08 14:56:50 info: Verifying JWT token
+2025-12-08 14:56:50 info: Auth Me Route Accessed
+2025-12-08 14:56:50 info: Getting three random tweets
+2025-12-08 14:56:50 info: Fetching random users for tweet
+2025-12-08 14:56:50 info: Get follower controller called
+2025-12-08 14:56:50 info: Verifying JWT token
+2025-12-08 14:56:50 info: Verifying JWT token
+2025-12-08 14:56:50 info: Verifying JWT token
+2025-12-08 14:56:50 info: Getting three random tweets
+2025-12-08 14:56:51 info: Get follower controller called
+2025-12-08 14:56:51 info: Fetching random users for tweet
+2025-12-08 14:56:52 info: Verifying JWT token
+2025-12-08 14:56:52 info: Auth Me Route Accessed
+2025-12-08 14:56:52 info: Verifying JWT token
+2025-12-08 14:56:52 info: Verifying JWT token
+2025-12-08 14:56:52 info: Verifying JWT token
+2025-12-08 14:56:52 info: Verifying JWT token
+2025-12-08 14:56:52 info: Auth Me Route Accessed
+2025-12-08 14:56:52 info: Getting three random tweets
+2025-12-08 14:56:52 info: Fetching random users for tweet
+2025-12-08 14:56:52 info: Get follower controller called
+2025-12-08 14:56:52 info: Verifying JWT token
+2025-12-08 14:56:52 info: Verifying JWT token
+2025-12-08 14:56:52 info: Verifying JWT token
+2025-12-08 14:56:52 info: Fetching random users for tweet
+2025-12-08 14:56:52 info: Getting three random tweets
+2025-12-08 14:56:52 info: Get follower controller called
+2025-12-08 14:56:53 info: Verifying JWT token
+2025-12-08 14:56:53 info: Auth Me Route Accessed
+2025-12-08 14:56:53 info: Verifying JWT token
+2025-12-08 14:56:53 info: Verifying JWT token
+2025-12-08 14:56:53 info: Verifying JWT token
+2025-12-08 14:56:53 info: Verifying JWT token
+2025-12-08 14:56:53 info: Auth Me Route Accessed
+2025-12-08 14:56:53 info: Get follower controller called
+2025-12-08 14:56:53 info: Getting three random tweets
+2025-12-08 14:56:53 info: Fetching random users for tweet
+2025-12-08 14:56:53 info: Verifying JWT token
+2025-12-08 14:56:53 info: Verifying JWT token
+2025-12-08 14:56:53 info: Verifying JWT token
+2025-12-08 14:56:54 info: Get follower controller called
+2025-12-08 14:56:54 info: Getting three random tweets
+2025-12-08 14:56:54 info: Fetching random users for tweet
+2025-12-08 14:56:54 info: Verifying JWT token
+2025-12-08 14:56:55 info: Auth Me Route Accessed
+2025-12-08 14:56:55 info: Verifying JWT token
+2025-12-08 14:56:55 info: Verifying JWT token
+2025-12-08 14:56:55 info: Verifying JWT token
+2025-12-08 14:56:55 info: Verifying JWT token
+2025-12-08 14:56:55 info: Auth Me Route Accessed
+2025-12-08 14:56:55 info: Get follower controller called
+2025-12-08 14:56:55 info: Fetching random users for tweet
+2025-12-08 14:56:55 info: Getting three random tweets
+2025-12-08 14:56:55 info: Verifying JWT token
+2025-12-08 14:56:55 info: Verifying JWT token
+2025-12-08 14:56:55 info: Verifying JWT token
+2025-12-08 14:56:55 info: Get follower controller called
+2025-12-08 14:56:55 info: Fetching random users for tweet
+2025-12-08 14:56:55 info: Getting three random tweets
+2025-12-08 14:56:56 info: Verifying JWT token
+2025-12-08 14:56:56 info: Auth Me Route Accessed
+2025-12-08 14:56:56 info: Verifying JWT token
+2025-12-08 14:56:56 info: Verifying JWT token
+2025-12-08 14:56:56 info: Verifying JWT token
+2025-12-08 14:56:56 info: Verifying JWT token
+2025-12-08 14:56:56 info: Auth Me Route Accessed
+2025-12-08 14:56:56 info: Getting three random tweets
+2025-12-08 14:56:56 info: Fetching random users for tweet
+2025-12-08 14:56:56 info: Get follower controller called
+2025-12-08 14:56:56 info: Verifying JWT token
+2025-12-08 14:56:56 info: Verifying JWT token
+2025-12-08 14:56:56 info: Verifying JWT token
+2025-12-08 14:56:57 info: Get follower controller called
+2025-12-08 14:56:57 info: Fetching random users for tweet
+2025-12-08 14:56:57 info: Getting three random tweets
+2025-12-08 14:56:59 info: Verifying JWT token
+2025-12-08 14:56:59 info: Getting retweets for tweet
+2025-12-08 14:57:00 info: Verifying JWT token
+2025-12-08 14:57:00 info: Retweeting tweet
+2025-12-08 14:58:51 info: Connecting to MongoDB...
+2025-12-08 14:58:53 info: MongoDB connected successfully
+2025-12-08 14:59:39 info: Connecting to MongoDB...
+2025-12-08 14:59:40 info: MongoDB connected successfully
+2025-12-08 14:59:43 info: User sign-in started
+2025-12-08 14:59:44 info: Verifying JWT token
+2025-12-08 14:59:44 info: Verifying JWT token
+2025-12-08 14:59:44 info: Verifying JWT token
+2025-12-08 14:59:44 info: Getting three random tweets
+2025-12-08 14:59:44 info: Fetching random users for tweet
+2025-12-08 14:59:44 info: Get follower controller called
+2025-12-08 14:59:44 info: Verifying JWT token
+2025-12-08 14:59:44 info: Verifying JWT token
+2025-12-08 14:59:44 info: Verifying JWT token
+2025-12-08 14:59:44 info: Get follower controller called
+2025-12-08 14:59:44 info: Fetching random users for tweet
+2025-12-08 14:59:44 info: Getting three random tweets
+2025-12-08 14:59:46 info: Verifying JWT token
+2025-12-08 14:59:46 info: Auth Me Route Accessed
+2025-12-08 14:59:46 info: Verifying JWT token
+2025-12-08 14:59:46 info: Verifying JWT token
+2025-12-08 14:59:46 info: Verifying JWT token
+2025-12-08 14:59:46 info: Verifying JWT token
+2025-12-08 14:59:46 info: Auth Me Route Accessed
+2025-12-08 14:59:46 info: Fetching random users for tweet
+2025-12-08 14:59:46 info: Getting three random tweets
+2025-12-08 14:59:46 info: Get follower controller called
+2025-12-08 14:59:46 info: Verifying JWT token
+2025-12-08 14:59:46 info: Verifying JWT token
+2025-12-08 14:59:46 info: Verifying JWT token
+2025-12-08 14:59:46 info: Fetching random users for tweet
+2025-12-08 14:59:46 info: Getting three random tweets
+2025-12-08 14:59:46 info: Get follower controller called
+2025-12-08 14:59:47 info: Verifying JWT token
+2025-12-08 14:59:47 info: Auth Me Route Accessed
+2025-12-08 14:59:47 info: Verifying JWT token
+2025-12-08 14:59:47 info: Verifying JWT token
+2025-12-08 14:59:47 info: Verifying JWT token
+2025-12-08 14:59:47 info: Verifying JWT token
+2025-12-08 14:59:47 info: Auth Me Route Accessed
+2025-12-08 14:59:47 info: Getting three random tweets
+2025-12-08 14:59:47 info: Fetching random users for tweet
+2025-12-08 14:59:47 info: Get follower controller called
+2025-12-08 14:59:47 info: Verifying JWT token
+2025-12-08 14:59:47 info: Verifying JWT token
+2025-12-08 14:59:47 info: Verifying JWT token
+2025-12-08 14:59:47 info: Getting three random tweets
+2025-12-08 14:59:47 info: Fetching random users for tweet
+2025-12-08 14:59:47 info: Get follower controller called
+2025-12-08 14:59:49 info: Verifying JWT token
+2025-12-08 14:59:49 info: Getting retweets for tweet
+2025-12-08 14:59:50 info: Verifying JWT token
+2025-12-08 14:59:50 info: Retweeting tweet
+2025-12-08 15:00:16 info: Connecting to MongoDB...
+2025-12-08 15:00:18 info: MongoDB connected successfully
+2025-12-08 15:00:18 info: User sign-in started
+2025-12-08 15:00:19 info: Verifying JWT token
+2025-12-08 15:00:19 info: Verifying JWT token
+2025-12-08 15:00:19 info: Verifying JWT token
+2025-12-08 15:00:19 info: Fetching random users for tweet
+2025-12-08 15:00:19 info: Getting three random tweets
+2025-12-08 15:00:19 info: Get follower controller called
+2025-12-08 15:00:19 info: Verifying JWT token
+2025-12-08 15:00:19 info: Verifying JWT token
+2025-12-08 15:00:19 info: Verifying JWT token
+2025-12-08 15:00:19 info: Fetching random users for tweet
+2025-12-08 15:00:19 info: Get follower controller called
+2025-12-08 15:00:19 info: Getting three random tweets
+2025-12-08 15:00:21 info: Verifying JWT token
+2025-12-08 15:00:21 info: Auth Me Route Accessed
+2025-12-08 15:00:21 info: Verifying JWT token
+2025-12-08 15:00:21 info: Verifying JWT token
+2025-12-08 15:00:21 info: Verifying JWT token
+2025-12-08 15:00:21 info: Verifying JWT token
+2025-12-08 15:00:21 info: Getting three random tweets
+2025-12-08 15:00:21 info: Auth Me Route Accessed
+2025-12-08 15:00:21 info: Get follower controller called
+2025-12-08 15:00:21 info: Fetching random users for tweet
+2025-12-08 15:00:21 info: Verifying JWT token
+2025-12-08 15:00:21 info: Verifying JWT token
+2025-12-08 15:00:21 info: Verifying JWT token
+2025-12-08 15:00:21 info: Get follower controller called
+2025-12-08 15:00:21 info: Fetching random users for tweet
+2025-12-08 15:00:21 info: Getting three random tweets
+2025-12-08 15:00:22 info: Verifying JWT token
+2025-12-08 15:00:22 info: Getting retweets for tweet
+2025-12-08 15:00:24 info: Verifying JWT token
+2025-12-08 15:00:24 info: Retweeting tweet
+2025-12-08 15:01:49 info: Connecting to MongoDB...
+2025-12-08 15:01:58 info: Connecting to MongoDB...
+2025-12-08 15:01:59 info: MongoDB connected successfully
+2025-12-08 15:02:00 info: Verifying JWT token
+2025-12-08 15:02:01 info: Auth Me Route Accessed
+2025-12-08 15:02:01 info: Verifying JWT token
+2025-12-08 15:02:01 info: Verifying JWT token
+2025-12-08 15:02:01 info: Verifying JWT token
+2025-12-08 15:02:01 info: Verifying JWT token
+2025-12-08 15:02:01 info: Auth Me Route Accessed
+2025-12-08 15:02:01 info: Getting three random tweets
+2025-12-08 15:02:01 info: Fetching random users for tweet
+2025-12-08 15:02:01 info: Get follower controller called
+2025-12-08 15:02:01 info: Verifying JWT token
+2025-12-08 15:02:01 info: Verifying JWT token
+2025-12-08 15:02:01 info: Verifying JWT token
+2025-12-08 15:02:01 info: Get follower controller called
+2025-12-08 15:02:01 info: Getting three random tweets
+2025-12-08 15:02:01 info: Fetching random users for tweet
+2025-12-08 15:02:02 info: Verifying JWT token
+2025-12-08 15:02:02 info: Auth Me Route Accessed
+2025-12-08 15:02:02 info: Verifying JWT token
+2025-12-08 15:02:02 info: Verifying JWT token
+2025-12-08 15:02:02 info: Verifying JWT token
+2025-12-08 15:02:02 info: Verifying JWT token
+2025-12-08 15:02:02 info: Auth Me Route Accessed
+2025-12-08 15:02:02 info: Getting three random tweets
+2025-12-08 15:02:02 info: Get follower controller called
+2025-12-08 15:02:02 info: Fetching random users for tweet
+2025-12-08 15:02:02 info: Verifying JWT token
+2025-12-08 15:02:02 info: Verifying JWT token
+2025-12-08 15:02:02 info: Verifying JWT token
+2025-12-08 15:02:02 info: Get follower controller called
+2025-12-08 15:02:02 info: Getting three random tweets
+2025-12-08 15:02:02 info: Fetching random users for tweet
+2025-12-08 15:02:03 info: Verifying JWT token
+2025-12-08 15:02:03 info: Auth Me Route Accessed
+2025-12-08 15:02:03 info: Verifying JWT token
+2025-12-08 15:02:03 info: Verifying JWT token
+2025-12-08 15:02:03 info: Verifying JWT token
+2025-12-08 15:02:03 info: Verifying JWT token
+2025-12-08 15:02:03 info: Auth Me Route Accessed
+2025-12-08 15:02:03 info: Getting three random tweets
+2025-12-08 15:02:03 info: Fetching random users for tweet
+2025-12-08 15:02:03 info: Get follower controller called
+2025-12-08 15:02:03 info: Verifying JWT token
+2025-12-08 15:02:03 info: Verifying JWT token
+2025-12-08 15:02:03 info: Verifying JWT token
+2025-12-08 15:02:03 info: Getting three random tweets
+2025-12-08 15:02:03 info: Fetching random users for tweet
+2025-12-08 15:02:03 info: Get follower controller called
+2025-12-08 15:02:04 info: Verifying JWT token
+2025-12-08 15:02:04 info: Auth Me Route Accessed
+2025-12-08 15:02:04 info: Verifying JWT token
+2025-12-08 15:02:04 info: Verifying JWT token
+2025-12-08 15:02:04 info: Verifying JWT token
+2025-12-08 15:02:04 info: Verifying JWT token
+2025-12-08 15:02:04 info: Auth Me Route Accessed
+2025-12-08 15:02:04 info: Getting three random tweets
+2025-12-08 15:02:04 info: Get follower controller called
+2025-12-08 15:02:04 info: Fetching random users for tweet
+2025-12-08 15:02:05 info: Verifying JWT token
+2025-12-08 15:02:05 info: Verifying JWT token
+2025-12-08 15:02:05 info: Verifying JWT token
+2025-12-08 15:02:05 info: Getting three random tweets
+2025-12-08 15:02:05 info: Get follower controller called
+2025-12-08 15:02:05 info: Fetching random users for tweet
+2025-12-08 15:02:06 info: Verifying JWT token
+2025-12-08 15:02:06 info: Auth Me Route Accessed
+2025-12-08 15:02:06 info: Verifying JWT token
+2025-12-08 15:02:06 info: Verifying JWT token
+2025-12-08 15:02:06 info: Verifying JWT token
+2025-12-08 15:02:06 info: Verifying JWT token
+2025-12-08 15:02:06 info: Auth Me Route Accessed
+2025-12-08 15:02:06 info: Fetching random users for tweet
+2025-12-08 15:02:06 info: Getting three random tweets
+2025-12-08 15:02:06 info: Get follower controller called
+2025-12-08 15:02:06 info: Verifying JWT token
+2025-12-08 15:02:06 info: Verifying JWT token
+2025-12-08 15:02:06 info: Verifying JWT token
+2025-12-08 15:02:06 info: Fetching random users for tweet
+2025-12-08 15:02:06 info: Getting three random tweets
+2025-12-08 15:02:06 info: Get follower controller called
+2025-12-08 15:02:07 info: Verifying JWT token
+2025-12-08 15:02:08 info: Auth Me Route Accessed
+2025-12-08 15:02:08 info: Verifying JWT token
+2025-12-08 15:02:08 info: Verifying JWT token
+2025-12-08 15:02:08 info: Verifying JWT token
+2025-12-08 15:02:08 info: Verifying JWT token
+2025-12-08 15:02:08 info: Auth Me Route Accessed
+2025-12-08 15:02:08 info: Fetching random users for tweet
+2025-12-08 15:02:08 info: Get follower controller called
+2025-12-08 15:02:08 info: Getting three random tweets
+2025-12-08 15:02:08 info: Verifying JWT token
+2025-12-08 15:02:08 info: Verifying JWT token
+2025-12-08 15:02:08 info: Verifying JWT token
+2025-12-08 15:02:08 info: Get follower controller called
+2025-12-08 15:02:08 info: Fetching random users for tweet
+2025-12-08 15:02:08 info: Getting three random tweets
+2025-12-08 15:02:09 info: Verifying JWT token
+2025-12-08 15:02:09 info: Auth Me Route Accessed
+2025-12-08 15:02:09 info: Verifying JWT token
+2025-12-08 15:02:09 info: Verifying JWT token
+2025-12-08 15:02:09 info: Verifying JWT token
+2025-12-08 15:02:09 info: Verifying JWT token
+2025-12-08 15:02:09 info: Auth Me Route Accessed
+2025-12-08 15:02:09 info: Getting three random tweets
+2025-12-08 15:02:09 info: Fetching random users for tweet
+2025-12-08 15:02:09 info: Get follower controller called
+2025-12-08 15:02:09 info: Verifying JWT token
+2025-12-08 15:02:09 info: Verifying JWT token
+2025-12-08 15:02:09 info: Verifying JWT token
+2025-12-08 15:02:09 info: Getting three random tweets
+2025-12-08 15:02:09 info: Fetching random users for tweet
+2025-12-08 15:02:09 info: Get follower controller called
+2025-12-08 15:02:11 info: Verifying JWT token
+2025-12-08 15:02:11 info: Auth Me Route Accessed
+2025-12-08 15:02:11 info: Verifying JWT token
+2025-12-08 15:02:11 info: Verifying JWT token
+2025-12-08 15:02:11 info: Verifying JWT token
+2025-12-08 15:02:11 info: Verifying JWT token
+2025-12-08 15:02:11 info: Auth Me Route Accessed
+2025-12-08 15:02:11 info: Fetching random users for tweet
+2025-12-08 15:02:11 info: Get follower controller called
+2025-12-08 15:02:11 info: Getting three random tweets
+2025-12-08 15:02:11 info: Verifying JWT token
+2025-12-08 15:02:11 info: Verifying JWT token
+2025-12-08 15:02:11 info: Verifying JWT token
+2025-12-08 15:02:11 info: Fetching random users for tweet
+2025-12-08 15:02:11 info: Get follower controller called
+2025-12-08 15:02:11 info: Getting three random tweets
+2025-12-08 15:02:12 info: Verifying JWT token
+2025-12-08 15:02:12 info: Getting retweets for tweet
+2025-12-08 15:02:16 info: Verifying JWT token
+2025-12-08 15:02:16 info: Getting retweets for tweet
+2025-12-08 15:02:16 info: Verifying JWT token
+2025-12-08 15:02:17 info: Retweeting tweet
+2025-12-08 15:04:12 info: Connecting to MongoDB...
+2025-12-08 15:04:18 info: MongoDB connected successfully
+2025-12-08 15:04:31 info: Connecting to MongoDB...
+2025-12-08 15:04:33 info: MongoDB connected successfully
+2025-12-08 15:05:21 info: Connecting to MongoDB...
+2025-12-08 15:05:23 info: MongoDB connected successfully
+2025-12-08 15:05:24 info: User sign-in started
+2025-12-08 15:05:24 info: Verifying JWT token
+2025-12-08 15:05:24 info: Verifying JWT token
+2025-12-08 15:05:24 info: Verifying JWT token
+2025-12-08 15:05:24 info: Fetching random users for tweet
+2025-12-08 15:05:24 info: Get follower controller called
+2025-12-08 15:05:24 info: Getting three random tweets
+2025-12-08 15:05:25 info: Verifying JWT token
+2025-12-08 15:05:25 info: Verifying JWT token
+2025-12-08 15:05:25 info: Verifying JWT token
+2025-12-08 15:05:25 info: Get follower controller called
+2025-12-08 15:05:25 info: Fetching random users for tweet
+2025-12-08 15:05:25 info: Getting three random tweets
+2025-12-08 15:05:26 info: Verifying JWT token
+2025-12-08 15:05:26 info: Auth Me Route Accessed
+2025-12-08 15:05:26 info: Verifying JWT token
+2025-12-08 15:05:26 info: Verifying JWT token
+2025-12-08 15:05:26 info: Verifying JWT token
+2025-12-08 15:05:26 info: Verifying JWT token
+2025-12-08 15:05:26 info: Auth Me Route Accessed
+2025-12-08 15:05:26 info: Getting three random tweets
+2025-12-08 15:05:26 info: Fetching random users for tweet
+2025-12-08 15:05:26 info: Get follower controller called
+2025-12-08 15:05:27 info: Verifying JWT token
+2025-12-08 15:05:27 info: Verifying JWT token
+2025-12-08 15:05:27 info: Verifying JWT token
+2025-12-08 15:05:27 info: Getting three random tweets
+2025-12-08 15:05:27 info: Fetching random users for tweet
+2025-12-08 15:05:27 info: Get follower controller called
+2025-12-08 15:05:27 info: Verifying JWT token
+2025-12-08 15:05:27 info: Auth Me Route Accessed
+2025-12-08 15:05:27 info: Verifying JWT token
+2025-12-08 15:05:27 info: Verifying JWT token
+2025-12-08 15:05:27 info: Verifying JWT token
+2025-12-08 15:05:27 info: Verifying JWT token
+2025-12-08 15:05:28 info: Auth Me Route Accessed
+2025-12-08 15:05:28 info: Getting three random tweets
+2025-12-08 15:05:28 info: Fetching random users for tweet
+2025-12-08 15:05:28 info: Get follower controller called
+2025-12-08 15:05:28 info: Verifying JWT token
+2025-12-08 15:05:28 info: Verifying JWT token
+2025-12-08 15:05:28 info: Verifying JWT token
+2025-12-08 15:05:28 info: Fetching random users for tweet
+2025-12-08 15:05:28 info: Getting three random tweets
+2025-12-08 15:05:28 info: Get follower controller called
+2025-12-08 15:05:29 info: Verifying JWT token
+2025-12-08 15:05:29 info: Auth Me Route Accessed
+2025-12-08 15:05:29 info: Verifying JWT token
+2025-12-08 15:05:29 info: Verifying JWT token
+2025-12-08 15:05:29 info: Verifying JWT token
+2025-12-08 15:05:29 info: Verifying JWT token
+2025-12-08 15:05:30 info: Auth Me Route Accessed
+2025-12-08 15:05:30 info: Getting three random tweets
+2025-12-08 15:05:30 info: Get follower controller called
+2025-12-08 15:05:30 info: Fetching random users for tweet
+2025-12-08 15:05:30 info: Verifying JWT token
+2025-12-08 15:05:30 info: Verifying JWT token
+2025-12-08 15:05:30 info: Verifying JWT token
+2025-12-08 15:05:30 info: Getting three random tweets
+2025-12-08 15:05:30 info: Get follower controller called
+2025-12-08 15:05:30 info: Fetching random users for tweet
+2025-12-08 15:05:32 info: Verifying JWT token
+2025-12-08 15:05:32 info: Auth Me Route Accessed
+2025-12-08 15:05:32 info: Verifying JWT token
+2025-12-08 15:05:32 info: Verifying JWT token
+2025-12-08 15:05:32 info: Verifying JWT token
+2025-12-08 15:05:32 info: Verifying JWT token
+2025-12-08 15:05:32 info: Auth Me Route Accessed
+2025-12-08 15:05:32 info: Getting three random tweets
+2025-12-08 15:05:32 info: Fetching random users for tweet
+2025-12-08 15:05:32 info: Get follower controller called
+2025-12-08 15:05:32 info: Verifying JWT token
+2025-12-08 15:05:32 info: Verifying JWT token
+2025-12-08 15:05:32 info: Verifying JWT token
+2025-12-08 15:05:32 info: Getting three random tweets
+2025-12-08 15:05:32 info: Get follower controller called
+2025-12-08 15:05:32 info: Fetching random users for tweet
+2025-12-08 15:05:33 info: Verifying JWT token
+2025-12-08 15:05:33 info: Auth Me Route Accessed
+2025-12-08 15:05:33 info: Verifying JWT token
+2025-12-08 15:05:33 info: Verifying JWT token
+2025-12-08 15:05:33 info: Verifying JWT token
+2025-12-08 15:05:33 info: Verifying JWT token
+2025-12-08 15:05:33 info: Getting three random tweets
+2025-12-08 15:05:33 info: Auth Me Route Accessed
+2025-12-08 15:05:33 info: Fetching random users for tweet
+2025-12-08 15:05:33 info: Get follower controller called
+2025-12-08 15:05:34 info: Verifying JWT token
+2025-12-08 15:05:34 info: Verifying JWT token
+2025-12-08 15:05:34 info: Verifying JWT token
+2025-12-08 15:05:34 info: Get follower controller called
+2025-12-08 15:05:34 info: Getting three random tweets
+2025-12-08 15:05:34 info: Fetching random users for tweet
+2025-12-08 15:05:35 info: Verifying JWT token
+2025-12-08 15:05:35 info: Auth Me Route Accessed
+2025-12-08 15:05:35 info: Verifying JWT token
+2025-12-08 15:05:35 info: Verifying JWT token
+2025-12-08 15:05:35 info: Verifying JWT token
+2025-12-08 15:05:35 info: Verifying JWT token
+2025-12-08 15:05:35 info: Auth Me Route Accessed
+2025-12-08 15:05:35 info: Fetching random users for tweet
+2025-12-08 15:05:35 info: Getting three random tweets
+2025-12-08 15:05:35 info: Get follower controller called
+2025-12-08 15:05:35 info: Verifying JWT token
+2025-12-08 15:05:35 info: Verifying JWT token
+2025-12-08 15:05:35 info: Verifying JWT token
+2025-12-08 15:05:35 info: Fetching random users for tweet
+2025-12-08 15:05:35 info: Getting three random tweets
+2025-12-08 15:05:35 info: Get follower controller called
+2025-12-08 15:05:36 info: Verifying JWT token
+2025-12-08 15:05:36 info: Auth Me Route Accessed
+2025-12-08 15:05:36 info: Verifying JWT token
+2025-12-08 15:05:36 info: Verifying JWT token
+2025-12-08 15:05:36 info: Verifying JWT token
+2025-12-08 15:05:36 info: Verifying JWT token
+2025-12-08 15:05:36 info: Auth Me Route Accessed
+2025-12-08 15:05:36 info: Fetching random users for tweet
+2025-12-08 15:05:36 info: Get follower controller called
+2025-12-08 15:05:36 info: Getting three random tweets
+2025-12-08 15:05:36 info: Verifying JWT token
+2025-12-08 15:05:36 info: Verifying JWT token
+2025-12-08 15:05:36 info: Verifying JWT token
+2025-12-08 15:05:36 info: Fetching random users for tweet
+2025-12-08 15:05:36 info: Get follower controller called
+2025-12-08 15:05:36 info: Getting three random tweets
+2025-12-08 15:05:37 info: Verifying JWT token
+2025-12-08 15:05:37 info: Auth Me Route Accessed
+2025-12-08 15:05:37 info: Verifying JWT token
+2025-12-08 15:05:37 info: Verifying JWT token
+2025-12-08 15:05:37 info: Verifying JWT token
+2025-12-08 15:05:37 info: Verifying JWT token
+2025-12-08 15:05:38 info: Auth Me Route Accessed
+2025-12-08 15:05:38 info: Fetching random users for tweet
+2025-12-08 15:05:38 info: Get follower controller called
+2025-12-08 15:05:38 info: Getting three random tweets
+2025-12-08 15:05:38 info: Verifying JWT token
+2025-12-08 15:05:38 info: Verifying JWT token
+2025-12-08 15:05:38 info: Verifying JWT token
+2025-12-08 15:05:38 info: Get follower controller called
+2025-12-08 15:05:38 info: Fetching random users for tweet
+2025-12-08 15:05:38 info: Getting three random tweets
+2025-12-08 15:05:39 info: Verifying JWT token
+2025-12-08 15:05:39 info: Auth Me Route Accessed
+2025-12-08 15:05:39 info: Verifying JWT token
+2025-12-08 15:05:39 info: Verifying JWT token
+2025-12-08 15:05:39 info: Verifying JWT token
+2025-12-08 15:05:39 info: Verifying JWT token
+2025-12-08 15:05:39 info: Auth Me Route Accessed
+2025-12-08 15:05:39 info: Getting three random tweets
+2025-12-08 15:05:39 info: Fetching random users for tweet
+2025-12-08 15:05:39 info: Get follower controller called
+2025-12-08 15:05:39 info: Verifying JWT token
+2025-12-08 15:05:39 info: Verifying JWT token
+2025-12-08 15:05:39 info: Getting three random tweets
+2025-12-08 15:05:39 info: Fetching random users for tweet
+2025-12-08 15:05:39 info: Verifying JWT token
+2025-12-08 15:05:39 info: Get follower controller called
+2025-12-08 15:05:41 info: Verifying JWT token
+2025-12-08 15:05:41 info: Getting retweets for tweet
+2025-12-08 15:05:46 info: Verifying JWT token
+2025-12-08 15:05:46 info: Getting retweets for tweet
+2025-12-08 15:05:48 info: Verifying JWT token
+2025-12-08 15:05:48 info: Getting retweets for tweet
+2025-12-08 15:05:50 info: Verifying JWT token
+2025-12-08 15:05:51 info: Auth Me Route Accessed
+2025-12-08 15:05:51 info: Verifying JWT token
+2025-12-08 15:05:51 info: Verifying JWT token
+2025-12-08 15:05:51 info: Verifying JWT token
+2025-12-08 15:05:51 info: Verifying JWT token
+2025-12-08 15:05:51 info: Auth Me Route Accessed
+2025-12-08 15:05:51 info: Fetching random users for tweet
+2025-12-08 15:05:51 info: Get follower controller called
+2025-12-08 15:05:51 info: Getting three random tweets
+2025-12-08 15:05:51 info: Verifying JWT token
+2025-12-08 15:05:51 info: Verifying JWT token
+2025-12-08 15:05:51 info: Verifying JWT token
+2025-12-08 15:05:51 info: Getting three random tweets
+2025-12-08 15:05:51 info: Get follower controller called
+2025-12-08 15:05:51 info: Fetching random users for tweet
+2025-12-08 15:05:52 info: Verifying JWT token
+2025-12-08 15:05:52 info: Getting retweets for tweet
+2025-12-08 15:13:47 info: Connecting to MongoDB...
+2025-12-08 15:13:49 info: MongoDB connected successfully
+2025-12-08 15:13:51 info: User sign-in started
+2025-12-08 15:13:51 info: Verifying JWT token
+2025-12-08 15:13:52 info: Verifying JWT token
+2025-12-08 15:13:52 info: Verifying JWT token
+2025-12-08 15:13:52 info: Getting three random tweets
+2025-12-08 15:13:52 info: Fetching random users for tweet
+2025-12-08 15:13:52 info: Get follower controller called
+2025-12-08 15:13:52 info: Verifying JWT token
+2025-12-08 15:13:52 info: Verifying JWT token
+2025-12-08 15:13:52 info: Verifying JWT token
+2025-12-08 15:13:52 info: Getting three random tweets
+2025-12-08 15:13:52 info: Get follower controller called
+2025-12-08 15:13:52 info: Fetching random users for tweet
+2025-12-08 15:13:54 info: Verifying JWT token
+2025-12-08 15:13:54 info: Auth Me Route Accessed
+2025-12-08 15:13:54 info: Verifying JWT token
+2025-12-08 15:13:54 info: Verifying JWT token
+2025-12-08 15:13:54 info: Verifying JWT token
+2025-12-08 15:13:54 info: Verifying JWT token
+2025-12-08 15:13:54 info: Auth Me Route Accessed
+2025-12-08 15:13:54 info: Getting three random tweets
+2025-12-08 15:13:54 info: Get follower controller called
+2025-12-08 15:13:54 info: Fetching random users for tweet
+2025-12-08 15:13:54 info: Verifying JWT token
+2025-12-08 15:13:54 info: Verifying JWT token
+2025-12-08 15:13:54 info: Verifying JWT token
+2025-12-08 15:13:54 info: Fetching random users for tweet
+2025-12-08 15:13:54 info: Get follower controller called
+2025-12-08 15:13:54 info: Getting three random tweets
+2025-12-08 15:14:05 info: Verifying JWT token
+2025-12-08 15:14:05 info: Verifying JWT token
+2025-12-08 15:14:05 info: Auth Me Route Accessed
+2025-12-08 15:14:05 info: Auth Me Route Accessed
+2025-12-08 15:14:07 error: Validation Error
+2025-12-08 15:14:09 info: User sign-in started
+2025-12-08 15:14:10 info: Verifying JWT token
+2025-12-08 15:14:10 info: Verifying JWT token
+2025-12-08 15:14:10 info: Verifying JWT token
+2025-12-08 15:14:10 info: Verifying JWT token
+2025-12-08 15:14:10 info: Verifying JWT token
+2025-12-08 15:14:10 info: Verifying JWT token
+2025-12-08 15:14:10 info: Fetching random users for tweet
+2025-12-08 15:14:10 info: Getting three random tweets
+2025-12-08 15:14:10 info: Get follower controller called
+2025-12-08 15:14:10 info: Getting three random tweets
+2025-12-08 15:14:10 info: Fetching random users for tweet
+2025-12-08 15:14:10 info: Get follower controller called
+2025-12-08 15:14:12 info: Verifying JWT token
+2025-12-08 15:14:12 info: Verifying JWT token
+2025-12-08 15:14:12 info: Auth Me Route Accessed
+2025-12-08 15:14:12 info: Auth Me Route Accessed
+2025-12-08 15:14:12 info: Verifying JWT token
+2025-12-08 15:14:12 info: Verifying JWT token
+2025-12-08 15:14:12 info: Verifying JWT token
+2025-12-08 15:14:12 info: Verifying JWT token
+2025-12-08 15:14:12 info: Verifying JWT token
+2025-12-08 15:14:12 info: Verifying JWT token
+2025-12-08 15:14:12 info: Fetching random users for tweet
+2025-12-08 15:14:12 info: Getting three random tweets
+2025-12-08 15:14:12 info: Getting three random tweets
+2025-12-08 15:14:12 info: Get follower controller called
+2025-12-08 15:14:12 info: Fetching random users for tweet
+2025-12-08 15:14:12 info: Get follower controller called
+2025-12-08 15:14:15 info: Verifying JWT token
+2025-12-08 15:14:15 info: Getting retweets for tweet
+2025-12-08 15:14:16 info: Verifying JWT token
+2025-12-08 15:14:16 info: Retweeting tweet
+2025-12-08 15:14:42 info: Verifying JWT token
+2025-12-08 15:14:42 info: Verifying JWT token
+2025-12-08 15:14:42 info: Getting user tweets
+2025-12-08 15:14:42 info: Getting user tweets
+2025-12-08 15:14:44 info: Verifying JWT token
+2025-12-08 15:14:44 info: Follow user controller called
+2025-12-08 15:14:46 info: Verifying JWT token
+2025-12-08 15:14:47 info: Follow user controller called
+2025-12-08 15:14:48 info: Verifying JWT token
+2025-12-08 15:14:48 info: Unfollow user controller called
+2025-12-08 15:14:50 info: Verifying JWT token
+2025-12-08 15:14:50 info: Unfollow user controller called
+2025-12-08 15:14:51 info: Verifying JWT token
+2025-12-08 15:14:51 info: Unfollow user controller called
+2025-12-08 15:14:52 info: Verifying JWT token
+2025-12-08 15:14:52 info: Follow user controller called
+2025-12-08 15:21:06 info: Connecting to MongoDB...
+2025-12-08 15:21:08 info: MongoDB connected successfully
+2025-12-08 15:21:28 info: Connecting to MongoDB...
+2025-12-08 15:21:30 info: MongoDB connected successfully
+2025-12-08 15:21:41 info: Verifying JWT token
+2025-12-08 15:21:41 info: Verifying JWT token
+2025-12-08 15:21:41 info: Auth Me Route Accessed
+2025-12-08 15:21:41 info: Auth Me Route Accessed
+2025-12-08 15:21:44 info: User sign-in started
+2025-12-08 15:21:44 info: Verifying JWT token
+2025-12-08 15:21:44 info: Verifying JWT token
+2025-12-08 15:21:44 info: Verifying JWT token
+2025-12-08 15:21:44 info: Verifying JWT token
+2025-12-08 15:21:44 info: Verifying JWT token
+2025-12-08 15:21:44 info: Verifying JWT token
+2025-12-08 15:21:44 info: Getting three random tweets
+2025-12-08 15:21:44 info: Fetching random users for tweet
+2025-12-08 15:21:44 info: Get follower controller called
+2025-12-08 15:21:44 info: Getting three random tweets
+2025-12-08 15:21:45 info: Fetching random users for tweet
+2025-12-08 15:21:45 info: Get follower controller called
+2025-12-08 15:21:46 info: Verifying JWT token
+2025-12-08 15:21:46 info: Verifying JWT token
+2025-12-08 15:21:46 info: Getting replies for tweet
+2025-12-08 15:21:46 info: Getting replies for tweet
+2025-12-08 15:22:00 info: Verifying JWT token
+2025-12-08 15:22:00 info: Creating reply for tweet
