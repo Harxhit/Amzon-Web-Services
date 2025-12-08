@@ -314,7 +314,7 @@ const Home = () => {
                   )}
 
                   {userReTweetId[tweet._id] ? (
-                    <div className="text-green-400 font-semibold">You retweeted this</div>
+                    <div className="text-green-400 font-semibold">You retweeted this tweet </div>
                   ) : (
                     <div>
                       <p className="text-gray-300 mb-2">Retweet this tweet?</p>

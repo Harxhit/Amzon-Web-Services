@@ -33,7 +33,7 @@ Each milestone aligns with weekly AWS Cloud concepts, DevOps practices, and arch
 
 **Notification Page**
 
-![Notification Page](/assets/notificatio.png)
+![Notification Page](/assets/updated-notification.png)
 
 **More Page**
 
@@ -43,7 +43,17 @@ Each milestone aligns with weekly AWS Cloud concepts, DevOps practices, and arch
 
 ![Tweet Page](/assets/tweet.png)
 
----
+**Comment Section for a Tweet**
+
+![Comment Section](/assets/comment.png)
+
+**Retweet section for a Tweet**
+
+![Like Section](/assets/retweet.png)
+
+**Like Section for a Tweet**
+
+![Like Section](/assets/like.png)
 
 ## 🗂️ Architecture Summary
 
