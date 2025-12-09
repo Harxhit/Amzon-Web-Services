@@ -10,7 +10,7 @@ import Notification from "../models/notificaiton.model";
 import {io} from '../app'
 import User from "../models/user.model";
 import Comment from "../models/comment.model";
-import { request } from "http";
+import ApiError from "../utils/ApiError";
 
 const window = new JSDOM('').window
 const DOMPurify = createDOMPurify(window)
@@ -86,624 +86,698 @@ const createTweet = async(request:express.Request, response:express.Response ) =
              error: error.message
             }
     }  )
-    return response.status(400).json({
-        success: false,
-        message: 'Server error'
-    })
-   }
+    throw new ApiError(500, "Server error while creating tweet");
+    }
 }
 
 const editTweet = async(request : express.Request, response: express.Response) => {
-    logger.info('Editing tweet', {
-        meta: {
-            user: request.user?._id,
-             route: request.originalUrl
-            }
-    })      
-    const parsed = editTweetSchema.validate(request.body);
-    const {tweetId} = request.params; 
-
-    if(parsed.error){
-        const errors = parsed.error.details.map((detail) => detail.message)
-        logger.error('Validation error while editing tweet',{
-            meta: {
-                user: request.user?._id,
-                route: request.originalUrl,
-                error : parsed.error.message
-            }
-        })
-        return response.status(401).json({
-            success: false,
-            message : 'Error editing tweet', 
-            error : {errors}
-        })
-    }
-    if(!tweetId){
-        logger.error('Tweet id not found while editing tweet', {
+    try {
+        
+        logger.info('Editing tweet', {
             meta: {
                 user: request.user?._id,
                  route: request.originalUrl
-                }
-        })  
-        return response.status(401).json({
-            success: false, 
-            message : 'Error finding tweetId'
-        })
-    }
-    const content  = DOMPurify.sanitize(parsed.value.content)
-    const userId = request.user?._id
-    if(!userId){
-        logger.error('User id not found while editing tweet', {
-            meta: {
-                route: request.originalUrl
                 }
         })      
-        return response.status(401).json({
-            success :false, 
-            message: 'User id not found'
+        const parsed = editTweetSchema.validate(request.body);
+        const {tweetId} = request.params; 
+    
+        if(parsed.error){
+            const errors = parsed.error.details.map((detail) => detail.message)
+            logger.error('Validation error while editing tweet',{
+                meta: {
+                    user: request.user?._id,
+                    route: request.originalUrl,
+                    error : parsed.error.message
+                }
+            })
+            return response.status(401).json({
+                success: false,
+                message : 'Error editing tweet', 
+                error : {errors}
+            })
+        }
+        if(!tweetId){
+            logger.error('Tweet id not found while editing tweet', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })  
+            return response.status(401).json({
+                success: false, 
+                message : 'Error finding tweetId'
+            })
+        }
+        const content  = DOMPurify.sanitize(parsed.value.content)
+        const userId = request.user?._id
+        if(!userId){
+            logger.error('User id not found while editing tweet', {
+                meta: {
+                    route: request.originalUrl
+                    }
+            })      
+            return response.status(401).json({
+                success :false, 
+                message: 'User id not found'
+            })
+        }
+        const tweet = await Tweet.findById(tweetId);
+    
+        if(tweet?.author.toString() !== userId.toString()){
+            logger.error('User is not the owner of the tweet while editing tweet', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })  
+            return response.status(401).json({
+                success: false, 
+                message: 'You are not owner of this tweet'
+            })
+        }
+    
+        const updatedTweet = await Tweet.findByIdAndUpdate(tweetId , {
+            content : content
+        },{new : true})
+        if(!updatedTweet){
+            logger.error('Error updating tweet in database', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })  
+            return response.status(401).json({
+                success : false, 
+                message: 'Error updating tweet'
+            })
+        }
+        return response.status(201).json({
+            success : true, 
+            message : 'Tweet updated successfully',
+            tweet : updatedTweet
         })
-    }
-    const tweet = await Tweet.findById(tweetId);
-
-    if(tweet?.author.toString() !== userId.toString()){
-        logger.error('User is not the owner of the tweet while editing tweet', {
+    } catch (error) {
+        logger.error('Server error while editing tweet', {
             meta: {
                 user: request.user?._id,
-                 route: request.originalUrl
-                }
-        })  
-        return response.status(401).json({
-            success: false, 
-            message: 'You are not owner of this tweet'
+                    route: request.originalUrl,
+            }
         })
+        throw new ApiError(500, "Server error while editing tweet");
     }
-
-    const updatedTweet = await Tweet.findByIdAndUpdate(tweetId , {
-        content : content
-    },{new : true})
-    if(!updatedTweet){
-        logger.error('Error updating tweet in database', {
-            meta: {
-                user: request.user?._id,
-                 route: request.originalUrl
-                }
-        })  
-        return response.status(401).json({
-            success : false, 
-            message: 'Error updating tweet'
-        })
-    }
-    return response.status(201).json({
-        success : true, 
-        message : 'Tweet updated successfully',
-        tweet : updatedTweet
-    })
 
 }
 
 const deleteTweet = async(request:express.Request, response:express.Response ) => {
-    logger.info('Deleting tweet', {
-        meta: {
-            user: request.user?._id,
-             route: request.originalUrl
-            }
-    })  
-    const {tweetId} = request.params; 
-    if(!tweetId){
-        logger.error('Tweet id not found while deleting tweet', {
-            meta: {
-                user: request.user?._id,
-                 route: request.originalUrl
-                }
-        })      
-        return response.status(400).json({
-            success :false, 
-            message : 'Error deleting tweet'
-        })
-    }
-    const tweet = await Tweet.findById(tweetId);
-    const userId = request.user?._id
-    if(!userId){
-        logger.error('User id not found while deleting tweet', {        
-            meta: {
-                route: request.originalUrl
-                }
-        })  
-        return response.status(401).json({
-            success: false, 
-            message: 'User id not found '
-        })
-    }
-
-    if(tweet?.author.toString() !== userId.toString()){
-        logger.error('User is not the owner of the tweet while deleting tweet', {
+    try {
+        
+        logger.info('Deleting tweet', {
             meta: {
                 user: request.user?._id,
                  route: request.originalUrl
                 }
         })  
-        return response.status(401).json({
-            success: false, 
-            message : 'You dont have the ownership of this tweet'
-        })
-    }
+        const {tweetId} = request.params; 
+        if(!tweetId){
+            logger.error('Tweet id not found while deleting tweet', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })      
+            return response.status(400).json({
+                success :false, 
+                message : 'Error deleting tweet'
+            })
+        }
+        const tweet = await Tweet.findById(tweetId);
+        const userId = request.user?._id
+        if(!userId){
+            logger.error('User id not found while deleting tweet', {        
+                meta: {
+                    route: request.originalUrl
+                    }
+            })  
+            return response.status(401).json({
+                success: false, 
+                message: 'User id not found '
+            })
+        }
     
-    await Tweet.findByIdAndDelete(tweetId)
-    return response.status(201).json({
-        success: true, 
-        message : 'Tweet deleted successfully'
-    })
+        if(tweet?.author.toString() !== userId.toString()){
+            logger.error('User is not the owner of the tweet while deleting tweet', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })  
+            return response.status(401).json({
+                success: false, 
+                message : 'You dont have the ownership of this tweet'
+            })
+        }
+        
+        await Tweet.findByIdAndDelete(tweetId)
+        return response.status(201).json({
+            success: true, 
+            message : 'Tweet deleted successfully'
+        })
+    } catch (error) {
+        logger.error('Server error while deleting tweet', {
+            meta: {
+                user: request.user?._id,
+                    route: request.originalUrl,
+            }   
+        })
+        throw new ApiError(500, "Server error while deleting tweet");
+    }
 
 }
 
 const getTweetById = async(request:express.Request, response:express.Response ) => {
-    logger.info('Getting tweet by id', {        
-        meta: {
-            user: request.user?._id,
-             route: request.originalUrl
+    try {
+        
+        logger.info('Getting tweet by id', {        
+            meta: {
+                user: request.user?._id,
+                 route: request.originalUrl
+                }
+        })
+        const tweetId = request.params.id
+        if(!tweetId){
+            logger.error('Tweet id not found while getting tweet by id', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })
+            return response.status(401).json({
+                success: false, 
+                message: 'Error getting tweetId'
+            })
+        }
+        const tweetInformation = await Tweet.findById(tweetId);
+        if(!tweetInformation){
+            logger.error('Error fetching tweet information from database', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })
+            return response.status(401).json({
+                success: false, 
+                message: 'Error fetching tweet information'
+            })
+        }
+        return response.status(201).json({
+            success: true, 
+            message: 'Tweet information fetched successfully', 
+            tweet: {tweetInformation}
+        })
+    } catch (error) {
+        logger.error('Server error while getting tweet by id', {    
+            meta: {
+                user: request.user?._id,
+                route: request.originalUrl,
             }
-    })
-    const tweetId = request.params.id
-    if(!tweetId){
-        logger.error('Tweet id not found while getting tweet by id', {
-            meta: {
-                user: request.user?._id,
-                 route: request.originalUrl
-                }
         })
-        return response.status(401).json({
-            success: false, 
-            message: 'Error getting tweetId'
-        })
+        throw new ApiError(500, "Server error while getting tweet by id");
     }
-    const tweetInformation = await Tweet.findById(tweetId);
-    if(!tweetInformation){
-        logger.error('Error fetching tweet information from database', {
-            meta: {
-                user: request.user?._id,
-                 route: request.originalUrl
-                }
-        })
-        return response.status(401).json({
-            success: false, 
-            message: 'Error fetching tweet information'
-        })
-    }
-    return response.status(201).json({
-        success: true, 
-        message: 'Tweet information fetched successfully', 
-        tweet: {tweetInformation}
-    })
 }
 
 const likeTweet = async(request:express.Request, response:express.Response ) => {
-    logger.info('Liking tweet', {        
-        meta: {
-            user: request.user?._id,
-             route: request.originalUrl
+    try {
+        logger.info('Liking tweet', {        
+            meta: {
+                user: request.user?._id,
+                 route: request.originalUrl
+                }
+        })
+        const tweetId = request.params.id; 
+        // console.log('TweetId' , tweetId)
+    
+        if(!tweetId){
+            logger.error('Tweet id not found while liking tweet', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })  
+            return response.status(401).json({
+                success :false , 
+                message : 'Error getting tweetId' 
+            })
+        }
+        const userId = request.user?._id
+        if(!userId){
+            logger.error('User id not found while liking tweet', {
+                meta: {
+                    route: request.originalUrl
+                    }
+            })  
+            return response.status(400).json({
+                success: false, 
+                message : 'User id not found'
+            })
+        }
+        const alreadyLiked = await LikeModel.findOne({userId, tweetId})
+    
+        if(alreadyLiked){
+            logger.error('Tweet already liked by user', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })
+            return response.status(400).json({
+                success: false, 
+                message: 'You became like your women liking more than one man cannot do that here sorry'
+            })
+        }
+        const like = await LikeModel.create({
+            userId: userId, 
+            tweetId: tweetId, 
+        })
+        if(!like){
+            logger.error('Error creating like record in database', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })  
+            return response.status(401).json({
+                success : false, 
+                message : 'Error liking tweet'
+            })  
+        }
+        const inc:number = 1; 
+    
+        const updatedLikeCount = await Tweet.findByIdAndUpdate(tweetId , 
+            {$inc:
+                {likeCount: inc}
+            },{new:true}
+        ).populate("author",'username firstName lastName _id')
+    
+        if(!updatedLikeCount){
+            logger.error('Error updating like count in database', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })  
+            return response.status(401).json({
+                success : false, 
+                message : 'Error liking tweet'
+            })
+        }
+    
+        const receiver = updatedLikeCount.author._id
+    
+        const sender =  await User.findById(userId).select('firstName lastName username')
+    
+        io.to(receiver.toString()).emit('notification:new', {
+            type: 'like',
+            senderId: {
+              firstName:sender?.firstName,
+              lastName: sender?.lastName,
+              username: sender?.username
+    
+            },
+            message: `Liked your tweet`,
+            timeStamp: Date.now()
+        })
+    
+        const notificaiton = await Notification.create({
+            senderId: request.user?._id, 
+            receiverId: receiver,
+            tweetId : tweetId, 
+            type: 'like'
+        })
+    
+        if(!notificaiton){
+            logger.error('Error creating notification in database while liking tweet', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })  
+            return response.status(401).json({
+                success : false, 
+                message : 'Error creating notification'
+            })      
+        }
+    
+        return response.status(201).json({
+            success : true, 
+            message : 'Tweet liked successfully', 
+            tweet : updatedLikeCount
+        })  
+        
+    } catch (error) {
+        logger.error('Server error while liking tweet', {
+            meta: {
+                user: request.user?._id,
+                    route: request.originalUrl,
             }
-    })
-    const tweetId = request.params.id; 
-    // console.log('TweetId' , tweetId)
-
-    if(!tweetId){
-        logger.error('Tweet id not found while liking tweet', {
-            meta: {
-                user: request.user?._id,
-                 route: request.originalUrl
-                }
-        })  
-        return response.status(401).json({
-            success :false , 
-            message : 'Error getting tweetId' 
         })
+        throw new ApiError(500, "Server error while liking tweet");
     }
-    const userId = request.user?._id
-    if(!userId){
-        logger.error('User id not found while liking tweet', {
-            meta: {
-                route: request.originalUrl
-                }
-        })  
-        return response.status(400).json({
-            success: false, 
-            message : 'User id not found'
-        })
-    }
-    const alreadyLiked = await LikeModel.findOne({userId, tweetId})
-
-    if(alreadyLiked){
-        logger.error('Tweet already liked by user', {
-            meta: {
-                user: request.user?._id,
-                 route: request.originalUrl
-                }
-        })
-        return response.status(400).json({
-            success: false, 
-            message: 'You became like your women liking more than one man cannot do that here sorry'
-        })
-    }
-    const like = await LikeModel.create({
-        userId: userId, 
-        tweetId: tweetId, 
-    })
-    if(!like){
-        logger.error('Error creating like record in database', {
-            meta: {
-                user: request.user?._id,
-                 route: request.originalUrl
-                }
-        })  
-        return response.status(401).json({
-            success : false, 
-            message : 'Error liking tweet'
-        })  
-    }
-    const inc:number = 1; 
-
-    const updatedLikeCount = await Tweet.findByIdAndUpdate(tweetId , 
-        {$inc:
-            {likeCount: inc}
-        },{new:true}
-    ).populate("author",'username firstName lastName _id')
-
-    if(!updatedLikeCount){
-        logger.error('Error updating like count in database', {
-            meta: {
-                user: request.user?._id,
-                 route: request.originalUrl
-                }
-        })  
-        return response.status(401).json({
-            success : false, 
-            message : 'Error liking tweet'
-        })
-    }
-
-    const receiver = updatedLikeCount.author._id
-
-    const sender =  await User.findById(userId).select('firstName lastName username')
-
-    io.to(receiver.toString()).emit('notification:new', {
-        type: 'like',
-        senderId: {
-          firstName:sender?.firstName,
-          lastName: sender?.lastName,
-          username: sender?.username
-
-        },
-        message: `Liked your tweet`,
-        timeStamp: Date.now()
-    })
-
-    const notificaiton = await Notification.create({
-        senderId: request.user?._id, 
-        receiverId: receiver,
-        tweetId : tweetId, 
-        type: 'like'
-    })
-
-    if(!notificaiton){
-        logger.error('Error creating notification in database while liking tweet', {
-            meta: {
-                user: request.user?._id,
-                 route: request.originalUrl
-                }
-        })  
-        return response.status(401).json({
-            success : false, 
-            message : 'Error creating notification'
-        })      
-    }
-
-    return response.status(201).json({
-        success : true, 
-        message : 'Tweet liked successfully', 
-        tweet : updatedLikeCount
-    })  
 }
 
 const unlikeTweet = async(request:express.Request, response:express.Response ) => {
-    logger.info('Unliking tweet', {       
-        meta: {
-            user: request.user?._id,            
-                route: request.originalUrl  
-            }
-    })
-    const tweetId = request.params.id; 
-    if(!tweetId){
-        logger.error('Tweet id not found while unliking tweet', {
+    try {
+        
+        logger.info('Unliking tweet', {       
             meta: {
-                user: request.user?._id,
-                 route: request.originalUrl
+                user: request.user?._id,            
+                    route: request.originalUrl  
                 }
         })
-        return response.status(401).json({
-            success :false , 
-            message : 'Error getting tweetId' 
-        })
-    }
-
-    const userId = request.user?._id
-    if(!userId){
-        logger.error('User id not found while unliking tweet', {
-            meta: {
-                route: request.originalUrl
-                }
-        })
-        return response.status(401).json({
-            success: false, 
-            message: 'User id not found'
-        })
-    }
-    const likedRecord = await LikeModel.findOne({userId, tweetId})
-
-    if(!likedRecord){
-        logger.error('Like record not found while unliking tweet', {
-            meta: {
-                user: request.user?._id,
-                 route: request.originalUrl
-                }
-        })
-        return response.status(401).json({
-            success: false, 
-            message: 'Stop unlinking me I am not your ex'
-        })
-    }
-
-    await likedRecord.deleteOne()
-
-    const updatedLikeCount = await Tweet.findByIdAndUpdate(tweetId, {
-        $inc: {likeCount: -1}
-    }, {new : true})
-
-    if(!updatedLikeCount){
-        logger.error('Error updating like count in database while unliking tweet', {
-            meta: {
-                user: request.user?._id,
-                 route: request.originalUrl
-                }
+        const tweetId = request.params.id; 
+        if(!tweetId){
+            logger.error('Tweet id not found while unliking tweet', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })
+            return response.status(401).json({
+                success :false , 
+                message : 'Error getting tweetId' 
+            })
+        }
+    
+        const userId = request.user?._id
+        if(!userId){
+            logger.error('User id not found while unliking tweet', {
+                meta: {
+                    route: request.originalUrl
+                    }
+            })
+            return response.status(401).json({
+                success: false, 
+                message: 'User id not found'
+            })
+        }
+        const likedRecord = await LikeModel.findOne({userId, tweetId})
+    
+        if(!likedRecord){
+            logger.error('Like record not found while unliking tweet', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })
+            return response.status(401).json({
+                success: false, 
+                message: 'Stop unlinking me I am not your ex'
+            })
+        }
+    
+        await likedRecord.deleteOne()
+    
+        const updatedLikeCount = await Tweet.findByIdAndUpdate(tweetId, {
+            $inc: {likeCount: -1}
+        }, {new : true})
+    
+        if(!updatedLikeCount){
+            logger.error('Error updating like count in database while unliking tweet', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })  
+            return response.status(401).json({
+                success : false, 
+                message : 'Error unliking tweet'
+            })
+        }
+    
+        return response.status(201).json({
+            success : true, 
+            message : 'Tweet unliked successfully', 
+            tweet : updatedLikeCount
         })  
-        return response.status(401).json({
-            success : false, 
-            message : 'Error unliking tweet'
+    } catch (error) {
+        logger.error('Server error while unliking tweet', {
+            meta: {
+                user: request.user?._id,
+                    route: request.originalUrl,
+            }
         })
+        throw new ApiError(500, "Server error while unliking tweet");
     }
-
-    return response.status(201).json({
-        success : true, 
-        message : 'Tweet unliked successfully', 
-        tweet : updatedLikeCount
-    })  
 }
 
 const reTweet = async(request:express.Request, response:express.Response ) => {
-    logger.info('Retweeting tweet', {       
-        meta: {
-            user: request.user?._id,
-             route: request.originalUrl
-            }
-    })
-    const tweetId = request.params.id;
-    if(!tweetId){
-            logger.error('Tweet id not found while retweeting tweet', { 
-            meta: { 
-                user: request.user?._id,
-                    route: request.originalUrl
-                    }
-            })
-        return response.status(401).json({
-            success : false, 
-            message : 'Error getting tweetId'
-        })
-    }
-    const userId = request.user?._id;   
-
-    const alreadyReTweeted = await Tweet.findOne({
-        author: userId, 
-        retweetOf : tweetId,
-        isRetweet : true,
-    })
-
-    if(alreadyReTweeted){
-        logger.error('Tweet already retweeted by user', {
-            meta: {
-                user: request.user?._id,
-                    route: request.originalUrl
-                }
-        })
-        return response.status(401).json({
-            success : false,
-            message : 'You have already retweeted this tweet'
-        })
-    }
-    const tweetToRetweet = await Tweet.findById(tweetId);
-    if(!tweetToRetweet){
-        logger.error('Tweet to retweet not found in database', { 
-            meta: { 
-                user: request.user?._id,
-                    route: request.originalUrl
-                    }
-            })
-        return response.status(401).json({
-            success : false, 
-            message : 'Error finding tweet to retweet'
-        })
-    }
-    const content = tweetToRetweet.content;
-
-    if (tweetToRetweet.author.toString() === userId!.toString()) {
-            return response.status(400).json({
-            success: false,
-            message: "You cannot retweet your own tweet"
-        });
-    }
-
-    if(!content){
-        logger.error('Tweet content not found while retweeting tweet', { 
-            meta: { 
-                user: request.user?._id,
-                    route: request.originalUrl
-                    }
-            })
-        return response.status(401).json({
-            success : false, 
-            message : 'Error finding tweet content'
-        })
-    }   
-
-    const reTweet = await Tweet.create({
-        author : userId, 
-        retweetOf: tweetToRetweet._id, 
-        isRetweet : true, 
-        likeCount : 0, 
-        replyCount : 0, 
-        content :content
-
-    })
-    if(!reTweet){
-        logger.error('Error creating retweet in database', {
-            meta: {     
-                user: request.user?._id,
-                    route: request.originalUrl
-                    }
-            })
-        return response.status(401).json({
-            success : false, 
-            message : 'Error creating retweet'
-        })
-    }
-
-    await reTweet.populate("author", "username firstName lastName _id")
-
-    const updatedTweet = await Tweet.findByIdAndUpdate(
-        tweetId,
-        { $inc: { retweetCount: 1 }},
-        { new: true, select: "retweetCount" }
-    );
-
-
-    if(!updatedTweet){
-        logger.error('Error updating retweet count in database while retweeting tweet', {
-            meta: {
-                user: request.user?._id,
-                    route: request.originalUrl
-                }
-        })
-        return response.status(401).json({
-            success : false,
-            message : 'Error updating retweet count'
-        })
-    }
-
-    const receiver:string = tweetToRetweet.author._id.toString(); 
-    if(!receiver){
-
-    }
-    
-    const sender = await User.findById(userId).populate('username firstName lastName _id')
-    
-    if(!sender){
-        logger.error('Sender user not found in database while retweeting tweet', {  
-            meta: {
-                user: request.user?._id,
-                    route: request.originalUrl
-                }       
-        })  
-        return response.status(401).json({
-            success : false,    
-            message : 'Error finding sender user'
-        })  
-
-    }
+    try {
         
-    await Notification.create({
-        receiverId: receiver,
-        senderId: userId, 
-        type: "retweet", 
-        tweetId: tweetId
-    })
-    io.to(receiver).emit('notification:new', {
-        type: 'retweet',
-        senderId: {
-          firstName:sender?.firstName,
-          lastName: sender?.lastName,
-          username: sender?.username
-
-        },
-        message: `Retweet your tweet`,
-        timeStamp: Date.now()
-    })
-
-    return response.status(201).json({
-        success : true, 
-        message : 'Retweet created successfully', 
-        reTweet, 
-        retweetCount : updatedTweet.retweetCount
-    })  
+        logger.info('Retweeting tweet', {       
+            meta: {
+                user: request.user?._id,
+                 route: request.originalUrl
+                }
+        })
+        const tweetId = request.params.id;
+        if(!tweetId){
+                logger.error('Tweet id not found while retweeting tweet', { 
+                meta: { 
+                    user: request.user?._id,
+                        route: request.originalUrl
+                        }
+                })
+            return response.status(401).json({
+                success : false, 
+                message : 'Error getting tweetId'
+            })
+        }
+        const userId = request.user?._id;   
+    
+        const alreadyReTweeted = await Tweet.findOne({
+            author: userId, 
+            retweetOf : tweetId,
+            isRetweet : true,
+        })
+    
+        if(alreadyReTweeted){
+            logger.error('Tweet already retweeted by user', {
+                meta: {
+                    user: request.user?._id,
+                        route: request.originalUrl
+                    }
+            })
+            return response.status(401).json({
+                success : false,
+                message : 'You have already retweeted this tweet'
+            })
+        }
+        const tweetToRetweet = await Tweet.findById(tweetId);
+        if(!tweetToRetweet){
+            logger.error('Tweet to retweet not found in database', { 
+                meta: { 
+                    user: request.user?._id,
+                        route: request.originalUrl
+                        }
+                })
+            return response.status(401).json({
+                success : false, 
+                message : 'Error finding tweet to retweet'
+            })
+        }
+        const content = tweetToRetweet.content;
+    
+        if (tweetToRetweet.author.toString() === userId!.toString()) {
+                return response.status(400).json({
+                success: false,
+                message: "You cannot retweet your own tweet"
+            });
+        }
+    
+        if(!content){
+            logger.error('Tweet content not found while retweeting tweet', { 
+                meta: { 
+                    user: request.user?._id,
+                        route: request.originalUrl
+                        }
+                })
+            return response.status(401).json({
+                success : false, 
+                message : 'Error finding tweet content'
+            })
+        }   
+    
+        const reTweet = await Tweet.create({
+            author : userId, 
+            retweetOf: tweetToRetweet._id, 
+            isRetweet : true, 
+            likeCount : 0, 
+            replyCount : 0, 
+            content :content
+    
+        })
+        if(!reTweet){
+            logger.error('Error creating retweet in database', {
+                meta: {     
+                    user: request.user?._id,
+                        route: request.originalUrl
+                        }
+                })
+            return response.status(401).json({
+                success : false, 
+                message : 'Error creating retweet'
+            })
+        }
+    
+        await reTweet.populate("author", "username firstName lastName _id")
+    
+        const updatedTweet = await Tweet.findByIdAndUpdate(
+            tweetId,
+            { $inc: { retweetCount: 1 }},
+            { new: true, select: "retweetCount" }
+        );
+    
+    
+        if(!updatedTweet){
+            logger.error('Error updating retweet count in database while retweeting tweet', {
+                meta: {
+                    user: request.user?._id,
+                        route: request.originalUrl
+                    }
+            })
+            return response.status(401).json({
+                success : false,
+                message : 'Error updating retweet count'
+            })
+        }
+    
+        const receiver:string = tweetToRetweet.author._id.toString(); 
+        if(!receiver){
+    
+        }
+        
+        const sender = await User.findById(userId).populate('username firstName lastName _id')
+        
+        if(!sender){
+            logger.error('Sender user not found in database while retweeting tweet', {  
+                meta: {
+                    user: request.user?._id,
+                        route: request.originalUrl
+                    }       
+            })  
+            return response.status(401).json({
+                success : false,    
+                message : 'Error finding sender user'
+            })  
+    
+        }
+            
+        await Notification.create({
+            receiverId: receiver,
+            senderId: userId, 
+            type: "retweet", 
+            tweetId: tweetId
+        })
+        io.to(receiver).emit('notification:new', {
+            type: 'retweet',
+            senderId: {
+              firstName:sender?.firstName,
+              lastName: sender?.lastName,
+              username: sender?.username
+    
+            },
+            message: `Retweet your tweet`,
+            timeStamp: Date.now()
+        })
+    
+        return response.status(201).json({
+            success : true, 
+            message : 'Retweet created successfully', 
+            reTweet, 
+            retweetCount : updatedTweet.retweetCount
+        })  
+    } catch (error) {
+        logger.error('Server error while retweeting tweet', {
+            meta: {
+                user: request.user?._id,
+                    route: request.originalUrl,
+            }
+        })
+        throw new ApiError(500, "Server error while retweeting tweet");
+    }
 }
 
 const getReTweets = async (request: express.Request, response: express.Response) => {
-  logger.info('Getting retweets for tweet', {
-    meta: {
-      user: request.user?._id,
-      route: request.originalUrl
+    try {
+        
+        logger.info('Getting retweets for tweet', {
+          meta: {
+            user: request.user?._id,
+            route: request.originalUrl
+          }
+        });
+      
+        const tweetId = request.params.id;
+      
+        if (!tweetId) {
+          logger.error('Tweet id not found while getting retweets for tweet', {
+            meta: {
+              user: request.user?._id,
+              route: request.originalUrl
+            }
+          });
+      
+          return response.status(401).json({
+            success: false,
+            message: 'Error getting tweetId'
+          });
+        }
+      
+        const reTweets = await Tweet.find({ retweetOf: tweetId })
+          .populate("author", "username firstName lastName")
+          .populate({
+            path: "retweetOf",
+            populate: { path: "author", select: "username firstName lastName" }
+          });
+      
+      //   console.log("ReTweets", reTweets);
+      
+        if (!reTweets) {
+          logger.error("Error fetching retweets from database", {
+            meta: {
+              user: request.user?._id,
+              route: request.originalUrl
+            }
+          });
+      
+          return response.status(401).json({
+            success: false,
+            message: "Error fetching retweets"
+          });
+        }
+      
+      
+        if(reTweets.length === 0){
+          return response.status(201).json({
+              success: true, 
+              message: 'No retweets for this user'
+          })
+        }
+      
+        return response.status(201).json({
+          success: true,
+          message: "Retweets fetched successfully",
+          reTweets
+        });
+    } catch (error) {
+        logger.error('Server error while getting retweets for tweet', { 
+            meta: {
+                user: request.user?._id,
+                    route: request.originalUrl,
+            }
+        })
+        throw new ApiError(500, "Server error while getting retweets for tweet");
     }
-  });
-
-  const tweetId = request.params.id;
-
-  if (!tweetId) {
-    logger.error('Tweet id not found while getting retweets for tweet', {
-      meta: {
-        user: request.user?._id,
-        route: request.originalUrl
-      }
-    });
-
-    return response.status(401).json({
-      success: false,
-      message: 'Error getting tweetId'
-    });
-  }
-
-  const reTweets = await Tweet.find({ retweetOf: tweetId })
-    .populate("author", "username firstName lastName")
-    .populate({
-      path: "retweetOf",
-      populate: { path: "author", select: "username firstName lastName" }
-    });
-
-//   console.log("ReTweets", reTweets);
-
-  if (!reTweets) {
-    logger.error("Error fetching retweets from database", {
-      meta: {
-        user: request.user?._id,
-        route: request.originalUrl
-      }
-    });
-
-    return response.status(401).json({
-      success: false,
-      message: "Error fetching retweets"
-    });
-  }
-
-
-  if(reTweets.length === 0){
-    return response.status(201).json({
-        success: true, 
-        message: 'No retweets for this user'
-    })
-  }
-
-  return response.status(201).json({
-    success: true,
-    message: "Retweets fetched successfully",
-    reTweets
-  });
 };
 
 
@@ -766,414 +840,469 @@ const undoReTweet = async(request:express.Request, response:express.Response ) =
 }
 
 const replyToTweet = async(request:express.Request, response:express.Response ) => {
-    logger.info('Replying to tweet', {
-        meta: {                     
-            user: request.user?._id,
-            route: request.originalUrl
-            }
-    })
-    const {tweetId} = request.params;
-    const parsed  = editTweetSchema.validate(request.body)
-    if(parsed.error){
-        logger.error('Validation error while replying to tweet', { 
-            meta: { 
+    try {
+        
+        logger.info('Replying to tweet', {
+            meta: {                     
                 user: request.user?._id,
-                    route: request.originalUrl,
-                    error: parsed.error
-                    }
-            })      
-        const errors = parsed.error.details.map((detail) => detail.message)
-        return response.status(401).json({
-            success: false,
-            message: 'Validation error',
-            error: {errors}
+                route: request.originalUrl
+                }
         })
-    }
-    if(!tweetId){
-        logger.error('Tweet id not found while replying to tweet', { 
-            meta: { 
-                user: request.user?._id,
+        const {tweetId} = request.params;
+        const parsed  = editTweetSchema.validate(request.body)
+        if(parsed.error){
+            logger.error('Validation error while replying to tweet', { 
+                meta: { 
+                    user: request.user?._id,
+                        route: request.originalUrl,
+                        error: parsed.error
+                        }
+                })      
+            const errors = parsed.error.details.map((detail) => detail.message)
+            return response.status(401).json({
+                success: false,
+                message: 'Validation error',
+                error: {errors}
+            })
+        }
+        if(!tweetId){
+            logger.error('Tweet id not found while replying to tweet', { 
+                meta: { 
+                    user: request.user?._id,
+                        route: request.originalUrl
+                        }
+                })
+            return response.status(401).json({
+                success : false, 
+                message : 'Error getting tweetId'
+            })
+        }
+    
+        const userId = request.user?._id
+        if(!userId){
+            logger.error('User id not found while replying to tweet', { 
+                meta: { 
+                    route: request.originalUrl
+                    }
+                })  
+            return response.status(401).json({
+                success:false, 
+                message: 'Error finding author'
+            })
+        }
+    
+        const originalTweet = await Tweet.findById(tweetId)
+        if(!originalTweet){
+            logger.error('Original tweet not found in database while replying to tweet', { 
+                meta: { 
+                    user: request.user?._id,
+                        route: request.originalUrl
+                        }
+                })  
+            return response.status(401).json({
+                success: false, 
+                message: 'Error finding original tweet'
+            })
+        }
+    
+        const content = DOMPurify.sanitize(parsed.value.content)
+    
+        const replyToTweet = await Tweet.create({
+            author: userId,
+            content: content,
+            likeCount : 0,
+            replyCount : 0, 
+            isReply : true , 
+            replyTo: originalTweet?._id
+        })
+    
+        if(!replyToTweet){
+            logger.error('Error creating reply tweet in database', { 
+                meta: {  
+                    user: request.user?._id,
+                    route: request.originalUrl  , 
+                   }                
+            })  
+            return response.status(401).json({
+                success: false, 
+                message: 'Error replying to tweet'
+            })
+        }
+    
+        
+        if(!replyToTweet){
+            logger.error('Error updating reply count in database while replying to tweet', {
+                meta: {
+                    user: request.user?._id,    
                     route: request.originalUrl
                     }
             })
-        return response.status(401).json({
-            success : false, 
-            message : 'Error getting tweetId'
+            return response.status(401).json({
+                sucess: false, 
+                message: 'Error replying to tweet'
+            })
+        }
+        return response.status(201).json({
+            success: true, 
+            message: 'Replied to tweet',
+            repliedTweet: {replyToTweet}, 
         })
-    }
-
-    const userId = request.user?._id
-    if(!userId){
-        logger.error('User id not found while replying to tweet', { 
-            meta: { 
-                route: request.originalUrl
-                }
-            })  
-        return response.status(401).json({
-            success:false, 
-            message: 'Error finding author'
-        })
-    }
-
-    const originalTweet = await Tweet.findById(tweetId)
-    if(!originalTweet){
-        logger.error('Original tweet not found in database while replying to tweet', { 
-            meta: { 
-                user: request.user?._id,
-                    route: request.originalUrl
-                    }
-            })  
-        return response.status(401).json({
-            success: false, 
-            message: 'Error finding original tweet'
-        })
-    }
-
-    const content = DOMPurify.sanitize(parsed.value.content)
-
-    const replyToTweet = await Tweet.create({
-        author: userId,
-        content: content,
-        likeCount : 0,
-        replyCount : 0, 
-        isReply : true , 
-        replyTo: originalTweet?._id
-    })
-
-    if(!replyToTweet){
-        logger.error('Error creating reply tweet in database', { 
-            meta: {  
-                user: request.user?._id,
-                route: request.originalUrl  , 
-               }                
-        })  
-        return response.status(401).json({
-            success: false, 
-            message: 'Error replying to tweet'
-        })
-    }
-
-    
-    if(!replyToTweet){
-        logger.error('Error updating reply count in database while replying to tweet', {
+    } catch (error) {
+        logger.error('Server error while replying to tweet', {
             meta: {
-                user: request.user?._id,    
-                route: request.originalUrl
-                }
+                user: request.user?._id,
+                    route: request.originalUrl,
+            }
         })
-        return response.status(401).json({
-            sucess: false, 
-            message: 'Error replying to tweet'
-        })
+        throw new ApiError(500, "Server error while replying to tweet");    
     }
-    return response.status(201).json({
-        success: true, 
-        message: 'Replied to tweet',
-        repliedTweet: {replyToTweet}, 
-    })
 }
 
 const getRepliesForTweet = async(request:express.Request, response:express.Response ) => {
-    logger.info('Getting replies for tweet', {
-        meta: { 
-            user: request.user?._id,
-            route: request.originalUrl
-            }
-    })
-    const tweetId = request.params.id;
-    console.log('TweetId', tweetId)
-    if(!tweetId){
-        logger.error('Tweet id not found while getting replies for tweet', {
-            meta: {
+    try {
+        
+        logger.info('Getting replies for tweet', {
+            meta: { 
                 user: request.user?._id,
-                 route: request.originalUrl
+                route: request.originalUrl
                 }
         })
-        return response.status(401).json({
-            success : false, 
-            message : 'Error getting tweetId'
-        })
-    }
+        const tweetId = request.params.id;
+        console.log('TweetId', tweetId)
+        if(!tweetId){
+            logger.error('Tweet id not found while getting replies for tweet', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })
+            return response.status(401).json({
+                success : false, 
+                message : 'Error getting tweetId'
+            })
+        }
+        
+        const comments = await Comment.find({tweetId: tweetId}).populate('userId',"username").sort({createdAt: -1})
+        // console.log('Comments' , comments)
+        if(!comments){
+            logger.error('Error fetching comments from database', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })  
+            return response.status(400).json({
+                success: false, 
+                message: 'Error fetching comments'
+            })
+        }
     
-    const comments = await Comment.find({tweetId: tweetId}).populate('userId',"username").sort({createdAt: -1})
-    // console.log('Comments' , comments)
-    if(!comments){
-        logger.error('Error fetching comments from database', {
+        return response.status(201).json({
+            success : true, 
+            message : 'Replies fetched successfully', 
+            comments
+        })  
+    } catch (error) {
+        logger.error('Server error while getting replies for tweet', {
             meta: {
                 user: request.user?._id,
-                 route: request.originalUrl
-                }
-        })  
-        return response.status(400).json({
-            success: false, 
-            message: 'Error fetching comments'
+                    route: request.originalUrl,
+            }
         })
+        throw new ApiError(500, "Server error while getting replies for tweet");
     }
-
-    return response.status(201).json({
-        success : true, 
-        message : 'Replies fetched successfully', 
-        comments
-    })  
 }
 
 const createReplyForTweet = async(request:express.Request , response:express.Response) => {
-    logger.info('Creating reply for tweet', {       
-        meta: {
-            user: request.user?._id,
-             route: request.originalUrl
-            }
-    })
-    const tweetId = request.params.id; 
-    if(!tweetId){
-        logger.error('Tweet id not found while creating reply for tweet', {
+    try {
+        
+        logger.info('Creating reply for tweet', {       
             meta: {
                 user: request.user?._id,
                  route: request.originalUrl
                 }
-        })  
-        return response.status(401).json({      
-            success : false, 
-            message : 'Error getting tweetId'
-        })      
-    }
-    const contentText = request.body.content;
-
-    const purifiedContent = DOMPurify.sanitize(contentText)
-    if(!purifiedContent){
-        logger.error('Content purfication failed', {
-            meta: {
-                user: request.user?._id,
-                 route: request.originalUrl
-                }
-        })  
-        return response.status(401).json({
-            success : false, 
-            message : 'Content purfication failed'
-        })  
-    }
-    const userId = request.user?._id
-    if(!userId){
-        logger.error('User id not found while creating reply for tweet', {
-            meta: {
-                route: request.originalUrl
-                }
-        })  
-        return response.status(401).json({
-            success : false, 
-            message : 'Error finding userId'
         })
-    }
-    const comment = await Comment.create({
-        tweetId: tweetId, 
-        userId: userId,
-        content: purifiedContent, 
-    })
-    if(!comment){
-        logger.error('Error creating comment in database', {
-            meta: {
-                user: request.user?._id,
-                 route: request.originalUrl
-                }
-        })  
-        return response.status(401).json({
-            success : false, 
-            message : 'Error creating comment'
-        })
-    }
-
-    const updatedTweet = await Tweet.findByIdAndUpdate(
-        tweetId,
-        {
-            $inc: {
-            replyCount: 1
-            }
-        },
-        {
-            new: true
+        const tweetId = request.params.id; 
+        if(!tweetId){
+            logger.error('Tweet id not found while creating reply for tweet', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })  
+            return response.status(401).json({      
+                success : false, 
+                message : 'Error getting tweetId'
+            })      
         }
-        ).populate("author", "_id username");
-
-    if(!updatedTweet){
-        logger.error('Error updating reply count in database after creating comment', {
+        const contentText = request.body.content;
+    
+        const purifiedContent = DOMPurify.sanitize(contentText)
+        if(!purifiedContent){
+            logger.error('Content purfication failed', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })  
+            return response.status(401).json({
+                success : false, 
+                message : 'Content purfication failed'
+            })  
+        }
+        const userId = request.user?._id
+        if(!userId){
+            logger.error('User id not found while creating reply for tweet', {
+                meta: {
+                    route: request.originalUrl
+                    }
+            })  
+            return response.status(401).json({
+                success : false, 
+                message : 'Error finding userId'
+            })
+        }
+        const comment = await Comment.create({
+            tweetId: tweetId, 
+            userId: userId,
+            content: purifiedContent, 
+        })
+        if(!comment){
+            logger.error('Error creating comment in database', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })  
+            return response.status(401).json({
+                success : false, 
+                message : 'Error creating comment'
+            })
+        }
+    
+        const updatedTweet = await Tweet.findByIdAndUpdate(
+            tweetId,
+            {
+                $inc: {
+                replyCount: 1
+                }
+            },
+            {
+                new: true
+            }
+            ).populate("author", "_id username");
+    
+        if(!updatedTweet){
+            logger.error('Error updating reply count in database after creating comment', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })  
+            return response.status(401).json({
+                success : false, 
+                message : 'Error updating reply count'
+            })
+        }
+    
+        const receiver = updatedTweet?.author._id
+    
+    
+        await Notification.create({
+            receiverId: receiver, 
+            senderId:request.user?._id , 
+            tweetId: tweetId, 
+            type: 'comment'
+        })
+    
+        io.to(receiver.toString()).emit('notification:new', {
+            type: 'comment',
+            senderId: {
+              firstName: request.user?.firstName,
+              lastName: request.user?.lastName,
+              username: request.user?.username
+    
+            },
+            message: `Commented on your tweet`,
+            timeStamp: Date.now()
+        })
+    
+        return response.status(201).json({
+            success : true, 
+            message : 'Comment created successfully', 
+            comment, 
+            updatedCount: updatedTweet.replyCount
+        })
+    } catch (error) {
+        logger.error('Server error while creating reply for tweet', {
             meta: {
                 user: request.user?._id,
-                 route: request.originalUrl
-                }
-        })  
-        return response.status(401).json({
-            success : false, 
-            message : 'Error updating reply count'
+                    route: request.originalUrl,
+            }
         })
+        throw new ApiError(500, "Server error while creating reply for tweet"); 
     }
-
-    const receiver = updatedTweet?.author._id
-
-
-    await Notification.create({
-        receiverId: receiver, 
-        senderId:request.user?._id , 
-        tweetId: tweetId, 
-        type: 'comment'
-    })
-
-    io.to(receiver.toString()).emit('notification:new', {
-        type: 'comment',
-        senderId: {
-          firstName: request.user?.firstName,
-          lastName: request.user?.lastName,
-          username: request.user?.username
-
-        },
-        message: `Commented on your tweet`,
-        timeStamp: Date.now()
-    })
-
-    return response.status(201).json({
-        success : true, 
-        message : 'Comment created successfully', 
-        comment, 
-        updatedCount: updatedTweet.replyCount
-    })
 }
 
 const getUserTweet = async(request:express.Request, response:express.Response ) => {
-    logger.info('Getting user tweets', {
-        meta: {
-            user: request.user?._id,
-             route: request.originalUrl
-            }
-    })
-    const segment = AWSXRay.getSegment()
-
-    const userId = request.user?._id;
-    if(!userId){
-        logger.error('User id not found while getting user tweets', {
-            meta: {
-                route: request.originalUrl
-                }
-        })
-        return response.status(401).json({
-            success : false, 
-            message : 'Error finding userId'
-        })
-    }
-
-    const subSegment1 = segment?.addNewSubsegment('db-user-tweets')
-
-    const userTweets = await Tweet.find({
-        author : userId
-    })
-
-    if(!userTweets){
-        subSegment1?.addError('User tweet error')
-        logger.error('Error fetching user tweets from database', {
+    try {
+        
+        logger.info('Getting user tweets', {
             meta: {
                 user: request.user?._id,
                  route: request.originalUrl
                 }
         })
-        return response.status(400).json({
-            success: false, 
-            message: 'Error fetching user tweets'
+        const segment = AWSXRay.getSegment()
+    
+        const userId = request.user?._id;
+        if(!userId){
+            logger.error('User id not found while getting user tweets', {
+                meta: {
+                    route: request.originalUrl
+                    }
+            })
+            return response.status(401).json({
+                success : false, 
+                message : 'Error finding userId'
+            })
+        }
+    
+        const subSegment1 = segment?.addNewSubsegment('db-user-tweets')
+    
+        const userTweets = await Tweet.find({
+            author : userId
         })
+    
+        if(!userTweets){
+            subSegment1?.addError('User tweet error')
+            logger.error('Error fetching user tweets from database', {
+                meta: {
+                    user: request.user?._id,
+                     route: request.originalUrl
+                    }
+            })
+            return response.status(400).json({
+                success: false, 
+                message: 'Error fetching user tweets'
+            })
+        }
+        subSegment1?.close()
+        return response.status(201).json({
+            success : true, 
+            message : 'User tweets fetched successfully', 
+            tweets : {userTweets}
+        });
+    } catch (error) {
+       logger.error('Server error while getting user tweets', {
+            meta: {
+                user: request.user?._id,
+                    route: request.originalUrl,
+            }
+        })
+        throw new ApiError(500, "Server error while getting user tweets"); 
     }
-    subSegment1?.close()
-    return response.status(201).json({
-        success : true, 
-        message : 'User tweets fetched successfully', 
-        tweets : {userTweets}
-    });
 }
 
 
 const getRandomTweets = async (request: express.Request, response: express.Response) => {
-    logger.info('Getting three random tweets', {    
-        meta: {
-            user: request.user?._id,
-             route: request.originalUrl
-            }
-    })
-  const currentUser = request.user?._id;
-
-  const segment = AWSXRay.getSegment()
-
-  const subSegment1 = segment?.addNewSubsegment('db-three-random-tweet')
-
-  const tweets = await Tweet.aggregate([
-    { $match: { author: { $ne: currentUser } } },
-    { $sample: { size: 3 } },
-
-    {
-        $lookup: {
-        from: "users",
-        localField: "author",
-        foreignField: "_id",
-        as: "user"
-        }
-    },
-    { $unwind: "$user" },
-
-    {
-        $lookup: {
-        from: "likes",
-        localField: "_id",
-        foreignField: "tweetId",
-        as: "likes"
-        }
-    },
-
-    {
-        $addFields: {
-        isLiked: {
-            $in: [ currentUser, "$likes.userId" ]
-        }
-        }
-    },
-
-    {
-        $project: {
-        _id: 1,
-        content: 1,
-        createdAt: 1,
-        firstName: "$user.firstName",
-        lastName: "$user.lastName",
-        username: "$user.username",
-        userId: "$user._id",
-        likeCount: 1,
-        retweetCount: 1,
-        replyCount: 1,
-        isLiked: 1
-        }
-    }
-    ]);
-
-
-  if(!tweets){
-    subSegment1?.addError('Fetching error')
-    logger.error('Error fetching random tweets from database', {
-        meta: {
-            user: request.user?._id,
-                route: request.originalUrl
+    try {
+        
+        logger.info('Getting three random tweets', {    
+            meta: {
+                user: request.user?._id,
+                 route: request.originalUrl
                 }
-        })  
-    return response.status(400).json({
-        success: false, 
-        message: 'Either db is empty or Server error'
-    })
-  }
-
-  subSegment1?.close()
-
-  return response
-  .status(201)
-  .json(
-    { 
-        success: true,
-        message  : "Founded three random tweet",
-        tweets
+        })
+      const currentUser = request.user?._id;
+    
+      const segment = AWSXRay.getSegment()
+    
+      const subSegment1 = segment?.addNewSubsegment('db-three-random-tweet')
+    
+      const tweets = await Tweet.aggregate([
+        { $match: { author: { $ne: currentUser } } },
+        { $sample: { size: 3 } },
+    
+        {
+            $lookup: {
+            from: "users",
+            localField: "author",
+            foreignField: "_id",
+            as: "user"
+            }
+        },
+        { $unwind: "$user" },
+    
+        {
+            $lookup: {
+            from: "likes",
+            localField: "_id",
+            foreignField: "tweetId",
+            as: "likes"
+            }
+        },
+    
+        {
+            $addFields: {
+            isLiked: {
+                $in: [ currentUser, "$likes.userId" ]
+            }
+            }
+        },
+    
+        {
+            $project: {
+            _id: 1,
+            content: 1,
+            createdAt: 1,
+            firstName: "$user.firstName",
+            lastName: "$user.lastName",
+            username: "$user.username",
+            userId: "$user._id",
+            likeCount: 1,
+            retweetCount: 1,
+            replyCount: 1,
+            isLiked: 1
+            }
+        }
+        ]);
+    
+    
+      if(!tweets){
+        subSegment1?.addError('Fetching error')
+        logger.error('Error fetching random tweets from database', {
+            meta: {
+                user: request.user?._id,
+                    route: request.originalUrl
+                    }
+            })  
+        return response.status(400).json({
+            success: false, 
+            message: 'Either db is empty or Server error'
+        })
+      }
+    
+      subSegment1?.close()
+    
+      return response
+      .status(201)
+      .json(
+        { 
+            success: true,
+            message  : "Founded three random tweet",
+            tweets
+        }
+            )
+    } catch (error) {
+        logger.error('Server error while getting three random tweets', {
+            meta: {
+                user: request.user?._id,
+                    route: request.originalUrl,
+            }
+        })
+        throw new ApiError(500, "Server error while getting three random tweets");
     }
-        )
 };
 
 

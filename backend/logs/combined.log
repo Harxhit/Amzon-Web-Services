@@ -8108,3 +8108,13 @@
 2025-12-08 15:31:00 info: Get follower controller called
 2025-12-08 15:31:04 info: Verifying JWT token
 2025-12-08 15:31:04 info: Liking tweet
+2025-12-09 23:02:22 info: Connecting to MongoDB...
+2025-12-09 23:02:23 info: MongoDB connected successfully
+2025-12-09 23:02:40 info: Verifying JWT token
+2025-12-09 23:02:40 error: Authentication failed
+2025-12-09 23:02:44 info: User sign-in started
+2025-12-09 23:02:45 error: Incorrect password
+2025-12-09 23:03:00 info: Verifying JWT token
+2025-12-09 23:03:00 error: Authentication failed
+2025-12-09 23:03:24 info: User sign-in started
+2025-12-09 23:03:24 error: Incorrect password

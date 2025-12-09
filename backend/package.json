@@ -31,6 +31,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^9.0.0",
     "nodemon": "^3.1.11",
+    "rollbar": "^2.26.5",
     "sendmail": "^1.6.1",
     "socket.io": "^4.8.1",
     "winston-cloudwatch": "^6.3.0"

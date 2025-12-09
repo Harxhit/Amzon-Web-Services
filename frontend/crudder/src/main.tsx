@@ -15,6 +15,7 @@ import ProtectedLayout from './routes/ProtectedRoute'
 import Tweet from './pages/tweet/Tweet'
 import Message from './pages/message/Message'
 import Chat from './pages/chat/Chat'
+import ErrorBoundary from './rollbar/ErrorBoundary'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -38,9 +39,11 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+  <ErrorBoundary>
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
+
     <ToastContainer
       position="top-right"
       autoClose={3000}
@@ -52,5 +55,6 @@ createRoot(document.getElementById('root')!).render(
       draggable
       pauseOnHover
     />
-  </StrictMode>,
+  </ErrorBoundary>
+</StrictMode>
 )

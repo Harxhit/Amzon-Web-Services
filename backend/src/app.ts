@@ -18,7 +18,7 @@ import logger from './utils/logger.util'
 import messageRouter from './routes/message.route'
 import https from 'https';
 import axios from 'axios';
-
+import Rollbar from 'rollbar';
 
 dotenv.config()
 
@@ -50,12 +50,11 @@ const globalLimiter = rateLimit({
 app.use(globalLimiter);
 
 
+
 app.use((request:Request,response:Response, next:NextFunction) => {
   response.setHeader("Access-Control-Allow-Credentials", "true")
   next()
 })
-
-
 
 
 axios.defaults.httpsAgent = new https.Agent({
@@ -71,6 +70,25 @@ app.use('/api/tweet',tweetRouter)
 app.use('/api/follower',followerRouter)
 app.use('/api/notification',notificationRouter)
 app.use('/api/message', messageRouter)
+
+const rollbar = new Rollbar({
+  accessToken: process.env.BACKEND_NODE, 
+  captureUncaught: true, 
+  captureUnhandledRejections : true, 
+  environment : process.env.NODE_ENV
+})
+
+app.use((error: any, request: Request, response: Response, next: NextFunction) => {
+  logger.error(error);
+  rollbar.error(error);
+  
+  return response.status(500).json({
+    success: false,
+    message: error.message || "Internal Server Error",
+  });
+});
+
+
 
 export const server = createServer(app)
 export const io = new Server(server, {

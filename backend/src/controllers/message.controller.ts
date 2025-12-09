@@ -3,6 +3,7 @@ import Message from "../models/message.model";
 import express, {Request , Response} from 'express'
 import mongoose from "mongoose";
 import AWSXRay from 'aws-xray-sdk'
+import ApiError from "../utils/ApiError";
 
 const getConversations = async(request: express.Request, response: express.Response) => {
   logger.log('Get old messages called', {
@@ -64,10 +65,7 @@ const getConversations = async(request: express.Request, response: express.Respo
             error: error.message
           }
         })
-        return response.status(400).json({
-            success: false, 
-            message :error
-        })
+        throw error
     }
 }
 
@@ -172,11 +170,7 @@ const getAllConversations = async (request: express.Request, response: express.R
         error: error.message
       }
     })
-    return response.status(500).json({
-      success: false,
-      message: "Server Error",
-      error: error.message,
-    });
+    throw new ApiError(500, "Server error while fetching conversations");
   }
 };
 

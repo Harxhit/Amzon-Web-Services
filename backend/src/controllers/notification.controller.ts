@@ -2,6 +2,7 @@ import express , {Request , Response} from "express";
 import logger from "../utils/logger.util";
 import Notification from "../models/notificaiton.model";
 import AWSXRay from 'aws-xray-sdk'
+import ApiError from "../utils/ApiError";
 
 const getNotifications = async(request:express.Request, response:express.Response) => {
     logger.info('Getting notifications for user', {
@@ -58,10 +59,7 @@ const getNotifications = async(request:express.Request, response:express.Respons
                  error: error.message
                 }
         })
-        return response.status(401).json({
-            success : false, 
-            message: error
-        })
+        throw new ApiError(500, 'Notificaiton server error')
     }
 }
 

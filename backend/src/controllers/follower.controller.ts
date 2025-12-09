@@ -5,7 +5,7 @@ import User from "../models/user.model";
 import Notification from "../models/notificaiton.model";
 import {io} from '../app'
 import AWSXRay from 'aws-xray-sdk'
-
+import ApiError from "../utils/ApiError";
 
 
 const followUser = async (request: Request, response: Response) => {
@@ -23,6 +23,7 @@ const followUser = async (request: Request, response: Response) => {
           route: request.originalUrl
         }
       });
+      throw new ApiError(401, "User not found");
       return response.status(401).json({ success: false, message: "User not found" });
     }
 
@@ -34,6 +35,7 @@ const followUser = async (request: Request, response: Response) => {
           user: userId
         }
       });
+      throw new ApiError(400, "Following id not found");
       return response.status(400).json({ success: false, message: "Following id not found" });
     }
 
@@ -122,7 +124,8 @@ const followUser = async (request: Request, response: Response) => {
         error: error.message
       }
     });
-    return response.status(500).json({ success: false, message: error });
+    throw new ApiError(500, 'Follow user server error');
+
   }
 };
 
@@ -213,10 +216,7 @@ const unFollowUser = async(request: express.Request , response:express.Response)
             error: error.message
           }
         });
-        return response.status(400).json({
-            success : false ,
-            message: error
-        })
+        throw new ApiError(500, 'Unfollow user server error');
     }
 }
 
@@ -279,10 +279,9 @@ const getFollower = async (request: express.Request, response: express.Response)
         error: error.message
       }
     });
-    return response.status(500).json({
-      success: false,
-      message: "Server error"
-    });
+    throw new ApiError(500, 'Get follower server error');
+
+
   }
 };
 

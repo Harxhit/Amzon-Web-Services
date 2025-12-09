@@ -6,6 +6,7 @@ import { signUpSchema , loginSchema } from '../validation/auth.validation';
 import createDOMPurify from 'dompurify';
 import { JSDOM } from 'jsdom';
 import AWSXRay from 'aws-xray-sdk'
+import ApiError from '../utils/ApiError';
 
 const window = new JSDOM('').window
 const DOMPurify = createDOMPurify(window)
@@ -15,157 +16,179 @@ const DOMPurify = createDOMPurify(window)
 const generateAccessTokenAndRefreshToken = async (
   userId: string,
 ): Promise<{ accessToken: string; refreshToken: string }> => {
-  const user = await User.findById(userId);
 
-  if (!user) {
-   logger.error('User not found');
-   throw new Error('User not found')
+  try {
+    
+    const user = await User.findById(userId);
+  
+    if (!user) {
+     logger.error('User not found');
+     throw new Error('User not found')
+    }
+    const accessToken = await user?.generateAccessToken();
+    const refreshToken = await user?.generateRefreshToken();
+  
+    user.refreshToken = refreshToken;
+    await user?.save({ validateBeforeSave: false });
+  
+    return { accessToken , refreshToken};
+  } catch (error) {
+    logger.error('Error generating tokens',{
+      meta: {
+        message: (error as Error).message
+      }
+    })
+    throw new Error('Error generating tokens')
   }
-  const accessToken = await user?.generateAccessToken();
-  const refreshToken = await user?.generateRefreshToken();
-
-  user.refreshToken = refreshToken;
-  await user?.save({ validateBeforeSave: false });
-
-  return { accessToken , refreshToken};
 };
 
 const signUp = async (request: express.Request, response: express.Response) => {
-  // console.log('express.Request body' ,request.body)
-  const { error, value } = signUpSchema.validate(request.body);
-
-  if (error) {
-    logger.error("Validation Error", {
-      meta: {
-        error:error.message, 
-        route: request.originalUrl,
-      }
-    })
-    const errors  = error.details.map((detail) => detail.message)
-    return response.status(400).json({
-      success : false , 
-      data: {
-        error : {errors}
-      }, 
-      message : "Validation error"
-    })
-  }
-  const username = DOMPurify.sanitize(value.username)
-  const firstName = DOMPurify.sanitize(value.firstName)
-  const lastName = DOMPurify.sanitize(value.lastName)
-  const email = DOMPurify.sanitize(value.email)
-  const password = DOMPurify.sanitize(value.password)
-
-  logger.info('User signup started',{
-    meta:{
-      username: username, 
-      route:request.originalUrl
+  try {
+    
+    // console.log('express.Request body' ,request.body)
+    const { error, value } = signUpSchema.validate(request.body);
+  
+    if (error) {
+      logger.error("Validation Error", {
+        meta: {
+          error:error.message, 
+          route: request.originalUrl,
+        }
+      })
+      const errors  = error.details.map((detail) => detail.message)
+      return response.status(400).json({
+        success : false , 
+        data: {
+          error : {errors}
+        }, 
+        message : "Validation error"
+      })
     }
-  })
-
-  const segment = AWSXRay.getSegment()
-
-  const subSegment1 = segment?.addNewSubsegment('db-get-existing-user')
-
-  const existingUser = await User.findOne({
-    $or: [{ email }, { username }],
-  });
-
-
+    const username = DOMPurify.sanitize(value.username)
+    const firstName = DOMPurify.sanitize(value.firstName)
+    const lastName = DOMPurify.sanitize(value.lastName)
+    const email = DOMPurify.sanitize(value.email)
+    const password = DOMPurify.sanitize(value.password)
   
-  if (existingUser) {
-    subSegment1?.addError('User already exists')
-    logger.warn('User already exists with this email or username',{
-      meta: {
-        user:username,
-        route:request.originalUrl
-      }
-    });
-    return response.status(400).json({
-      success : false, 
-      message: 'User already exist'
-    })
-  }
-  
-  subSegment1?.close()
-  
-
-  const subSegment2 = segment?.addNewSubsegment('db-create-user')
-  
-  // Create user
-  const user = await User.create({
-    username,
-    email,
-    password,
-    firstName,
-    lastName,
-  });
-
-
-  if (!user) {
-    subSegment2?.addError('User creation failed')
-    logger.error('User creation failed',{
-      meta: {
-        route:request.originalUrl
-      }
-    });
-    return response.status(400).json({
-      success: false, 
-      message: "Error creating a new user"
-    })
-  }
-
-  subSegment2?.addMetadata("userId",user._id)
-  subSegment2?.close()
-
-  logger.info('User successfully created', {
-    meta:{
-      userId:user?._id,
-      route:request.originalUrl
-    }
-  });
-
-
-  const subSegment3 = segment?.addNewSubsegment('jwt-tokens')
-
-  const {accessToken, refreshToken}  =  await generateAccessTokenAndRefreshToken(user?._id as any) 
-
-  if(!accessToken && !refreshToken){
-    subSegment3?.addError('Error in access token')
-    logger.error('Error creating access token and refresh token',{
+    logger.info('User signup started',{
       meta:{
+        username: username, 
+        route:request.originalUrl
+      }
+    })
+  
+    const segment = AWSXRay.getSegment()
+  
+    const subSegment1 = segment?.addNewSubsegment('db-get-existing-user')
+  
+    const existingUser = await User.findOne({
+      $or: [{ email }, { username }],
+    });
+  
+  
+    
+    if (existingUser) {
+      subSegment1?.addError('User already exists')
+      logger.warn('User already exists with this email or username',{
+        meta: {
+          user:username,
+          route:request.originalUrl
+        }
+      });
+      return response.status(400).json({
+        success : false, 
+        message: 'User already exist'
+      })
+    }
+    
+    subSegment1?.close()
+    
+  
+    const subSegment2 = segment?.addNewSubsegment('db-create-user')
+    
+    // Create user
+    const user = await User.create({
+      username,
+      email,
+      password,
+      firstName,
+      lastName,
+    });
+  
+  
+    if (!user) {
+      subSegment2?.addError('User creation failed')
+      logger.error('User creation failed',{
+        meta: {
+          route:request.originalUrl
+        }
+      });
+      return response.status(400).json({
+        success: false, 
+        message: "Error creating a new user"
+      })
+    }
+  
+    subSegment2?.addMetadata("userId",user._id)
+    subSegment2?.close()
+  
+    logger.info('User successfully created', {
+      meta:{
+        userId:user?._id,
+        route:request.originalUrl
+      }
+    });
+  
+  
+    const subSegment3 = segment?.addNewSubsegment('jwt-tokens')
+  
+    const {accessToken, refreshToken}  =  await generateAccessTokenAndRefreshToken(user?._id as any) 
+  
+    if(!accessToken && !refreshToken){
+      subSegment3?.addError('Error in access token')
+      logger.error('Error creating access token and refresh token',{
+        meta:{
+          route: request.originalUrl,
+        }
+      })
+      return response.status(400).json({
+        success : false, 
+        message: 'Error creating access token and refresh token'
+      })
+    }
+    subSegment3?.close()
+  
+     response.cookie('accessToken', accessToken, {
+      httpOnly: true,
+      secure: false,
+      sameSite: 'lax',
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+      path: '/',
+    });
+  
+    return response.status(200).json({
+      success: true,
+      data: {
+        user: {
+          id: user?._id,
+          username: user?.username,
+          firstName: user?.firstName, 
+          lastName : user?.lastName, 
+          email: user?.email,
+          isActive: user?.isActive,
+        },
+      },
+      message: 'User logged in successfully',
+    });
+  } catch (error) {
+    logger.error('Server Error',{
+      meta: {
+        message: (error as Error).message,
         route: request.originalUrl,
       }
     })
-    return response.status(400).json({
-      success : false, 
-      message: 'Error creating access token and refresh token'
-    })
+    throw new ApiError(500, 'SignUp Server error');
   }
-  subSegment3?.close()
-
-   response.cookie('accessToken', accessToken, {
-    httpOnly: true,
-    secure: false,
-    sameSite: 'lax',
-    maxAge: 7 * 24 * 60 * 60 * 1000,
-    path: '/',
-  });
-
-  return response.status(200).json({
-    success: true,
-    data: {
-      user: {
-        id: user?._id,
-        username: user?.username,
-        firstName: user?.firstName, 
-        lastName : user?.lastName, 
-        email: user?.email,
-        isActive: user?.isActive,
-      },
-    },
-    message: 'User logged in successfully',
-  });
 
 };
 
@@ -296,6 +319,8 @@ const signIn = async (request: express.Request, response: express.Response) => {
 };
 
 const signOut = async(request : express.Request, response : express.Response) => {
+  try {
+    
     const userId  = request.user?._id; 
 
     if(!userId){
@@ -328,6 +353,15 @@ const signOut = async(request : express.Request, response : express.Response) =>
     success: true,
     message: 'User logged out successfully',
   });
+  } catch (error) {
+    logger.error('Server error during sign out',{
+      meta: {
+        message: (error as Error).message,
+        route:request.originalUrl
+      }
+    })
+    throw new ApiError(500, 'SignOut Server error');
+  }
 }
 
 const updateProfileDetails = async (
@@ -562,144 +596,162 @@ const getRandomUserForTweet = async (request: express.Request, response: express
         route:request.originalUrl
       }
     })  
-    return response.status(500).json({
-      success: false,
-      message: 'Server error fetching users',
-    });
+    throw new ApiError(500, 'Server error fetching users');
   }
 };
 
 const messageSearchQuery = async (request: express.Request, response: express.Response) => {
-  // console.log("Search query hit:", request.query.query);
-  logger.info('Message search query started',{
-    meta: {
-      user:request.user?._id,
-      route:request.originalUrl
-    }
-  })
-
-  const sanitizeQuery = (text: string) =>
-    text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
   try {
-    const segment = AWSXRay.getSegment()
-
-    const subSegment1 = segment?.addNewSubsegment('chat-message-searchBar')
     
-    const rawQuery = (request.query.query as string) || "";
-    const query = sanitizeQuery(rawQuery).trim().toLowerCase();
-    
-    if (!query) {
-      subSegment1?.addError('Query error')
-      logger.error('Empty search query',{
-        meta: {
-          user:request.user?._id,
-          route:request.originalUrl
-        }
+    // console.log("Search query hit:", request.query.query);
+    logger.info('Message search query started',{
+      meta: {
+        user:request.user?._id,
+        route:request.originalUrl
+      }
+    })
+  
+    const sanitizeQuery = (text: string) =>
+      text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  
+    try {
+      const segment = AWSXRay.getSegment()
+  
+      const subSegment1 = segment?.addNewSubsegment('chat-message-searchBar')
+      
+      const rawQuery = (request.query.query as string) || "";
+      const query = sanitizeQuery(rawQuery).trim().toLowerCase();
+      
+      if (!query) {
+        subSegment1?.addError('Query error')
+        logger.error('Empty search query',{
+          meta: {
+            user:request.user?._id,
+            route:request.originalUrl
+          }
+        })
+        return response.status(200).json({
+          success: true,
+          results: []
+        });
+      }
+  
+      subSegment1?.close()
+  
+      const subSegment2 = segment?.addNewSubsegment('db-seach-results')
+  
+      const results = await User.find({
+        _id:{$ne : request.user?._id},
+        $or: [
+          { username: { $regex: query, $options: "i" } },
+          { firstName: { $regex: query, $options: "i" } },
+          { lastName: { $regex: query, $options: "i" } },
+        ]
       })
+        .select("firstName lastName username _id")
+        .limit(10);
+  
+      if(!results){
+        subSegment2?.addError('Error fetching results')
+        logger.error('Error fetching search results',{
+          meta: {
+            user:request.user?._id,
+            route:request.originalUrl
+          }
+        })
+        return response.status(400).json({
+          success: false,
+          message: "Error fetching results"
+        }); 
+      }
+  
+      subSegment2?.close()
+  
       return response.status(200).json({
         success: true,
-        results: []
+        results
+      });
+  
+    } catch (error: any) {
+      logger.error("Server error in search query",{
+        meta: {
+          message: error.message,
+          route:request.originalUrl
+        }
+      });
+      return response.status(500).json({
+        success: false,
+        message: "Server error"
       });
     }
-
-    subSegment1?.close()
-
-    const subSegment2 = segment?.addNewSubsegment('db-seach-results')
-
-    const results = await User.find({
-      _id:{$ne : request.user?._id},
-      $or: [
-        { username: { $regex: query, $options: "i" } },
-        { firstName: { $regex: query, $options: "i" } },
-        { lastName: { $regex: query, $options: "i" } },
-      ]
+  } catch (error) {
+    logger.error('Unexpected server error',{
+      meta: {
+        message: (error as Error).message,
+        route:request.originalUrl
+      }
     })
-      .select("firstName lastName username _id")
-      .limit(10);
+    throw new ApiError(500, 'Unexpected server error');
+  }
+};
 
-    if(!results){
-      subSegment2?.addError('Error fetching results')
-      logger.error('Error fetching search results',{
+const getUserById = async(request:express.Request, response:express.Response) => {
+  try {
+    
+    logger.info('Fetching user by ID',{
+      meta: {
+        user:request.user?._id,
+        route:request.originalUrl
+      }
+    })
+    const segment = AWSXRay.getSegment()
+  
+    const userId = request.params.id;
+    if(!userId){
+      logger.error('UserId not came from frontend',{  
         meta: {
           user:request.user?._id,
           route:request.originalUrl
         }
       })
       return response.status(400).json({
-        success: false,
-        message: "Error fetching results"
-      }); 
+        success: false, 
+        message: 'Id not came frontend'
+      })
     }
-
-    subSegment2?.close()
-
-    return response.status(200).json({
-      success: true,
-      results
-    });
-
-  } catch (error: any) {
-    logger.error("Server error in search query",{
-      meta: {
-        message: error.message,
-        route:request.originalUrl
-      }
-    });
-    return response.status(500).json({
-      success: false,
-      message: "Server error"
-    });
-  }
-};
-
-const getUserById = async(request:express.Request, response:express.Response) => {
-
-  logger.info('Fetching user by ID',{
-    meta: {
-      user:request.user?._id,
-      route:request.originalUrl
-    }
-  })
-  const segment = AWSXRay.getSegment()
-
-  const userId = request.params.id;
-  if(!userId){
-    logger.error('UserId not came from frontend',{  
-      meta: {
-        user:request.user?._id,
-        route:request.originalUrl
-      }
-    })
-    return response.status(400).json({
-      success: false, 
-      message: 'Id not came frontend'
-    })
-  }
-  const subSegment1= segment?.addNewSubsegment('db-user')
-
-  const userDetails = await User.findById(userId).select('firstName lastName username _id')
-  if(!userDetails){
-    subSegment1?.addError('Error fetching details')
-    logger.error('Error fetching user details by ID',{
-      meta: {
-        user:request.user?._id,
-        route:request.originalUrl
-      }
-    })
-    return response.status(400).json({
-      success : false, 
-      message : 'Server error'
-    })
-  }
-
-  subSegment1?.close()
+    const subSegment1= segment?.addNewSubsegment('db-user')
   
-  return response.status(201).json({
-    success: true, 
-    message: 'User details fetched successfully',
-    userDetails
-  })
+    const userDetails = await User.findById(userId).select('firstName lastName username _id')
+    if(!userDetails){
+      subSegment1?.addError('Error fetching details')
+      logger.error('Error fetching user details by ID',{
+        meta: {
+          user:request.user?._id,
+          route:request.originalUrl
+        }
+      })
+      return response.status(400).json({
+        success : false, 
+        message : 'Server error'
+      })
+    }
+  
+    subSegment1?.close()
+    
+    return response.status(201).json({
+      success: true, 
+      message: 'User details fetched successfully',
+      userDetails
+    })
+  } catch (error) {
+    logger.error('Server error fetching user by ID',{
+      meta: {
+        message: (error as Error).message,
+        route:request.originalUrl
+      }
+    })
+    throw new ApiError(500, 'Server error fetching user by ID');
+  }
 }
 
 
