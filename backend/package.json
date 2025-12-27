@@ -29,7 +29,7 @@
     "joi": "^18.0.2",
     "jsdom": "^27.2.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^9.0.0",
+    "mongoose": "^9.0.1",
     "nodemon": "^3.1.11",
     "rollbar": "^2.26.5",
     "sendmail": "^1.6.1",
