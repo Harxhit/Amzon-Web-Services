@@ -28,7 +28,7 @@
     "express-rate-limit": "^8.2.1",
     "joi": "^18.0.2",
     "jsdom": "^27.2.0",
-    "jsonwebtoken": "^9.0.2",
+    "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.0.0",
     "nodemon": "^3.1.11",
     "rollbar": "^2.26.5",
